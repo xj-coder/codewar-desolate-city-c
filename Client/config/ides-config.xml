@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ides>
 	<ide>
-		<language>Java</language>
-		<show-name>Java</show-name>
-		<compilate-class>c.city.desolate.client.compilate.java.Java</compilate-class>
+		<module>Default</module>
+		<show-name>Default</show-name>
 		<ide-class>c.city.desolate.client.ides.def.Default</ide-class>
 	</ide>
 	<ide>
-		<language></language>
+		<module></module>
 		<show-name></show-name>
-		<class-path></class-path>
+		<ide-class></ide-class>
 	</ide>
 </ides>
