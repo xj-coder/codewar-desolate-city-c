@@ -8,10 +8,10 @@ import javax.swing.JTextArea;
 import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXPanel;
 
-import c.city.desolate.client.view.Code;
+import c.city.desolate.client.ides.AbstractIDE;
 
 @SuppressWarnings("serial")
-public abstract class Default extends Code {
+public class Default extends AbstractIDE {
 
 	public Default() {
 		super();

@@ -3,7 +3,8 @@
 	<ide>
 		<language>Java</language>
 		<show-name>Java</show-name>
-		<class-path>c.city.desolate.client.ides.java.Java</class-path>
+		<compilate-class>c.city.desolate.client.compilate.java.Java</compilate-class>
+		<ide-class>c.city.desolate.client.ides.def.Default</ide-class>
 	</ide>
 	<ide>
 		<language></language>

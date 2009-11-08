@@ -7,7 +7,9 @@ import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXFrame;
 import org.jdesktop.swingx.JXPanel;
 
+import c.city.desolate.client.compilate.AbstractCompilate;
 import c.city.desolate.client.error.GameException;
+import c.city.desolate.client.ides.AbstractIDE;
 import c.city.desolate.client.properties.ViewProperties;
 
 /**
@@ -17,11 +19,12 @@ import c.city.desolate.client.properties.ViewProperties;
  */
 @SuppressWarnings( { "serial" })
 public class MainView extends JXFrame {
-	private String language = "Java";// 语言模式
-	private String gameNo = "DCC_FiveChess_001";// 游戏编号
+	public static String language = "Java";// 语言模式
+	public static String gameNo = "DCC_FiveChess_001";// 游戏编号
 
 	private Game gameView;// 游戏界面
-	private Code codeView;// 代码界面
+	private AbstractIDE IDE = Code.ide;// 代码界面
+	private AbstractCompilate compilate = Code.compilate;//编译器
 
 	private JXPanel mainPanel;// 主界面
 	private JXPanel toolBarPanel;// 工具栏界面
@@ -38,41 +41,32 @@ public class MainView extends JXFrame {
 		this.setSize(ViewProperties.MAINVIEW_DIMENSION);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
-
+		
+		//显示初始代码
+		compilate.initialization();
 	}
 
 	private void initialization() {
 		toolBarPanel = getToolBarPanel();
 		gameView = getGameView();
-		codeView = getCodeView();
 		mainPanel = getMainPanel();
 	}
 
 	private Game getGameView() {
 		if (null == gameView)
 			try {
-				return Game.getGame(gameNo);
+				gameView = Game.getGame(gameNo);
 			} catch (GameException e) {
 				e.printStackTrace();
 			}
 		return gameView;
 	}
 
-	private Code getCodeView() {
-		if (null == codeView)
-			try {
-				return Code.getCode(language);
-			} catch (GameException e) {
-				e.printStackTrace();
-			}
-		return codeView;
-	}
-
 	private JXPanel getMainPanel() {
 		if (null == mainPanel) {
 			JXPanel conterPanel = new JXPanel(new BorderLayout());
 			conterPanel.add(gameView);
-			conterPanel.add(codeView);
+			conterPanel.add(IDE);
 
 			mainPanel = new JXPanel(new BorderLayout(), true);
 			mainPanel.add(toolBarPanel, BorderLayout.NORTH);
