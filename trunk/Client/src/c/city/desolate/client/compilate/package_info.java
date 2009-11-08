@@ -6,7 +6,7 @@
  * 		该类必须继承AbstractCompilate的某个子类,
  * 		并实现三个抽象方法
  *
- * 并在ides-config.xml中配置相关信息
+ * 并在compilates-config.xml中配置相关信息
  * </PRE>
  * @author Desolate.City.C
  */
