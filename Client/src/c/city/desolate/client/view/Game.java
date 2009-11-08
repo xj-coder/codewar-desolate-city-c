@@ -34,9 +34,9 @@ public abstract class Game extends JXPanel {
 	 * @return Game 游戏JXPanel
 	 * @throws GameException
 	 */
-	public static Game getGame(String gameNo) throws GameException {
+	public static Game getGame() throws GameException {
 		Game game = null;
-		GameXML gameXML = GameXMLParse.getGames().get(gameNo);
+		GameXML gameXML = GameXMLParse.getGames().get(MainView.GAMENO);
 		if (null != gameXML) {
 			// TODO[Desolate.City.C][OK][用反射实例化指定Game的实现类]
 			try {

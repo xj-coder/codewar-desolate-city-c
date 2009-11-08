@@ -2,7 +2,9 @@ package c.city.desolate.client.view;
 
 import c.city.desolate.client.compilate.AbstractCompilate;
 import c.city.desolate.client.ides.AbstractIDE;
+import c.city.desolate.client.xml.bean.CompilateXML;
 import c.city.desolate.client.xml.bean.IdeXML;
+import c.city.desolate.client.xml.parse.CompilateXMLParse;
 import c.city.desolate.client.xml.parse.IdeXMLParse;
 
 /**
@@ -30,11 +32,12 @@ public final class Code {
 	public static AbstractIDE ide;
 	
 	static{
-		IdeXML ideXML = IdeXMLParse.getIdes().get(MainView.language);
+		IdeXML ideXML = IdeXMLParse.getIdes().get(MainView.IDEMODEL);
+		CompilateXML compilateXML = CompilateXMLParse.getCompilates().get(MainView.LANGUAGE);
 		if (null != ideXML) {
 			// TODO[Desolate.City.C][OK][用反射实例化指定Game的实现类]
 			try {
-				Class<AbstractCompilate> compilateClass = (Class<AbstractCompilate>) Class.forName(ideXML
+				Class<AbstractCompilate> compilateClass = (Class<AbstractCompilate>) Class.forName(compilateXML
 						.getCompilateClass());
 				Class<AbstractIDE> ideClass = (Class<AbstractIDE>) Class.forName(ideXML
 						.getIdeClass());
