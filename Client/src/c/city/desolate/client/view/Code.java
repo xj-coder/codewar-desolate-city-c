@@ -1,13 +1,7 @@
 package c.city.desolate.client.view;
 
-import java.awt.event.ActionListener;
-
-import javax.swing.JTextArea;
-
-import org.jdesktop.swingx.JXButton;
-import org.jdesktop.swingx.JXPanel;
-
-import c.city.desolate.client.error.GameException;
+import c.city.desolate.client.compilate.AbstractCompilate;
+import c.city.desolate.client.ides.AbstractIDE;
 import c.city.desolate.client.xml.bean.IdeXML;
 import c.city.desolate.client.xml.parse.IdeXMLParse;
 
@@ -30,65 +24,34 @@ import c.city.desolate.client.xml.parse.IdeXMLParse;
  * @author Desolate.City.C
  * 
  */
-@SuppressWarnings( { "unchecked", "serial" })
-public abstract class Code extends JXPanel {
-
-	protected JXPanel toolBarPanel;// 工具栏
-	protected JXPanel leftPanel;// 左边
-	protected JXPanel rightPanel;// 邮编
-	protected JXPanel editorPanel;// 编辑面板
-	protected JXPanel consolePanel;// 控制台面板
-
-	protected JXButton readyBtn;// 准备按钮
-	protected JTextArea editorBox;// 代码编辑区
-	protected Console console = new Console();// 代码控制台
-
-	public static Code getCode(String language) throws GameException {
-		Code code = null;
-		IdeXML ideXML = IdeXMLParse.getIdes().get(language);
+@SuppressWarnings( { "unchecked" })
+public final class Code {
+	public static AbstractCompilate compilate;
+	public static AbstractIDE ide;
+	
+	static{
+		IdeXML ideXML = IdeXMLParse.getIdes().get(MainView.language);
 		if (null != ideXML) {
 			// TODO[Desolate.City.C][OK][用反射实例化指定Game的实现类]
 			try {
-				Class<Code> _class = (Class<Code>) Class.forName(ideXML
-						.getClassPath());
-				code = _class.newInstance();
+				Class<AbstractCompilate> compilateClass = (Class<AbstractCompilate>) Class.forName(ideXML
+						.getCompilateClass());
+				Class<AbstractIDE> ideClass = (Class<AbstractIDE>) Class.forName(ideXML
+						.getIdeClass());
+				compilate = compilateClass.newInstance();
+				ide = ideClass.newInstance();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				throw new GameException(e);
 			} catch (InstantiationException e) {
 				e.printStackTrace();
-				throw new GameException(e);
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
-				throw new GameException(e);
 			}
 		}
-		return code;
 	}
 
 	protected Code() {
+		
 	}
 
-	protected abstract void showMe();
-
-	protected abstract JXButton getReadyBtn();
-
-	protected abstract JTextArea getEditorBox();
-
-	protected abstract void initialization();
-
-	protected abstract void compilate();
-
-	protected abstract void run();
-
-	// 提供方法，给外部注册监听器
-	// 编辑器监听
-	public void regiestEditorBox(ActionListener listener) {
-
-	}
-
-	// 准备按钮监听
-	public void registerReadyBtn(ActionListener listener) {
-		readyBtn.addActionListener(listener);
-	}
 }

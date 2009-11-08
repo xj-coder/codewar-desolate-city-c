@@ -53,7 +53,8 @@ public class IdeXMLParse {
 					if (node.elementText("language").trim().equals(""))
 						continue;
 					ideXML.setLanguage(node.elementText("language"));
-					ideXML.setClassPath(node.elementText("class-path"));
+					ideXML.setIdeClass(node.elementText("ide-class"));
+					ideXML.setCompilateClass(node.elementText("compilate-class"));
 					ideXML.setShowName(node.elementText("show-name"));
 					ides.put(ideXML.getLanguage(), ideXML);
 				}
