@@ -1,18 +1,18 @@
 package c.city.desolate.client.xml.bean;
 
-public class IdeXML {
+public class CompilateXML {
 	private String language;
-	private String ideClass;
+	private String compilateClass;
 	private String showName;
 
-	public IdeXML() {
+	public CompilateXML() {
 	}
 
-	public IdeXML(String language, String ideClass,
-			String showName){
+	public CompilateXML(String language, String compilateClass,
+			String showName) {
 		super();
 		this.language = language;
-		this.ideClass = ideClass;
+		this.compilateClass = compilateClass;
 		this.showName = showName;
 	}
 
@@ -24,12 +24,12 @@ public class IdeXML {
 		this.language = language;
 	}
 
-	public String getIdeClass() {
-		return ideClass;
+	public String getCompilateClass() {
+		return compilateClass;
 	}
 
-	public void setIdeClass(String ideClass) {
-		this.ideClass = ideClass;
+	public void setCompilateClass(String compilateClass) {
+		this.compilateClass = compilateClass;
 	}
 
 	public String getShowName() {

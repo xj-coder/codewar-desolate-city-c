@@ -19,8 +19,9 @@ import c.city.desolate.client.properties.ViewProperties;
  */
 @SuppressWarnings( { "serial" })
 public class MainView extends JXFrame {
-	public static String language = "Java";// 语言模式
-	public static String gameNo = "DCC_FiveChess_001";// 游戏编号
+	public static String LANGUAGE = "Java";// 语言模式
+	public static String IDEMODEL = "Default";// 语言模式
+	public static String GAMENO = "DCC_FiveChess_001";// 游戏编号
 
 	private Game gameView;// 游戏界面
 	private AbstractIDE IDE = Code.ide;// 代码界面
@@ -55,7 +56,7 @@ public class MainView extends JXFrame {
 	private Game getGameView() {
 		if (null == gameView)
 			try {
-				gameView = Game.getGame(gameNo);
+				gameView = Game.getGame();
 			} catch (GameException e) {
 				e.printStackTrace();
 			}
