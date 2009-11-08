@@ -21,7 +21,7 @@ import c.city.desolate.client.xml.parse.GameXMLParse;
  * @author Desolate.City.C
  * 
  */
-@SuppressWarnings( { "unchecked", "unused", "serial" })
+@SuppressWarnings( { "unchecked", "serial" })
 public abstract class Game extends JXPanel {
 
 	protected Console console = new Console();// 控制台

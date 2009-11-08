@@ -1,4 +1,4 @@
-package c.city.desolate.client.ides.java;
+package c.city.desolate.client.ides.compilate.java;
 
 import c.city.desolate.client.ides.def.Default;
 
