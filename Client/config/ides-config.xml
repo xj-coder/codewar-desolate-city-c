@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ides>
+	<ide>
+		<language>Java</language>
+		<show-name>Java</show-name>
+		<class-path>c.city.desolate.client.ides.java.Java</class-path>
+	</ide>
+	<ide>
+		<language></language>
+		<show-name></show-name>
+		<class-path></class-path>
+	</ide>
+</ides>

@@ -1,7 +1,13 @@
-<!DOCTYPE games>
+<?xml version="1.0" encoding="UTF-8"?>
 <games>
 	<game>
+		<no>DCC_FiveChess_001</no>
+		<show-name>FiveChess</show-name>
+		<class-path>c.city.desolate.client.games.dcc_fivechess_001.FiveChess</class-path>
+	</game>
+	<game>
 		<no></no>
+		<show-name></show-name>
 		<class-path></class-path>
 	</game>
 </games>
