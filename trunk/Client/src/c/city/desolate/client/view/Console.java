@@ -2,6 +2,7 @@ package c.city.desolate.client.view;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import org.jdesktop.swingx.JXPanel;
@@ -13,14 +14,15 @@ import org.jdesktop.swingx.JXPanel;
  * 
  */
 @SuppressWarnings("serial")
-public class GameConsole extends JXPanel {
+public class Console extends JXPanel {
 
-	private JTextArea console;// 控制台输出区
 	private JToolBar toolBarUI;// 工具栏
 	private JButton clearBtn;// 清除控制台
 	private JButton scrollLockBtn;// 锁屏
+	private JTextArea console;// 控制台输出区
+	private JTextField input;// 命令输入区
 
-	public GameConsole() {
+	public Console() {
 		initialization();
 		showMe();
 	}
@@ -47,6 +49,10 @@ public class GameConsole extends JXPanel {
 
 	public JButton getScrollLockBtn() {
 		return scrollLockBtn;
+	}
+
+	public JTextField getInput() {
+		return input;
 	}
 
 	public void println() {

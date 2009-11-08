@@ -1,30 +1,30 @@
 package c.city.desolate.client.xml.bean;
 
-public class GameXML {
-	private String no;
-	private String showName;
+public class IdeXML {
+	private String language;
 	private String classPath;
+	private String showName;
 
-	public GameXML() {
+	public IdeXML() {
 	}
 
-	public GameXML(String no, String showName, String classPath) {
+	public IdeXML(String language, String classPath, String showName) {
 		super();
-		this.no = no;
-		this.showName = showName;
+		this.language = language;
 		this.classPath = classPath;
+		this.showName = showName;
 	}
 
-	public String getNo() {
-		return no;
+	public String getLanguage() {
+		return language;
 	}
 
 	public String getClassPath() {
 		return classPath;
 	}
 
-	public void setNo(String no) {
-		this.no = no;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	public void setClassPath(String classPath) {

@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.dom4j.Document;
@@ -15,48 +14,48 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import c.city.desolate.client.properties.ClientProperties;
-import c.city.desolate.client.xml.bean.GameXML;
+import c.city.desolate.client.xml.bean.IdeXML;
 
 /**
- * games.xml文件解析类
+ * ides-config.xml文件解析类
  * 
- * @author JHS
+ * @author Desolate.City.C
  */
-public class GameXMLParse {
+public class IdeXMLParse {
 	private static Document document = null;
-	private static Map<String, GameXML> games;
+	private static Map<String, IdeXML> ides;
 	static {
-		parseXML();
+		parseProtocolXML();
 	}
 
 	/**
-	 * 解析整个games.xml
+	 * 解析整个ides-config.xml
 	 */
 	@SuppressWarnings( { "unchecked", "null" })
-	private static void parseXML() {
+	private static void parseProtocolXML() {
 		InputStream in = null;
 		try {
 			in = new FileInputStream(new File(
-					ClientProperties.GAMECONFIG_FILE_PATH));
+					ClientProperties.IDECONFIG_FILE_PATH));
 			SAXReader saxReader = new SAXReader();
 			document = saxReader.read(in);
-			// 将整个games.xml文件解析出来
+			// 将整个ides-config.xml文件解析出来
 			Element _root = document.getRootElement();
-			// 提取XML中的game记录
-			String xpath = "//game";
-			List<Element> nodes = (ArrayList<Element>) _root
+			// 提取XML中的ides记录
+			String xpath = "//ide";
+			ArrayList<Element> nodes = (ArrayList<Element>) _root
 					.selectObject(xpath);
 			if (nodes != null || !nodes.isEmpty()) {
-				// TODO[Desolate.City.C][添加功能][解析整个文档的game标签]
-				games = new HashMap<String, GameXML>();
-				GameXML gameXML = new GameXML();
+				// TODO[Desolate.City.C][添加功能][解析整个文档的ide标签]
+				ides = new HashMap<String, IdeXML>();
+				IdeXML ideXML = new IdeXML();
 				for (Element node : nodes) {
-					if (node.elementText("no").trim().equals(""))
+					if (node.elementText("language").trim().equals(""))
 						continue;
-					gameXML.setNo(node.elementText("no"));
-					gameXML.setClassPath(node.elementText("class-path"));
-					gameXML.setShowName(node.elementText("show-name"));
-					games.put(gameXML.getNo(), gameXML);
+					ideXML.setLanguage(node.elementText("language"));
+					ideXML.setClassPath(node.elementText("class-path"));
+					ideXML.setShowName(node.elementText("show-name"));
+					ides.put(ideXML.getLanguage(), ideXML);
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -66,7 +65,7 @@ public class GameXMLParse {
 		}
 	}
 
-	public static Map<String, GameXML> getGames() {
-		return games;
+	public static Map<String, IdeXML> getIdes() {
+		return ides;
 	}
 }

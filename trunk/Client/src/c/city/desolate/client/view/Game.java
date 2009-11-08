@@ -24,7 +24,7 @@ import c.city.desolate.client.xml.parse.GameXMLParse;
 @SuppressWarnings( { "unchecked", "unused", "serial" })
 public abstract class Game extends JXPanel {
 
-	protected GameConsole console = new GameConsole();// 控制台
+	protected Console console = new Console();// 控制台
 
 	/**
 	 * 根据游戏编号，到配置文件中找到指定游戏的Game实现类，并实例化
@@ -54,11 +54,10 @@ public abstract class Game extends JXPanel {
 				throw new GameException(e);
 			}
 		}
-		return null;
+		return game;
 	}
 
 	protected Game() {
-
 	}
 
 	public abstract void initialization();
