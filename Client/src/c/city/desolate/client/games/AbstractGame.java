@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.jdesktop.swingx.JXPanel;
 
+@SuppressWarnings("serial")
 public abstract class AbstractGame extends JXPanel {
 	public abstract void initialization();
 
