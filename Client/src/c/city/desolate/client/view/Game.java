@@ -1,10 +1,11 @@
 package c.city.desolate.client.view;
 
-import java.util.HashMap;
+import java.awt.BorderLayout;
 
 import org.jdesktop.swingx.JXPanel;
 
 import c.city.desolate.client.error.GameException;
+import c.city.desolate.client.games.AbstractGame;
 import c.city.desolate.client.xml.bean.GameXML;
 import c.city.desolate.client.xml.parse.GameXMLParse;
 
@@ -22,9 +23,9 @@ import c.city.desolate.client.xml.parse.GameXMLParse;
  * 
  */
 @SuppressWarnings( { "unchecked", "serial" })
-public abstract class Game extends JXPanel {
+public class Game extends JXPanel {
 
-	protected Console console = new Console();// 控制台
+	public static Console console = new Console();// 控制台
 
 	/**
 	 * 根据游戏编号，到配置文件中找到指定游戏的Game实现类，并实例化
@@ -34,15 +35,25 @@ public abstract class Game extends JXPanel {
 	 * @return Game 游戏JXPanel
 	 * @throws GameException
 	 */
-	public static Game getGame() throws GameException {
-		Game game = null;
+	public static final Game getGame() throws GameException {
+		Game game = new Game();
+		game.setLayout(new BorderLayout());
+
+		AbstractGame gameView;
 		GameXML gameXML = GameXMLParse.getGames().get(MainView.GAMENO);
 		if (null != gameXML) {
 			// TODO[Desolate.City.C][OK][用反射实例化指定Game的实现类]
 			try {
-				Class<Game> _class = (Class<Game>) Class.forName(gameXML
-						.getClassPath());
-				game = _class.newInstance();
+				Class<AbstractGame> _class = (Class<AbstractGame>) Class
+						.forName(gameXML.getClassPath());
+				gameView = _class.newInstance();
+				gameView.setSize(game.getWidth(),
+						(int) (game.getHeight() * 0.8));
+				console
+						.setSize(game.getWidth(),
+								(int) (game.getHeight() * 0.2));
+				game.add(gameView, BorderLayout.CENTER);
+				game.add(console, BorderLayout.SOUTH);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 				throw new GameException(e);
@@ -60,11 +71,4 @@ public abstract class Game extends JXPanel {
 	protected Game() {
 	}
 
-	public abstract void initialization();
-
-	public abstract void start();
-
-	public abstract void play(HashMap<Object, Object> param);
-
-	public abstract void stop();
 }

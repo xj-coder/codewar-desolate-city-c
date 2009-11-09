@@ -25,7 +25,7 @@ public class MainView extends JXFrame {
 
 	private Game gameView;// 游戏界面
 	private AbstractIDE IDE = Code.ide;// 代码界面
-	private AbstractCompilate compilate = Code.compilate;//编译器
+	private AbstractCompilate compilate = Code.compilate;// 编译器
 
 	private JXPanel mainPanel;// 主界面
 	private JXPanel toolBarPanel;// 工具栏界面
@@ -42,8 +42,8 @@ public class MainView extends JXFrame {
 		this.setSize(ViewProperties.MAINVIEW_DIMENSION);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
-		
-		//显示初始代码
+
+		// 显示初始代码
 		compilate.initialization();
 	}
 
@@ -66,8 +66,8 @@ public class MainView extends JXFrame {
 	private JXPanel getMainPanel() {
 		if (null == mainPanel) {
 			JXPanel conterPanel = new JXPanel(new BorderLayout());
-			conterPanel.add(gameView);
-			conterPanel.add(IDE);
+			conterPanel.add(gameView, BorderLayout.WEST);
+			conterPanel.add(IDE, BorderLayout.CENTER);
 
 			mainPanel = new JXPanel(new BorderLayout(), true);
 			mainPanel.add(toolBarPanel, BorderLayout.NORTH);
