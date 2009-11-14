@@ -1,9 +1,12 @@
 package c.city.desolate.client.xml.bean;
 
+import java.util.Map;
+
 public class GameXML {
 	private String no;
 	private String showName;
 	private String classPath;
+	private Map<String, InitSrcXML> initSrcs;
 
 	public GameXML() {
 	}
@@ -37,6 +40,14 @@ public class GameXML {
 
 	public void setShowName(String showName) {
 		this.showName = showName;
+	}
+
+	public Map<String, InitSrcXML> getInitSrcs() {
+		return initSrcs;
+	}
+
+	public void setInitSrcs(Map<String, InitSrcXML> initSrcs) {
+		this.initSrcs = initSrcs;
 	}
 
 }

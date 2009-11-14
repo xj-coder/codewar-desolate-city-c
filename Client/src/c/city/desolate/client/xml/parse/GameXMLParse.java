@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +15,7 @@ import org.dom4j.io.SAXReader;
 
 import c.city.desolate.client.properties.ClientProperties;
 import c.city.desolate.client.xml.bean.GameXML;
+import c.city.desolate.client.xml.bean.InitSrcXML;
 
 /**
  * games.xml文件解析类
@@ -44,11 +44,11 @@ public class GameXMLParse {
 			Element _root = document.getRootElement();
 			// 提取XML中的game记录
 			String xpath = "//game";
-			List<Element> nodes = (ArrayList<Element>) _root
-					.selectObject(xpath);
+			List<Element> nodes = (List<Element>) _root.selectObject(xpath);
 			if (nodes != null || !nodes.isEmpty()) {
-				// TODO[Desolate.City.C][添加功能][解析整个文档的game标签]
+				// TODO[Desolate.City.C][OK][解析整个文档的game标签]
 				games = new HashMap<String, GameXML>();
+				Map<String, InitSrcXML> initSrcs = new HashMap<String, InitSrcXML>();
 				GameXML gameXML = new GameXML();
 				for (Element node : nodes) {
 					if (node.elementText("no").trim().equals(""))
@@ -56,6 +56,21 @@ public class GameXMLParse {
 					gameXML.setNo(node.elementText("no"));
 					gameXML.setClassPath(node.elementText("class-path"));
 					gameXML.setShowName(node.elementText("show-name"));
+					xpath = "//src";
+					List<Element> nodes_initSrc = (List<Element>) _root
+							.selectObject(xpath);
+					if (nodes_initSrc != null || !nodes_initSrc.isEmpty()) {
+						InitSrcXML initSrcXML = new InitSrcXML();
+						for (Element node_initSrc : nodes_initSrc) {
+							if (node_initSrc.getText().trim().equals(""))
+								continue;
+							initSrcXML.setLanguage(node_initSrc
+									.attributeValue("language"));
+							initSrcXML.setPath(node_initSrc.getText());
+							initSrcs.put(initSrcXML.getLanguage(), initSrcXML);
+						}
+						gameXML.setInitSrcs(initSrcs);
+					}
 					games.put(gameXML.getNo(), gameXML);
 				}
 			}

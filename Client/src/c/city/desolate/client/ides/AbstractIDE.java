@@ -10,35 +10,42 @@ import org.jdesktop.swingx.JXPanel;
 import c.city.desolate.client.view.Console;
 
 @SuppressWarnings("serial")
-public abstract class AbstractIDE extends JXPanel{
-	
-	protected JXPanel toolBarPanel;// 工具栏
-	protected JXPanel leftPanel;// 左边
-	protected JXPanel rightPanel;// 邮编
-	protected JXPanel editorPanel;// 编辑面板
-	protected JXPanel consolePanel;// 控制台面板
+public abstract class AbstractIDE extends JXPanel {
 
-	protected JXButton readyBtn;// 准备按钮
-	protected JTextArea editorBox;// 代码编辑区
-	protected Console console = new Console();// 代码控制台
-	
+	public JXPanel toolBarPanel;// 工具栏
+	public JXPanel leftPanel;// 左边
+	public JXPanel rightPanel;// 邮编
+	public JXPanel editorPanel;// 编辑面板
+	public JXPanel consolePanel;// 控制台面板
 
-	protected abstract void showMe();
+	public JXButton readyBtn;// 准备按钮
+	public JTextArea editorBox;// 代码编辑区
+	public Console console = new Console();// 代码控制台
 
-	protected abstract JXButton getReadyBtn();
+	public abstract void showMe();
 
-	protected abstract JTextArea getEditorBox();
+	public abstract JXButton getReadyBtn();
+
+	public abstract JTextArea getEditorBox();
+
+	/**************************************************
+	 * 提供方法，给初始化
+	 ***************************************************/
+	// 初始化游戏代码
+	public abstract void iniEditorBox(String iniSrcPath);
+
+	/**************************************************/
 
 	/**************************************************
 	 * 提供方法，给外部注册监听器,继承的类不能覆盖这些方法
 	 ***************************************************/
 	// 编辑器监听
-	public final void regiestEditorBox(ActionListener listener) {
+	public final void registerEditorBoxActionListener(ActionListener listener) {
 
 	}
 
 	// 准备按钮监听
-	public final void registerReadyBtn(ActionListener listener) {
+	public final void registerReadyBtnActionListener(ActionListener listener) {
 		readyBtn.addActionListener(listener);
 	}
 	/**************************************************/

@@ -46,14 +46,15 @@ public class CompilateXMLParse {
 			ArrayList<Element> nodes = (ArrayList<Element>) _root
 					.selectObject(xpath);
 			if (nodes != null || !nodes.isEmpty()) {
-				// TODO[Desolate.City.C][添加功能][解析整个文档的ide标签]
+				// TODO[Desolate.City.C][OK][解析整个文档的ide标签]
 				compilates = new HashMap<String, CompilateXML>();
 				CompilateXML compilateXML = new CompilateXML();
 				for (Element node : nodes) {
 					if (node.elementText("language").trim().equals(""))
 						continue;
 					compilateXML.setLanguage(node.elementText("language"));
-					compilateXML.setCompilateClass(node.elementText("compilate-class"));
+					compilateXML.setCompilateClass(node
+							.elementText("compilate-class"));
 					compilateXML.setShowName(node.elementText("show-name"));
 					compilates.put(compilateXML.getLanguage(), compilateXML);
 				}
