@@ -1,9 +1,12 @@
 package c.city.desolate.client.games.dcc_fivechess_001;
 
+import static c.city.desolate.client.games.dcc_fivechess_001.Config.CAMP;
+import static c.city.desolate.client.games.dcc_fivechess_001.Config.CHESSBOARD;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.util.HashMap;
+import java.util.Map;
 
 import c.city.desolate.client.games.AbstractGame;
 
@@ -11,16 +14,16 @@ import c.city.desolate.client.games.AbstractGame;
 public class FiveChess extends AbstractGame {
 	private static int rows = 15;
 	private static int cols = 15;
-	private static QiZi[][] qiPan = new QiZi[rows][cols];// 棋盘
+	private static Chess[][] qiPan = new Chess[rows][cols];// 棋盘
 
 	public FiveChess() {
 		this.setSize(rows * 45, cols * 45);
-		setBackground(Color.white);
-		setLayout(new GridLayout(rows, cols));
+		this.setBackground(Color.white);
+		this.setLayout(new GridLayout(rows, cols));
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
-				qiPan[i][j] = new QiZi(i, j, qiPan);
-				add(qiPan[i][j]);
+				qiPan[i][j] = new Chess(i, j);
+				this.add(qiPan[i][j]);
 			}
 		}
 		this.setVisible(true);
@@ -31,21 +34,31 @@ public class FiveChess extends AbstractGame {
 		super.paintComponent(g);
 	}
 
+	/**
+	 * 初始游戏,主要是设置游戏中需要数据的初始值
+	 */
 	@Override
 	public void initialization() {
-
+		// TODO [JHS][添加功能][初始游戏]
 	}
 
 	@Override
-	public void play(HashMap<Object, Object> param) {
+	public void play(Map<Object, Object> param) {
+		// TODO [JHS][添加功能][实现游戏逻辑]
+		int x = Integer.parseInt(param.get("x").toString());
+		int y = Integer.parseInt(param.get("y").toString());
+		CHESSBOARD[x][y].setCurrState(CAMP);
+		this.repaint();
 	}
 
 	@Override
 	public void start() {
+		// TODO [JHS][添加功能][实现游戏开始]
 	}
 
 	@Override
 	public void stop() {
+		// TODO [JHS][添加功能][实现游戏结束]
 	}
 
 }

@@ -46,7 +46,7 @@ public class IdeXMLParse {
 			ArrayList<Element> nodes = (ArrayList<Element>) _root
 					.selectObject(xpath);
 			if (nodes != null || !nodes.isEmpty()) {
-				// TODO[Desolate.City.C][添加功能][解析整个文档的ide标签]
+				// TODO[Desolate.City.C][OK][解析整个文档的ide标签]
 				ides = new HashMap<String, IdeXML>();
 				IdeXML ideXML = new IdeXML();
 				for (Element node : nodes) {

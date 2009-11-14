@@ -4,10 +4,16 @@
 		<no>DCC_FiveChess_001</no>
 		<show-name>FiveChess</show-name>
 		<class-path>c.city.desolate.client.games.dcc_fivechess_001.FiveChess</class-path>
+		<init-src>
+			<src language="Java">game-src/DCC_FiveChess_001/init-src/Java/inisrc.src</src>	
+		</init-src>
 	</game>
 	<game>
 		<no></no>
 		<show-name></show-name>
 		<class-path></class-path>
+		<init-src>
+			<src language=""></src>	
+		</init-src>
 	</game>
 </games>
