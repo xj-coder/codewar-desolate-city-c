@@ -28,8 +28,6 @@
 public class GameCode extends Thread{
 	@Override
 	public void run() {
-		while(true){
-			System.out.println("1");
-		}
+		System.out.println("1");
 	}
 }

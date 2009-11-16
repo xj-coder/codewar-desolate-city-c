@@ -1,6 +1,6 @@
 package c.city.desolate.client.games.dcc_fivechess_001;
 
-public class Config {
+public final class Config {
 
 	public static final int BOARD_ROW = 15;
 	public static final int BOARD_COL = 15;

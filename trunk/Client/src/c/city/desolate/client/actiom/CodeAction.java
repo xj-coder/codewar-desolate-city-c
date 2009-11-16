@@ -47,7 +47,6 @@ public class CodeAction {
 				}
 				AbstractCompilate compilate = Code.COMPILATE;
 				compilate.compilate(codePath);
-				compilate.run();
 			}
 		};
 	}

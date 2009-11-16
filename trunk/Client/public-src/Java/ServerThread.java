@@ -1,4 +1,3 @@
-package c.city.desolate.client.socket;
 
 import java.io.IOException;
 import java.io.InputStream;
