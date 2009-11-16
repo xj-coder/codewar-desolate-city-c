@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Explorer v2.0 by Mergesoft (www.mergesoft.com)-->
+<protocol type="" target="">
+	<head>
+		<sid></sid>
+	</head>
+	<game>
+		<no></no>
+		<state></state>
+	</game>
+	<player-list>
+       <player>
+		   <name></name>
+		   <camp></camp>
+	   </player>
+	</player-list>
+    <method>
+		<no></no>
+		<params>
+			<param name="" value="" />
+		</params>
+    </method>
+</protocol>

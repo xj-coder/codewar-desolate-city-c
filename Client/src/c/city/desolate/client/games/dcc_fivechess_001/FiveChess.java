@@ -1,5 +1,7 @@
 package c.city.desolate.client.games.dcc_fivechess_001;
 
+import static c.city.desolate.client.games.dcc_fivechess_001.Config.BOARD_COL;
+import static c.city.desolate.client.games.dcc_fivechess_001.Config.BOARD_ROW;
 import static c.city.desolate.client.games.dcc_fivechess_001.Config.CAMP;
 import static c.city.desolate.client.games.dcc_fivechess_001.Config.CHESSBOARD;
 
@@ -12,18 +14,15 @@ import c.city.desolate.client.games.AbstractGame;
 
 @SuppressWarnings("serial")
 public class FiveChess extends AbstractGame {
-	private static int rows = 15;
-	private static int cols = 15;
-	private static Chess[][] qiPan = new Chess[rows][cols];// 棋盘
 
 	public FiveChess() {
-		this.setSize(rows * 45, cols * 45);
+		this.setSize(BOARD_ROW * 45, BOARD_COL * 45);
 		this.setBackground(Color.white);
-		this.setLayout(new GridLayout(rows, cols));
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				qiPan[i][j] = new Chess(i, j);
-				this.add(qiPan[i][j]);
+		this.setLayout(new GridLayout(BOARD_ROW, BOARD_COL));
+		for (int i = 0; i < BOARD_ROW; i++) {
+			for (int j = 0; j < BOARD_COL; j++) {
+				CHESSBOARD[i][j] = new Chess(i, j);
+				this.add(CHESSBOARD[i][j]);
 			}
 		}
 		this.setVisible(true);

@@ -15,8 +15,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 import c.city.desolate.client.compilate.AbstractCompilate;
+import c.city.desolate.client.view.Game;
 
-@SuppressWarnings("unused")
 public class Java extends AbstractCompilate {
 	private String command = "";
 
@@ -30,13 +30,36 @@ public class Java extends AbstractCompilate {
 		String op1 = "-classpath" + " " + codePath + SEPARATOR + ".classpath";
 		String op2 = "-d" + " " + codePath + SEPARATOR + "bin";
 		String op3 = "-encoding" + " " + "utf-8";
-		String op4 = "@" + codePath + SEPARATOR + ".source";
-		command = op0 + " " + op1 + " " + op2 + " " + op3 + " " + op4;
+		String op4 = "-sourcepath" + " " + codePath + SEPARATOR + ".source";
+		String opn = "@" + codePath + SEPARATOR + ".source";
+		command = op0 + " " + op1 + " " + op2 + " " + op3 + " " + op4 + " "
+				+ opn;
 		System.out.println(command);
 		Runtime rt = Runtime.getRuntime();
 		try {
-			rt.exec(command);
+			Process process = rt.exec(command);
+
+			process.waitFor();
+			// 错误信息
+			BufferedReader bre = new BufferedReader(new InputStreamReader(
+					process.getErrorStream(), "GBK"));
+			String context = bre.readLine();
+			while (context != null) {
+				Game.CONSOLE.println("[ERROR] " + context);
+				context = bre.readLine();
+			}
+
+			// 输出信息
+			BufferedReader bri = new BufferedReader(new InputStreamReader(
+					process.getInputStream(), "GBK"));
+			context = bri.readLine();
+			while (context != null) {
+				Game.CONSOLE.println("[MESSAGE] " + context);
+				context = bri.readLine();
+			}
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
@@ -54,7 +77,12 @@ public class Java extends AbstractCompilate {
 		try {
 			Process process = rt.exec(command);
 			BufferedReader br = new BufferedReader(new InputStreamReader(
-					process.getInputStream()));
+					process.getInputStream(), "GBK"));
+			String context = br.readLine();
+			while (context != null) {
+				Game.CONSOLE.println(context);
+				context = br.readLine();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -76,6 +104,8 @@ public class Java extends AbstractCompilate {
 			String ss[] = file.list();
 			if (ss != null)
 				for (String s : ss) {
+					if (!s.endsWith(".java"))
+						continue;
 					bw.append(str + s + "\n");
 				}
 			str = PUBLIC_SRC_PATH + SEPARATOR;
@@ -83,6 +113,8 @@ public class Java extends AbstractCompilate {
 			ss = file.list();
 			if (ss != null)
 				for (String s : ss) {
+					if (!s.endsWith(".java"))
+						continue;
 					bw.append(str + s + "\n");
 				}
 			str = GAME_SRC_PATH + SEPARATOR;
@@ -90,6 +122,8 @@ public class Java extends AbstractCompilate {
 			ss = file.list();
 			if (ss != null)
 				for (String s : ss) {
+					if (!s.endsWith(".java"))
+						continue;
 					bw.append(str + s + "\n");
 				}
 			bw.flush();

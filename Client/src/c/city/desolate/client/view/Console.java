@@ -55,14 +55,19 @@ public class Console extends JXPanel {
 		return input;
 	}
 
-	public void println() {
-
+	// 控制台输出(有换行)
+	public void println(String context) {
+		print(context);
+		print("\n");
 	}
 
-	public void print() {
-
+	// 控制台输出(无换行)
+	public void print(String context) {
+		context = new String();
+		System.out.print(context);
 	}
 
+	// 清空控制台
 	public void clear() {
 
 	}

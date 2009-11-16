@@ -17,7 +17,6 @@ public class Client {
 	public byte[] startClientService(byte[] b) {
 		byte[] result = null;
 		try {
-
 			s = SocketManage.getClient();
 			os = s.getOutputStream();
 			os.write(b);

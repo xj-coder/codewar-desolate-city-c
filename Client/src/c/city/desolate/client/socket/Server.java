@@ -4,14 +4,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import c.city.desolate.client.properties.ClientProperties;
-
-public class Service {
+public class Server {
 	private ServerSocket serverSocket;
 
-	public void service() {
+	public void service(int port) {
 		try {
-			serverSocket = new ServerSocket(ClientProperties.CLIENT_PORT);
+			serverSocket = new ServerSocket(port);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -19,16 +17,11 @@ public class Service {
 		while (true) {
 			Socket socket = null;
 			try {
-				// 接收客户连接,只要客户进行了连接,就会触发accept();从而建立连接
 				socket = serverSocket.accept();
 				new ServerThread(socket).run();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	public static void main(String[] args) throws IOException {
-		new Service().service();
 	}
 }
