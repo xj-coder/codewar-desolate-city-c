@@ -1,4 +1,4 @@
-package c.city.desolate.client.xml.bean;
+package c.city.desolate.server.xml.bean;
 
 public class C2SGameXML {
 	private String no;

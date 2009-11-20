@@ -13,7 +13,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import c.city.desolate.client.properties.ClientProperties;
+import c.city.desolate.client.main.Config;
 import c.city.desolate.client.xml.bean.CompilateXML;
 
 /**
@@ -35,8 +35,7 @@ public class CompilateXMLParse {
 	private static void parseProtocolXML() {
 		InputStream in = null;
 		try {
-			in = new FileInputStream(new File(
-					ClientProperties.COMPILATECONFIGPATH));
+			in = new FileInputStream(new File(Config.COMPILATE_CONFIG_PATH));
 			SAXReader saxReader = new SAXReader();
 			document = saxReader.read(in);
 			// 将整个ides-config.xml文件解析出来

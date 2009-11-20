@@ -13,7 +13,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import c.city.desolate.client.properties.ClientProperties;
+import c.city.desolate.client.main.Config;
 import c.city.desolate.client.xml.bean.GameXML;
 import c.city.desolate.client.xml.bean.InitSrcXML;
 
@@ -36,8 +36,7 @@ public class GameXMLParse {
 	private static void parseXML() {
 		InputStream in = null;
 		try {
-			in = new FileInputStream(new File(
-					ClientProperties.GAMECONFIG_FILE_PATH));
+			in = new FileInputStream(new File(Config.GAME_CONFIG__PATH));
 			SAXReader saxReader = new SAXReader();
 			document = saxReader.read(in);
 			// 将整个games.xml文件解析出来

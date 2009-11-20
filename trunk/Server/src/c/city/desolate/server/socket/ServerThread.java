@@ -1,10 +1,16 @@
 package c.city.desolate.server.socket;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
+
+import org.dom4j.DocumentException;
+
+import c.city.desolate.server.protocol.CommitProtocol;
+import c.city.desolate.server.xml.bean.C2SProtocolXML;
+import c.city.desolate.server.xml.parse.C2SProtocolXMLParse;
 
 /**
  * 
@@ -13,9 +19,9 @@ import java.net.Socket;
  */
 public class ServerThread extends Thread {
 
-	private Socket clentSocket = null;
-	private ObjectOutputStream oos = null;
-	private ObjectInputStream ois = null;
+	private Socket clientSocket = null;
+	private OutputStream os = null;
+	private InputStream is = null;
 
 	public ServerThread() {
 		super("CommitServerThread");
@@ -23,40 +29,48 @@ public class ServerThread extends Thread {
 
 	public ServerThread(Socket clentSocket) {
 		super("CommitServerThread");
-		this.clentSocket = clentSocket;
+		this.clientSocket = clentSocket;
 	}
 
 	public Socket getClentSocket() {
-		return clentSocket;
+		return clientSocket;
 	}
 
 	public void setClentSocket(Socket clentSocket) {
-		this.clentSocket = clentSocket;
+		this.clientSocket = clentSocket;
 	}
 
 	// 运行线程
 	@Override
 	public void run() {
 		try {
-			oos = new ObjectOutputStream(clentSocket.getOutputStream());
-			ois = new ObjectInputStream(clentSocket.getInputStream());
+			os = clientSocket.getOutputStream();
+			is = clientSocket.getInputStream();
+			byte[] result = null;
+
 			// 接受客户端信息
-			Object obj = ois.readObject();
-			System.out.println("客户端请求协议ID： " + obj);
-			InetAddress ia = clentSocket.getInetAddress();
+			System.out.println("客户端请求协议ID： ");
+			InetAddress ia = clientSocket.getInetAddress();
 			System.out.println("客户端ip:" + ia.getHostAddress());
 			// 处理请求
+
+			C2SProtocolXML protocolXML = null;
+			try {
+				protocolXML = C2SProtocolXMLParse.getC2SProtocolXML(is);
+			} catch (DocumentException e) {
+				e.printStackTrace();
+			}
+			result = CommitProtocol.commitProtocol(protocolXML);
 			// 向客户端发送
+			os.write(result);
 		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				System.out.println("关闭客户与服务端的连接");
-				this.oos.close();
-				this.ois.close();
-				this.clentSocket.close();
+				this.os.close();
+				this.is.close();
+				this.clientSocket.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

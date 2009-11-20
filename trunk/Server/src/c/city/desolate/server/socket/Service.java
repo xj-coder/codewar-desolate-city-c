@@ -6,16 +6,15 @@ import java.net.Socket;
 
 import c.city.desolate.server.properties.ServerProperties;
 
-public class Service {
-	private ServerSocket serverSocket;
+public class Service extends Thread {
+	private ServerSocket serverSocket = null;
 
-	public void service() {
-		try {
-			serverSocket = new ServerSocket(ServerProperties.SERVER_PORT);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		System.out.println("服务器启动");
+	public Service(ServerSocket serverSocket) {
+		this.serverSocket = serverSocket;
+	}
+
+	@Override
+	public void run() {
 		while (true) {
 			Socket socket = null;
 			try {
@@ -29,6 +28,12 @@ public class Service {
 	}
 
 	public static void main(String[] args) throws IOException {
-		new Service().service();
+		try {
+			ServerSocket serverSocket = new ServerSocket(
+					ServerProperties.CODE_COMMIT_PORT);
+			new Service(serverSocket).run();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 }

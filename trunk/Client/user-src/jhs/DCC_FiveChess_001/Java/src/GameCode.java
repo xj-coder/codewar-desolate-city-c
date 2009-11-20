@@ -30,4 +30,4 @@ public class GameCode extends Thread{
     public void run() {
         System.out.println("1");
     }
-}a
+}
