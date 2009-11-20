@@ -5,17 +5,17 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Client {
-	private Socket s = null;
-	private InputStream is = null;
-	private OutputStream os = null;
+	private static Socket s = null;
+	private static InputStream is = null;
+	private static OutputStream os = null;
 
 	// 开启客户端
-	public byte[] startClientService(byte[] b) {
+	public static byte[] startClientService(byte[] b) {
 		byte[] result = null;
 		try {
 
-			s = new Socket(ClientProperties.SERVER_ADDRESS,
-					ClientProperties.SERVER_PORT);
+			s = new Socket(CodeProperties.SERVER_ADDRESS,
+					CodeProperties.CODE_COMMIT_PORT);
 			os = s.getOutputStream();
 			os.write(b);
 			os.flush();

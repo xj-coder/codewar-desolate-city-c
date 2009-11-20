@@ -1,8 +1,8 @@
 package c.city.desolate.client.actiom;
 
 import static c.city.desolate.client.main.Config.SEPARATOR;
+import static c.city.desolate.client.main.Config.USER_CODE_MAIN_CLASS_NAME;
 import static c.city.desolate.client.main.Config.USER_SRC_PATH;
-import static c.city.desolate.client.properties.ClientProperties.UDER_CODE_MAIN_CLASS_NAME;
 import static c.city.desolate.client.view.Code.IDE;
 
 import java.awt.event.ActionEvent;
@@ -26,7 +26,7 @@ public class CodeAction {
 				String code = IDE.getEditorBox().getText();
 				String codePath = USER_SRC_PATH;
 				String codeDPath = codePath + SEPARATOR + "src";
-				String codeFPath = UDER_CODE_MAIN_CLASS_NAME;
+				String codeFPath = USER_CODE_MAIN_CLASS_NAME;
 				mkdir(codeDPath, codeFPath);
 				File file = new File(codeDPath + SEPARATOR + codeFPath);
 				FileOutputStream fos = null;

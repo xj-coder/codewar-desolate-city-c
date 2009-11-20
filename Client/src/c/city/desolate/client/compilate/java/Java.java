@@ -1,6 +1,6 @@
 package c.city.desolate.client.compilate.java;
 
-import static c.city.desolate.client.main.Config.GAME_SRC_PATH;
+import static c.city.desolate.client.main.Config.GAME_TOOL_SRC_PATH;
 import static c.city.desolate.client.main.Config.PUBLIC_SRC_PATH;
 import static c.city.desolate.client.main.Config.SEPARATOR;
 import static c.city.desolate.client.main.Config.USER_SRC_PATH;
@@ -30,7 +30,8 @@ public class Java extends AbstractCompilate {
 		String op1 = "-classpath" + " " + codePath + SEPARATOR + ".classpath";
 		String op2 = "-d" + " " + codePath + SEPARATOR + "bin";
 		String op3 = "-encoding" + " " + "utf-8";
-		String op4 = "-sourcepath" + " " + codePath + SEPARATOR + ".source";
+		String op4 = "";// "-sourcepath" + " " + codePath + SEPARATOR +
+						// ".source";
 		String opn = "@" + codePath + SEPARATOR + ".source";
 		command = op0 + " " + op1 + " " + op2 + " " + op3 + " " + op4 + " "
 				+ opn;
@@ -117,7 +118,7 @@ public class Java extends AbstractCompilate {
 						continue;
 					bw.append(str + s + "\n");
 				}
-			str = GAME_SRC_PATH + SEPARATOR;
+			str = GAME_TOOL_SRC_PATH + SEPARATOR;
 			file = new File(str);
 			ss = file.list();
 			if (ss != null)

@@ -7,13 +7,13 @@
 		<password></password>
 	</head>
 	<game>
-		<gameId></gameId>
+		<no></no>
 		<camp></camp>
 	</game>
 	<method>
         <no></no>
 		<params>
-			<param name="" value="" />
+			<!--<param name="" value="" />-->
 		</params>
     </method>
 </protocol>
