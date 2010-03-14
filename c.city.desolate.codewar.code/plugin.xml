@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="c.city.desolate.codewar.code.main.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Hall"
+            class="c.city.desolate.codewar.code.ui.perspective.HallPerspective"
+            id="c.city.desolate.codewar.code.perspective.hall">
+      </perspective>
+      <perspective
+            class="c.city.desolate.codewar.code.ui.perspective.GamePerspect"
+            id="c.city.desolate.codewar.code.perspective.game"
+            name="Game">
+      </perspective>
+      <perspective
+            class="c.city.desolate.codewar.code.ui.perspective.RoomPerspect"
+            id="c.city.desolate.codewar.code.ui.perspective.RoomPerspect"
+            name="Room">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="c.city.desolate.codewar.code.ui.view.GameListView"
+            id="c.city.desolate.codewar.code.ui.view.GameListView"
+            name="GameList">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.IndexShowView"
+            id="c.city.desolate.codewar.code.ui.view.IndexShowView"
+            name="Index">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.PlayGameView"
+            id="c.city.desolate.codewar.code.ui.view.PlayGameView"
+            name="PlayGame">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.FileExplorerView"
+            id="c.city.desolate.codewar.code.ui.view.FileExplorer"
+            name="File Explorer">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.CodeEditorView"
+            id="c.city.desolate.codewar.code.ui.view.CodeEditorView"
+            name="Code Editor">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.ConsoleView"
+            id="c.city.desolate.codewar.code.ui.view.ConsoleView"
+            name="Console">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.CharAreaView"
+            id="c.city.desolate.codewar.code.ui.view.CharAreaView"
+            name="CharArea">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.ShowRoomView"
+            id="c.city.desolate.codewar.code.ui.view.ShowRoomView"
+            name="Room">
+      </view>
+      <view
+            class="c.city.desolate.codewar.code.ui.view.PlayerListView"
+            id="c.city.desolate.codewar.code.ui.view.PlayerListView"
+            name="PlayerList">
+      </view>
+   </extension>
+
+</plugin>
