@@ -4,14 +4,22 @@ package c.city.desolate.codewar.code.ui.view;
  * ´óÌüÊ×Ò³view
  */
 
+import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
+import c.city.desolate.codewar.code.main.Activator;
+
+import com.swtdesigner.ResourceManager;
+
 public class IndexShowView extends ViewPart {
 
+	private Browser browser ;
+	private Action refleshAction;
 	public static final String ID = "c.city.desolate.codewar.code.ui.view.IndexShowView"; //$NON-NLS-1$
 
 	/**
@@ -21,9 +29,11 @@ public class IndexShowView extends ViewPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-		System.currentTimeMillis();
-		Composite container = new Composite(parent, SWT.NONE);
+		Composite container = new Composite(parent, SWT.EMBEDDED);
+		browser = new Browser(container, SWT.NONE);
+		browser.setBounds(0, 0, 494, 346);
 		//
+		
 		createActions();
 		initializeToolBar();
 		initializeMenu();
@@ -33,7 +43,14 @@ public class IndexShowView extends ViewPart {
 	 * Create the actions
 	 */
 	private void createActions() {
-		// Create the actions
+
+		refleshAction = new Action("Reflesh") {
+			public void run() {
+			}
+		};
+		refleshAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor(Activator.getDefault(), "icons/refresh_a.gif"));
+		refleshAction.setToolTipText("Reflesh");
+
 	}
 
 	/**
@@ -42,6 +59,8 @@ public class IndexShowView extends ViewPart {
 	private void initializeToolBar() {
 		IToolBarManager toolbarManager = getViewSite().getActionBars()
 				.getToolBarManager();
+		
+		toolbarManager.add(refleshAction);
 	}
 
 	/**
@@ -50,6 +69,8 @@ public class IndexShowView extends ViewPart {
 	private void initializeMenu() {
 		IMenuManager menuManager = getViewSite().getActionBars()
 				.getMenuManager();
+
+		menuManager.add(refleshAction);
 	}
 
 	@Override
