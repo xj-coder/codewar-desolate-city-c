@@ -9,6 +9,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
@@ -30,8 +31,9 @@ public class IndexShowView extends ViewPart {
 	@Override
 	public void createPartControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.EMBEDDED);
+		container.setLayout(new FillLayout());
 		browser = new Browser(container, SWT.NONE);
-		browser.setBounds(0, 0, 494, 346);
+		browser.setUrl("http://www.baidu.com");
 		//
 		
 		createActions();
@@ -46,6 +48,7 @@ public class IndexShowView extends ViewPart {
 
 		refleshAction = new Action("Reflesh") {
 			public void run() {
+				browser.refresh();
 			}
 		};
 		refleshAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor(Activator.getDefault(), "icons/refresh_a.gif"));
