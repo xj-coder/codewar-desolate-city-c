@@ -12,7 +12,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.part.ViewPart;
 
-import c.city.desolate.codewar.code.http.action.HallAction;
+import c.city.desolate.codewar.code.service.action.HallAction;
 
 public class GameListView extends ViewPart {
 
