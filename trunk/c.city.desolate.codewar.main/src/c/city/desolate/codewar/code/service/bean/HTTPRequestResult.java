@@ -1,4 +1,4 @@
-package c.city.desolate.codewar.code.http.bean;
+package c.city.desolate.codewar.code.service.bean;
 /**
  * HTTPÇëÇó½á¹ûbean
  * @author Desolate.City.C

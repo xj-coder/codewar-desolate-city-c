@@ -1,6 +1,6 @@
 package c.city.desolate.codewar.code.util;
 
-import c.city.desolate.codewar.code.http.bean.HTTPRequestResult;
+import c.city.desolate.codewar.code.service.bean.HTTPRequestResult;
 
 public class HTTP {
 	
