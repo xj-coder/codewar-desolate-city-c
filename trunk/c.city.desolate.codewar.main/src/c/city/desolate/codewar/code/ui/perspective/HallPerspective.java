@@ -16,9 +16,10 @@ public class HallPerspective implements IPerspectiveFactory {
 	 * Creates the initial layout for a page.
 	 */
 	public void createInitialLayout(IPageLayout layout) {
-		// String editorArea = layout.getEditorArea();
 		// 隐藏编辑区域
 		layout.setEditorAreaVisible(false);
+		//设置透视图布局固定
+		layout.setFixed(true);
 		
 		addFastViews(layout);
 		addViewShortcuts(layout);
@@ -27,11 +28,6 @@ public class HallPerspective implements IPerspectiveFactory {
 				.getEditorArea());
 		layout.addView(IndexShowView.ID, IPageLayout.RIGHT, 0.2f,
 				GameListView.ID);
-		//设置view的显示要求
-		layout.getViewLayout(GameListView.ID).setCloseable(false);
-		layout.getViewLayout(GameListView.ID).setMoveable(false);
-		layout.getViewLayout(IndexShowView.ID).setCloseable(false);
-		layout.getViewLayout(IndexShowView.ID).setMoveable(false);
 	}
 
 	/**
@@ -51,5 +47,5 @@ public class HallPerspective implements IPerspectiveFactory {
 	 */
 	private void addPerspectiveShortcuts(IPageLayout layout) {
 	}
-
+	
 }

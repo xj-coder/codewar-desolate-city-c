@@ -10,20 +10,24 @@ public class CommitClient {
 
 	public byte[] startClientService(String command) {
 		byte[] result = new byte[1024];
+		byte[] temp1 = new byte[1024];
+		byte[] temp2 = new byte[1024];
 		try {
 			s = new Socket(Properties.SERVER_ADDRESS,
 					Properties.SERVER_PORT);
 			s.getOutputStream().write(command.getBytes(Properties.ENCODING));
 			s.getOutputStream().flush();
 			
-			int len = s.getInputStream().read(result);
-			while(len != -1){
-				byte[] temp = new byte[1024];
-				len = s.getInputStream().read(temp);
-				if(len == -1){
-					result = Arrays.copyOf(temp,result.length+1024);
-					
-				}
+			//以1024为缓存区读取流中的数据
+			int len = s.getInputStream().read(temp1);
+			int dest;
+			result = Arrays.copyOf(temp1, len);
+			while(len == 1024){
+				dest = result.length;
+				len = s.getInputStream().read(temp2);
+				result = new byte[result.length+len];
+				result = Arrays.copyOf(temp1, result.length);
+				System.arraycopy(temp2, 0, result, dest, len);
 			}
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
