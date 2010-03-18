@@ -20,13 +20,13 @@
       </perspective>
       <perspective
             name="Game"
-            class="c.city.desolate.codewar.code.ui.perspective.GamePerspect"
+            class="c.city.desolate.codewar.code.ui.perspective.GamePerspective"
             id="c.city.desolate.codewar.code.perspective.game">
       </perspective>
       <perspective
             name="Room"
-            class="c.city.desolate.codewar.code.ui.perspective.RoomPerspect"
-            id="c.city.desolate.codewar.code.ui.perspective.RoomPerspect">
+            class="c.city.desolate.codewar.code.ui.perspective.RoomPerspective"
+            id="c.city.desolate.codewar.code.perspective.room">
       </perspective>
    </extension>
    <extension

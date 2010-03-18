@@ -33,7 +33,6 @@ public class IndexShowView extends ViewPart {
 		Composite container = new Composite(parent, SWT.EMBEDDED);
 		container.setLayout(new FillLayout());
 		browser = new Browser(container, SWT.NONE);
-		browser.setUrl("http://www.baidu.com");
 		//
 		
 		createActions();
@@ -79,6 +78,10 @@ public class IndexShowView extends ViewPart {
 	@Override
 	public void setFocus() {
 		// Set the focus
+	}
+
+	public Browser getBrowser() {
+		return browser;
 	}
 
 }
