@@ -5,9 +5,8 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
 
-import c.city.desolate.codewar.service.util.ActionXMLParse;
+import c.city.desolate.codewar.service.xml.ActionXMLParse;
 
 
 /**
@@ -49,7 +48,7 @@ public class CommitKnockProtocol {
 
     private byte[] ExecuteMethod(String className, String[] commands) {
     	String[] params = commands[2].split("-");
-    	String[] values = new String[params.length-1];
+    	Object[] values = new Object[params.length-1];
     	for(int i=1;i<params.length;i++){
     		values[i-1] = params[i];
     	}
@@ -60,12 +59,14 @@ public class CommitKnockProtocol {
 			Method[] methods = _class.getMethods();
 			
 			for (Method method : methods) {
-			    if(method.getName().equals(params[0])){
-			    	return (byte[]) method.invoke(obj, values);
+			    if(method.getName().toLowerCase().equals(params[0])){
+			    	Object result = method.invoke(obj, values);
+			    	return  result.toString().getBytes();
 			    }
 			}
-			return (byte[]) _class.getMethod("defaultMethod"
-					, new Class<?>[]{Object[].class}).invoke(obj, values);
+			Object result = _class.getMethod("defaultMethod"
+					, new Class<?>[]{Object.class}).invoke(obj, values);
+	    	return  result.toString().getBytes();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {

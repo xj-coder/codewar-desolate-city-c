@@ -5,8 +5,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
 
 
 
@@ -37,22 +35,6 @@ public class CommitServerThread extends Thread {
 		this.ckp = ckp;
 	}
 
-	public Socket getClentSocket() {
-		return clientSocket;
-	}
-
-	public void setClentSocket(Socket clentSocket) {
-		this.clientSocket = clentSocket;
-	}
-
-	public CommitKnockProtocol getKkpf() {
-		return ckp;
-	}
-
-	public void setKkpf(CommitKnockProtocol kkpf) {
-		this.ckp = kkpf;
-	}
-
 	// 运行线程
 	public void run() {
 		try {
@@ -73,7 +55,7 @@ System.out.println("客户端ip:" + ia.getHostAddress());
 			e.printStackTrace();
 		} finally {
 			try {
-				System.out.println("关闭客户与服务端的连接");
+System.out.println("关闭客户与服务端的连接");
 				this.os.close();
 				this.is.close();
 				this.clientSocket.close();

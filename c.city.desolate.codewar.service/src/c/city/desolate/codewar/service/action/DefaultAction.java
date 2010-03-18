@@ -7,8 +7,8 @@ package c.city.desolate.codewar.service.action;
  */
 public class DefaultAction {
 
-	public byte[] defaultMethod(Object[] params){
+	public String defaultMethod(Object params){
 		
-		return new byte[]{0};
+		return "";
 	}
 }
