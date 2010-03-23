@@ -11,8 +11,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.WorkbenchException;
 import org.eclipse.ui.part.ViewPart;
 
+import c.city.desolate.codewar.code.bean.RoomData;
 import c.city.desolate.codewar.code.main.Activator;
 import c.city.desolate.codewar.code.main.Param;
+import c.city.desolate.codewar.code.service.action.RoomAction;
 import c.city.desolate.codewar.code.ui.perspective.HallPerspective;
 
 import com.swtdesigner.ResourceManager;
@@ -27,9 +29,14 @@ public class ShowRoomView extends ViewPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
+		String roomName = Param.game.getName();
+		String roomGID = Param.game.getGID();
+		
 		Composite container = new Composite(parent, SWT.NONE);
-		setPartName("Room-"+Param.game.getName());
-		//
+		setPartName("Room-"+roomName);
+
+		RoomData roomData = RoomAction.getRoomData(roomGID);
+		
 		createActions();
 		initializeToolBar();
 		initializeMenu();
