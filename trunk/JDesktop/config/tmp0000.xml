@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry>
+	<config>
+		<taskbar>
+			<fg-color>前景色</fg-color>
+			<bg-color>背景色</bg-color>
+			<location>位置:UP、BOTTOM、LEFT、RIGHT</location>
+			<extend-points>
+				<extend-point>
+					<name>扩展点名</name>
+					<class-name>扩展点抽象类</class-name>
+				</extend-point>
+			</extend-points>
+		</taskbar>
+		<desktop>
+			<bg-image>桌面图片</bg-image>
+			<auto-sort>自动排列:true、false</auto-sort>
+			<sort-type>排列方式:name、time、size、type</sort-type>
+			<resolution>分辨率:</resolution>
+			<extend-points>
+				<extend-point>
+					<name>扩展点名</name>
+					<class>扩展点抽象类</class>
+				</extend-point>
+			</extend-points>
+		</desktop>
+	</config>
+	<extends>
+		<extend>
+			<point>指向的扩展点</point>
+			<name>扩展名</name>
+			<class-name>启动类</class-name>
+			<jar-path>扩展jar包地址</jar-path>
+			<params>
+				<param>
+					<key/>
+					<value/>
+				</param>
+			</params>
+		</extend>
+	</extends>
+</registry>
