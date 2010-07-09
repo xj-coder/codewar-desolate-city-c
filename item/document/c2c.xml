@@ -2,8 +2,6 @@
 <protocol>
 	<head>
 		<sid></sid>
-		<name></name>
-		<password></password>
 	</head>
 	<game>
 		<gameId></gameId>
