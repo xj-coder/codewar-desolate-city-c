@@ -66,6 +66,24 @@ public class ImageFactory {
 		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
+	public static Image getButtonWithBorder(int width, int height) {
+		URL url1 = ImageFactory.class.getClassLoader().getResource("image/button/bleft.png");
+		URL url2 = ImageFactory.class.getClassLoader().getResource("image/button/bcenter.png");
+		URL url3 = ImageFactory.class.getClassLoader().getResource("image/button/bright.png");
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = bufferedImage.createGraphics();
+
+		Image left = ImageTools.cut(url1, 24, 0, 6, 24, "png");
+		Image center = ImageTools.cut(url2, 24, 0, 6, 24, "png");
+		Image right = ImageTools.cut(url3, 24, 0, 6, 24, "png");
+
+		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 12, height, Image.SCALE_DEFAULT), 6, 0, null);
+		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT), width - 6, 0, null);
+
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+	}
+
 	public static Image getButtonPressed(int width, int height) {
 		URL url1 = ImageFactory.class.getClassLoader().getResource("image/button/bleft.png");
 		URL url2 = ImageFactory.class.getClassLoader().getResource("image/button/bcenter.png");
@@ -327,6 +345,107 @@ public class ImageFactory {
 	public static Image getLoginAccountInputButtonDisable() {
 		URL url = ImageFactory.class.getClassLoader().getResource("image/button/arrow.png");
 		return ImageTools.cut(url, 48, 0, 16, 16, "png");
+	}
+
+	// 左侧目录树
+	public static Image getIndexDirBgUpLeftImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/up-left.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgUpCenterImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/up-center.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgUpRightImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/up-right.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgLeftImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/left.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgRightImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/right.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgDownLeftImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/down-left.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgDownCenterImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/down-center.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgDownRightImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/down-right.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirSearchBgLeftImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/s-left.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirSearchBgCenterImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/s-center.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirSearchBgRightImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/s-right.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgUpLeftImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-up-left.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgUpCenterImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-up-center.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgUpRightImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-up-right.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgLeftImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-left.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgRightImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-right.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgDownLeftImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-down-left.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgDownCenterImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-down-center.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirListBgDownRightImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/l-down-right.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexDirBgCenterImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/center.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 }

@@ -7,6 +7,7 @@ package platform.ui;
  */
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.FocusEvent;
@@ -14,6 +15,7 @@ import java.awt.event.FocusListener;
 import java.awt.geom.RoundRectangle2D;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,13 +31,16 @@ import javax.swing.plaf.basic.BasicComboBoxUI;
 import javax.swing.plaf.basic.BasicComboPopup;
 import javax.swing.plaf.basic.ComboPopup;
 
-import platform.adapter.LoginActionAdapter;
-import platform.adapter.LoginKeyAdapter;
+import org.eclipse.swt.extension.hook.Hook;
+
+import platform.adapter.LoginButtonActionAdapter;
+import platform.adapter.LoginKeyBoardHookAdapter;
 import platform.adapter.UIMouseDragAdapter;
 import platform.define.Define;
 import platform.define.LoginUIDefine;
 import platform.tools.ImageFactory;
 import platform.tools.Tools;
+import platform.ui.focustraversalpolicy.QFocusTraversalPolicy;
 import platform.ui.widget.URLLabel;
 import platform.ui.widget.WidgetFactory;
 
@@ -71,20 +76,48 @@ public class LoginUI extends JFrame {
 	private JCheckBox hide_check;
 	private JCheckBox agree_check;
 
-	private final LoginKeyAdapter keyAdapter = new LoginKeyAdapter(this);
+	private final LoginKeyBoardHookAdapter keyActionAdapter = new LoginKeyBoardHookAdapter(this);
 	private final UIMouseDragAdapter mouseAdapter = new UIMouseDragAdapter(this);
-	private final LoginActionAdapter actionAdapter = new LoginActionAdapter(this);
+	private final LoginButtonActionAdapter actionAdapter = new LoginButtonActionAdapter(this);
+
+	private final QFocusTraversalPolicy qFocusTraversalPolicy;
 
 	private boolean isLoginProcessStart = false;
 
 	public LoginUI() {
 		initComponents();
+
+		registerKeyBoardHook();
+
+		Vector<Component> comps = new Vector<Component>();
+
+		comps.add(getAccount_input().getComponent(1));
+		comps.add(getPassword_input());
+		comps.add(getMemory_check());
+		comps.add(getHide_check());
+		comps.add(getAgree_check());
+
+		qFocusTraversalPolicy = new QFocusTraversalPolicy(comps);
+		setFocusTraversalPolicy(qFocusTraversalPolicy);
+	}
+
+	public void registerKeyBoardHook() {
+		Hook.KEYBOARD.addListener(keyActionAdapter);
+
+		if (!Hook.KEYBOARD.isInstalled()) {
+			Hook.KEYBOARD.install();
+		}
+	}
+
+	public void unRegisterKeyBoardHook() {
+		Hook.KEYBOARD.removeListener(keyActionAdapter);
 	}
 
 	private void initComponents() {
 		setSize(LoginUIDefine.FRAME_WIDTH, LoginUIDefine.FRAME_HEIGHT);
 		setLocation(Tools.getScreenSize().width / 2 - getWidth() / 2, (int) (Tools.getScreenSize().getHeight() / 2 - getHeight() / 2));
 		setForeground(Color.BLACK);
+		setFocusable(true);
 
 		getLayeredPane().add(getHelp_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getClose_button(), new Integer(Integer.MIN_VALUE));
@@ -119,7 +152,6 @@ public class LoginUI extends JFrame {
 		((JPanel) getContentPane()).setOpaque(false);
 
 		setUndecorated(true);
-		addKeyListener(keyAdapter);
 		addMouseListener(mouseAdapter);
 		addMouseMotionListener(mouseAdapter);
 	}
@@ -249,7 +281,7 @@ public class LoginUI extends JFrame {
 	public JButton getClose_button() {
 		if (close_button == null) {
 			close_button = WidgetFactory.createLoginCloseButton(40, 22, "", LoginParams.ACTION_CLOSE, actionAdapter);
-			close_button.setBounds(300, 0, 40, 22);
+			close_button.setBounds(300, 1, 40, 22);
 		}
 		return close_button;
 	}
@@ -264,16 +296,16 @@ public class LoginUI extends JFrame {
 
 	public JButton getLogin_button() {
 		if (login_button == null) {
-			login_button = WidgetFactory.createButton(70, 25, LoginParams.NAME_LOGIN, LoginParams.ACTION_LOGIN, actionAdapter);
-			login_button.setBounds(270, 205, 70, 25);
+			login_button = WidgetFactory.createLoginButton(80, 25, LoginParams.NAME_LOGIN, LoginParams.ACTION_LOGIN, actionAdapter);
+			login_button.setBounds(270, 208, 80, 25);
 		}
 		return login_button;
 	}
 
 	public JButton getSet_button() {
 		if (set_button == null) {
-			set_button = WidgetFactory.createButton(70, 25, LoginParams.NAME_SETTING, LoginParams.ACTION_SETTING, actionAdapter);
-			set_button.setBounds(20, 205, 70, 25);
+			set_button = WidgetFactory.createButton(80, 25, LoginParams.NAME_SETTING, LoginParams.ACTION_SETTING, actionAdapter);
+			set_button.setBounds(20, 208, 80, 25);
 		}
 		return set_button;
 	}
@@ -285,6 +317,11 @@ public class LoginUI extends JFrame {
 			account_input.setEditable(true);
 
 			account_input.setUI(new BasicComboBoxUI() {
+				@Override
+				public void addEditor() {
+					super.addEditor();
+				}
+
 				@Override
 				protected JButton createArrowButton() {
 					return WidgetFactory.createLoginAccountInputButton(16, 16, "", "", null);
@@ -313,7 +350,6 @@ public class LoginUI extends JFrame {
 
 						@Override
 						public void focusLost(FocusEvent e) {
-
 						}
 
 						@Override
@@ -364,7 +400,7 @@ public class LoginUI extends JFrame {
 		if (agree_check == null) {
 			agree_check = WidgetFactory.createCheckBox("");
 			agree_check.setBounds(220, 180, 20, 20);
-
+			agree_check.setSelected(true);
 		}
 		return agree_check;
 	}

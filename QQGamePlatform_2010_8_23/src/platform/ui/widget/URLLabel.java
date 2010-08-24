@@ -33,7 +33,7 @@ public class URLLabel extends JLabel {
 				Graphics g = getGraphics();
 				g.setFont(Define.DEFAULT_FONT);
 				FontMetrics fontMetrics = g.getFontMetrics();
-				int _y = getHeight() - fontMetrics.getDescent() - 5;
+				int _y = getHeight() - fontMetrics.getDescent() - 3;
 				int _x = 3;
 				int _x_ = _x + fontMetrics.stringWidth(getShow_text());
 

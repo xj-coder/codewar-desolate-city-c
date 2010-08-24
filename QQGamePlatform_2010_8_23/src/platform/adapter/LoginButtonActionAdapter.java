@@ -11,14 +11,12 @@ import platform.ui.IndexUI;
 import platform.ui.LoginParams;
 import platform.ui.LoginUI;
 
-public class LoginActionAdapter implements ActionListener {
+public class LoginButtonActionAdapter implements ActionListener {
 	private LoginUI loginUI;
-
-	private LoginBean loginBean = null;
 
 	private int taskIndex = 0;
 
-	public LoginActionAdapter(LoginUI loginUI) {
+	public LoginButtonActionAdapter(LoginUI loginUI) {
 		this.loginUI = loginUI;
 	}
 
@@ -33,24 +31,31 @@ public class LoginActionAdapter implements ActionListener {
 				loginUI.setLoginProcessStart(false);
 				loginUI.getLogin_button().setName(LoginParams.NAME_LOGIN);
 
+				loginUI.getAccount_input().setEnabled(true);
+				loginUI.getPassword_input().setEnabled(true);
+				loginUI.getMemory_check().setEnabled(true);
+				loginUI.getHide_check().setEnabled(true);
+				loginUI.getAgree_check().setEnabled(true);
+
 				taskIndex++;
 			} else {
 				loginUI.setLoginProcessStart(true);
 				loginUI.getLogin_button().setName(LoginParams.NAME_CALCEL);
 
-				loginBean = new LoginBean();
+				loginUI.getAccount_input().setEnabled(false);
+				loginUI.getPassword_input().setEnabled(false);
+				loginUI.getMemory_check().setEnabled(false);
+				loginUI.getHide_check().setEnabled(false);
+				loginUI.getAgree_check().setEnabled(false);
 
+				LoginBean loginBean = new LoginBean();
 				taskIndex++;
-
-				LoginTask task = new LoginTask(taskIndex);
-
+				LoginTask task = new LoginTask(loginBean, taskIndex);
 				new Thread(task).start();
 			}
 		} else if (event.getActionCommand().equals(LoginParams.ACTION_SETTING)) {
-			if (loginUI.getSet_button().getName().equals(
-					LoginParams.NAME_SETTING)) {
-				loginUI.getSet_button().setName(
-						LoginParams.NAME_SETTING_CLICKED);
+			if (loginUI.getSet_button().getName().equals(LoginParams.NAME_SETTING)) {
+				loginUI.getSet_button().setName(LoginParams.NAME_SETTING_CLICKED);
 			} else {
 				loginUI.getSet_button().setName(LoginParams.NAME_SETTING);
 			}
@@ -59,8 +64,10 @@ public class LoginActionAdapter implements ActionListener {
 
 	class LoginTask implements Runnable {
 		private int taskTime;
+		private LoginBean loginBean;
 
-		public LoginTask(int taskTime) {
+		public LoginTask(LoginBean loginBean, int taskTime) {
+			this.loginBean = loginBean;
 			this.taskTime = taskTime;
 		}
 
@@ -69,7 +76,7 @@ public class LoginActionAdapter implements ActionListener {
 			try {
 				PlayerBean playerBean = new LoginAction().login(loginBean);
 
-				if (LoginActionAdapter.this.taskIndex == taskTime) {
+				if (taskIndex == taskTime) {
 					loginUI.setVisible(false);
 					new IndexUI(playerBean).setVisible(true);
 				}
