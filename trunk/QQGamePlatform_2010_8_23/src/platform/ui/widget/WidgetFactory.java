@@ -1,4 +1,4 @@
-package platform.widget;
+package platform.ui.widget;
 
 import java.awt.Cursor;
 import java.awt.FontMetrics;

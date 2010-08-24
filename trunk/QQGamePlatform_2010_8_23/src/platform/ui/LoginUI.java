@@ -27,8 +27,8 @@ import platform.define.Define;
 import platform.define.LoginUIDefine;
 import platform.tools.ImageFactory;
 import platform.tools.Tools;
-import platform.widget.URLLabel;
-import platform.widget.WidgetFactory;
+import platform.ui.widget.URLLabel;
+import platform.ui.widget.WidgetFactory;
 
 import com.sun.awt.AWTUtilities;
 
