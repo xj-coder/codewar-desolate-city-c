@@ -8,7 +8,7 @@ public class LoginParams {
 
 	public static String NAME_LOGIN = "登录";
 	public static String NAME_CALCEL = "取消";
-	public static String NAME_SETTING = "设置 ↑";
-	public static String NAME_SETTING_CLICKED = "设置 ↓";
+	public static String NAME_SETTING = "设置↑";
+	public static String NAME_SETTING_CLICKED = "设置↓";
 
 }

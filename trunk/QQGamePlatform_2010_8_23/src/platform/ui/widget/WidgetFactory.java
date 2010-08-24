@@ -27,8 +27,10 @@ public class WidgetFactory {
 				super.paint(g);
 				// 将text画到按钮上
 				if (getName() != null && !getName().trim().equals("")) {
+					g.setFont(Define.DEFAULT_FONT);
+
 					FontMetrics fontMetrics = g.getFontMetrics();
-					int _y = getHeight() / 2 + fontMetrics.getDescent();
+					int _y = getHeight() / 2 + fontMetrics.getHeight() / 2 - 3;
 					int _x = getWidth() / 2 - fontMetrics.stringWidth(getName()) / 2;
 					g.drawString(getName(), _x, _y);
 				}
@@ -97,6 +99,22 @@ public class WidgetFactory {
 		MediaTracker mt = new MediaTracker(panel);
 
 		images[0] = ImageFactory.getButton(width, height);
+		mt.addImage(images[0], 0);
+
+		images[1] = ImageFactory.getButtonRollover(width, height);
+		mt.addImage(images[1], 1);
+
+		images[2] = ImageFactory.getButtonPressed(width, height);
+		mt.addImage(images[2], 2);
+
+		return createButton(name, cmd, listener, images);
+	}
+
+	public static JButton createLoginButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
+		Image[] images = new Image[3];
+		MediaTracker mt = new MediaTracker(panel);
+
+		images[0] = ImageFactory.getButtonWithBorder(width, height);
 		mt.addImage(images[0], 0);
 
 		images[1] = ImageFactory.getButtonRollover(width, height);
