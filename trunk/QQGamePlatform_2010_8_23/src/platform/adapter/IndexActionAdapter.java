@@ -48,6 +48,13 @@ public class IndexActionAdapter implements ActionListener {
 
 			indexUI.addMouseListener(indexUI.getDragAdapter());
 			indexUI.addMouseMotionListener(indexUI.getDragAdapter());
+		} else if (event.getActionCommand().equals(IndexParams.ACTION_DIR_LOCK)) {
+			indexUI.getDir_unlock_button().setVisible(true);
+			indexUI.getDir_lock_button().setVisible(false);
+		} else if (event.getActionCommand().equals(
+				IndexParams.ACTION_DIR_UNLOCK)) {
+			indexUI.getDir_unlock_button().setVisible(false);
+			indexUI.getDir_lock_button().setVisible(true);
 		}
 	}
 
