@@ -1,4 +1,4 @@
-package platform.widget;
+package platform.ui.widget;
 
 import java.awt.FontMetrics;
 import java.awt.Graphics;
