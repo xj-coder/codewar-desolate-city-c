@@ -18,8 +18,7 @@ import platform.tools.ImageFactory;
 public class WidgetFactory {
 	private static final JPanel panel = new JPanel();
 
-	public static JButton createButton(final String name, final String cmd,
-			final ActionListener listener, final Image[] images) {
+	public static JButton createButton(final String name, final String cmd, final ActionListener listener, final Image[] images) {
 		JButton jb = new JButton() {
 			private static final long serialVersionUID = 1635827255537514056L;
 
@@ -32,8 +31,7 @@ public class WidgetFactory {
 
 					FontMetrics fontMetrics = g.getFontMetrics();
 					int _y = getHeight() / 2 + fontMetrics.getHeight() / 2 - 3;
-					int _x = getWidth() / 2
-							- fontMetrics.stringWidth(getName()) / 2;
+					int _x = getWidth() / 2 - fontMetrics.stringWidth(getName()) / 2;
 					g.drawString(getName(), _x, _y);
 				}
 			}
@@ -59,23 +57,18 @@ public class WidgetFactory {
 		return jb;
 	}
 
-	public static JButton createLoginCloseButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createLoginCloseButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getLoginCloseButton().getScaledInstance(width,
-				height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getLoginCloseButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getLoginCloseButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getLoginCloseButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getLoginCloseButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getLoginCloseButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -86,27 +79,22 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createHelpButton(final int width, final int height,
-			final String name, final String cmd, final ActionListener listener) {
+	public static JButton createHelpButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getLoginHelpButton().getScaledInstance(width,
-				height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getLoginHelpButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getLoginHelpButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getLoginHelpButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getLoginHelpButtonPressed().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getLoginHelpButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createButton(final int width, final int height,
-			final String name, final String cmd, final ActionListener listener) {
+	public static JButton createButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
@@ -122,8 +110,7 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createLoginButton(final int width, final int height,
-			final String name, final String cmd, final ActionListener listener) {
+	public static JButton createLoginButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
@@ -139,23 +126,18 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexCloseButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexCloseButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexCloseButton().getScaledInstance(width,
-				height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexCloseButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexCloseButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexCloseButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexCloseButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexCloseButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -166,23 +148,18 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexMinButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexMinButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexMinButton().getScaledInstance(width,
-				height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexMinButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexMinButtonRollover().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexMinButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexMinButtonPressed().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexMinButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -193,23 +170,18 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexMaxButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexMaxButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexMaxButton().getScaledInstance(width,
-				height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexMaxButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexMaxButtonRollover().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexMaxButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexMaxButtonPressed().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexMaxButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -220,23 +192,18 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexRestrButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexRestrButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexRestrButton().getScaledInstance(width,
-				height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexRestrButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexRestrButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexRestrButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexRestrButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexRestrButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -247,23 +214,18 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexChangeFaceButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexChangeFaceButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexChangeFaceButton().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexChangeFaceButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexChangeFaceButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexChangeFaceButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexChangeFaceButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexChangeFaceButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -274,23 +236,18 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexMenuButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexMenuButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexMenuButton().getScaledInstance(width,
-				height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexMenuButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexMenuButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexMenuButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexMenuButtonPressed().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexMenuButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -301,23 +258,18 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createLoginAccountInputButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createLoginAccountInputButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getLoginAccountInputButton()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getLoginAccountInputButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getLoginAccountInputButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getLoginAccountInputButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getLoginAccountInputButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getLoginAccountInputButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -332,12 +284,9 @@ public class WidgetFactory {
 		JCheckBox checkBox = new JCheckBox(text);
 
 		checkBox.setIcon(new ImageIcon(ImageFactory.getCheckBoxImage()));
-		checkBox.setDisabledIcon(new ImageIcon(ImageFactory
-				.getDisableCheckBoxImage()));
-		checkBox.setSelectedIcon(new ImageIcon(ImageFactory
-				.getCheckedBoxImage()));
-		checkBox.setDisabledSelectedIcon(new ImageIcon(ImageFactory
-				.getDisableCheckedBoxImage()));
+		checkBox.setDisabledIcon(new ImageIcon(ImageFactory.getDisableCheckBoxImage()));
+		checkBox.setSelectedIcon(new ImageIcon(ImageFactory.getCheckedBoxImage()));
+		checkBox.setDisabledSelectedIcon(new ImageIcon(ImageFactory.getDisableCheckedBoxImage()));
 
 		checkBox.setFont(Define.DEFAULT_FONT);
 		checkBox.setOpaque(false);
@@ -345,22 +294,17 @@ public class WidgetFactory {
 		return checkBox;
 	}
 
-	public static JButton createIndexSearchListButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexSearchListButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexSearchListButton().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexSearchListButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexSearchListButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexSearchListButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexSearchListButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexSearchListButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -371,22 +315,17 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexSearchEnterButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexSearchEnterButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexSearchEnterButton().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexSearchEnterButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexSearchEnterButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexSearchEnterButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexSearchEnterButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexSearchEnterButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -397,22 +336,17 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexDirLockButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexDirLockButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexDirLockButton().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexDirLockButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexDirLockButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexDirLockButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexDirLockButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexDirLockButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -423,22 +357,17 @@ public class WidgetFactory {
 		return createButton(name, cmd, listener, images);
 	}
 
-	public static JButton createIndexDirUnLockButton(final int width,
-			final int height, final String name, final String cmd,
-			final ActionListener listener) {
+	public static JButton createIndexDirUnLockButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
 		Image[] images = new Image[3];
 		MediaTracker mt = new MediaTracker(panel);
 
-		images[0] = ImageFactory.getIndexDirUnLockButton().getScaledInstance(
-				width, height, Image.SCALE_DEFAULT);
+		images[0] = ImageFactory.getIndexDirUnLockButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[0], 0);
 
-		images[1] = ImageFactory.getIndexDirUnLockButtonRollover()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[1] = ImageFactory.getIndexDirUnLockButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[1], 1);
 
-		images[2] = ImageFactory.getIndexDirUnLockButtonPressed()
-				.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		images[2] = ImageFactory.getIndexDirUnLockButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 		mt.addImage(images[2], 2);
 		try {
 			mt.waitForAll();
@@ -447,5 +376,55 @@ public class WidgetFactory {
 		}
 
 		return createButton(name, cmd, listener, images);
+	}
+
+	public static JButton createIndexLeftSplitterButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
+		Image[] images = new Image[4];
+		MediaTracker mt = new MediaTracker(panel);
+
+		images[0] = ImageFactory.getIndexLeftSplitterButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[0], 0);
+
+		images[1] = ImageFactory.getIndexLeftSplitterButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[1], 1);
+
+		images[2] = ImageFactory.getIndexLeftSplitterButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[2], 2);
+
+		images[3] = ImageFactory.getIndexLeftSplitterButtonDisable().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[3], 3);
+		try {
+			mt.waitForAll();
+		} catch (Exception exe) {
+			exe.printStackTrace();
+		}
+		JButton button = createButton(name, cmd, listener, images);
+		button.setDisabledIcon(new ImageIcon(images[3]));
+		return button;
+	}
+
+	public static JButton createIndexRightSplitterButton(final int width, final int height, final String name, final String cmd, final ActionListener listener) {
+		Image[] images = new Image[4];
+		MediaTracker mt = new MediaTracker(panel);
+
+		images[0] = ImageFactory.getIndexRightSplitterButton().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[0], 0);
+
+		images[1] = ImageFactory.getIndexRightSplitterButtonRollover().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[1], 1);
+
+		images[2] = ImageFactory.getIndexRightSplitterButtonPressed().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[2], 2);
+
+		images[3] = ImageFactory.getIndexRightSplitterButtonDisable().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+		mt.addImage(images[3], 3);
+		try {
+			mt.waitForAll();
+		} catch (Exception exe) {
+			exe.printStackTrace();
+		}
+		JButton button = createButton(name, cmd, listener, images);
+		button.setDisabledIcon(new ImageIcon(images[3]));
+		return button;
 	}
 }

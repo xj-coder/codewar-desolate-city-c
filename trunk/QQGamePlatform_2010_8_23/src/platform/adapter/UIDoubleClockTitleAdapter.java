@@ -30,24 +30,19 @@ public class UIDoubleClockTitleAdapter extends MouseAdapter {
 						UI.setSize(((IndexUI) UI).getHistorySize());
 
 						UI.addMouseListener(((IndexUI) UI).getDragAdapter());
-						UI.addMouseMotionListener(((IndexUI) UI)
-								.getDragAdapter());
+						UI.addMouseMotionListener(((IndexUI) UI).getDragAdapter());
 					} else {
 						((IndexUI) UI).getRestr_button().setVisible(true);
 						((IndexUI) UI).getMax_button().setVisible(false);
 						((IndexUI) UI).setMax(true);
 
 						Dimension screenSize = Tools.getScreenSize();
-						Insets screenInsets = Toolkit.getDefaultToolkit()
-								.getScreenInsets(UI.getGraphicsConfiguration());
-						UI.setSize(screenSize.width - screenInsets.left
-								- screenInsets.right, screenSize.height
-								- screenInsets.top - screenInsets.bottom);
+						Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets(UI.getGraphicsConfiguration());
+						UI.setSize(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top - screenInsets.bottom);
 						UI.setLocation(0, 0);
 
 						UI.removeMouseListener(((IndexUI) UI).getDragAdapter());
-						UI.removeMouseMotionListener(((IndexUI) UI)
-								.getDragAdapter());
+						UI.removeMouseMotionListener(((IndexUI) UI).getDragAdapter());
 					}
 				}
 			}

@@ -15,16 +15,14 @@ import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 
 public class ImageTools {
-	public static Image cut(URL url, int x, int y, int width, int height,
-			String format) {
+	public static Image cut(URL url, int x, int y, int width, int height, String format) {
 		Image result = null;
 
 		ImageInputStream iis = null;
 
 		try {
 
-			Iterator<ImageReader> it = ImageIO
-					.getImageReadersByFormatName(format);
+			Iterator<ImageReader> it = ImageIO.getImageReadersByFormatName(format);
 			ImageReader reader = it.next();
 
 			iis = ImageIO.createImageInputStream(new File(url.getPath()));
@@ -51,5 +49,13 @@ public class ImageTools {
 				}
 		}
 		return result;
+	}
+
+	public static BufferedImage createImage(int width, int height, boolean flag) {
+		if (flag) {
+			return new BufferedImage(width, height, 2);
+		} else {
+			return new BufferedImage(width, height, 1);
+		}
 	}
 }

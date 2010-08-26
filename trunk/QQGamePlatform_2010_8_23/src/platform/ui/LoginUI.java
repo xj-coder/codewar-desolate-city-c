@@ -6,7 +6,6 @@ package platform.ui;
  *  @author DesolateCity
  */
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -87,16 +86,16 @@ public class LoginUI extends JFrame {
 	public LoginUI() {
 		initComponents();
 
+		// 注册键盘钩子
 		registerKeyBoardHook();
 
+		// 设置Tab顺序
 		Vector<Component> comps = new Vector<Component>();
-
 		comps.add(getAccount_input().getComponent(1));
 		comps.add(getPassword_input());
 		comps.add(getMemory_check());
 		comps.add(getHide_check());
 		comps.add(getAgree_check());
-
 		qFocusTraversalPolicy = new QFocusTraversalPolicy(comps);
 		setFocusTraversalPolicy(qFocusTraversalPolicy);
 	}
@@ -114,10 +113,9 @@ public class LoginUI extends JFrame {
 	}
 
 	private void initComponents() {
+		setResizable(false);
 		setSize(LoginUIDefine.FRAME_WIDTH, LoginUIDefine.FRAME_HEIGHT);
 		setLocation(Tools.getScreenSize().width / 2 - getWidth() / 2, (int) (Tools.getScreenSize().getHeight() / 2 - getHeight() / 2));
-		setForeground(Color.BLACK);
-		setFocusable(true);
 
 		getLayeredPane().add(getHelp_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getClose_button(), new Integer(Integer.MIN_VALUE));

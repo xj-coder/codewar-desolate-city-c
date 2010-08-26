@@ -1,12 +1,11 @@
 package platform.adapter;
 
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
 
 import platform.tools.Tools;
 import platform.ui.IndexParams;
@@ -25,17 +24,14 @@ public class IndexActionAdapter implements ActionListener {
 			indexUI.setVisible(false);
 			System.exit(0);
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_MIN)) {
-			indexUI.setExtendedState(JFrame.ICONIFIED);
+			indexUI.setExtendedState(Frame.ICONIFIED);
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_MAX)) {
 			indexUI.getRestr_button().setVisible(true);
 			indexUI.getMax_button().setVisible(false);
 			indexUI.setMax(true);
 			Dimension screenSize = Tools.getScreenSize();
-			Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets(
-					indexUI.getGraphicsConfiguration());
-			indexUI.setSize(screenSize.width - screenInsets.left
-					- screenInsets.right, screenSize.height - screenInsets.top
-					- screenInsets.bottom);
+			Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets(indexUI.getGraphicsConfiguration());
+			indexUI.setSize(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top - screenInsets.bottom);
 			indexUI.setLocation(0, 0);
 
 			indexUI.removeMouseListener(indexUI.getDragAdapter());
@@ -49,12 +45,18 @@ public class IndexActionAdapter implements ActionListener {
 			indexUI.addMouseListener(indexUI.getDragAdapter());
 			indexUI.addMouseMotionListener(indexUI.getDragAdapter());
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_DIR_LOCK)) {
-			indexUI.getDir_unlock_button().setVisible(true);
-			indexUI.getDir_lock_button().setVisible(false);
-		} else if (event.getActionCommand().equals(
-				IndexParams.ACTION_DIR_UNLOCK)) {
-			indexUI.getDir_unlock_button().setVisible(false);
-			indexUI.getDir_lock_button().setVisible(true);
+			indexUI.getDirTreeUI().getDir_unlock_button().setVisible(true);
+			indexUI.getDirTreeUI().getDir_lock_button().setVisible(false);
+
+		} else if (event.getActionCommand().equals(IndexParams.ACTION_DIR_UNLOCK)) {
+			indexUI.getDirTreeUI().getDir_unlock_button().setVisible(false);
+			indexUI.getDirTreeUI().getDir_lock_button().setVisible(true);
+		} else if (event.getActionCommand().equals(IndexParams.ACTION_SHOW_SEARCH_DI)) {
+			indexUI.getSearch_left_splitter_button().setVisible(true);
+			indexUI.getSearch_right_splitter_button().setVisible(false);
+		} else if (event.getActionCommand().equals(IndexParams.ACTION_HIDE_SEARCH_DIR)) {
+			indexUI.getSearch_left_splitter_button().setVisible(false);
+			indexUI.getSearch_right_splitter_button().setVisible(true);
 		}
 	}
 
