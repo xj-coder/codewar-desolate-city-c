@@ -1,4 +1,4 @@
-package platform.ui;
+package platform.ui.index;
 
 public class IndexParams {
 	public static final String ACTION_MENU = "menu";

@@ -1,4 +1,4 @@
-package platform.ui;
+package platform.ui.index;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -73,6 +73,9 @@ public class IndexUI extends JFrame {
 		setMaximumSize(new Dimension(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top - screenInsets.bottom));
 		setResizable(true);
 
+		// 头部
+		getLayeredPane().add(getHeadUI(), new Integer(Integer.MIN_VALUE));
+
 		// 左侧目录树
 		getLayeredPane().add(getDirTreeUI(), new Integer(Integer.MIN_VALUE));
 
@@ -143,6 +146,7 @@ public class IndexUI extends JFrame {
 		resetBg_right_label();
 
 		resetDirTreeUI();
+		resetHeaUI();
 
 		resetSearch_left_splitter_button();
 		resetSearch_right_splitter_button();
@@ -309,13 +313,13 @@ public class IndexUI extends JFrame {
 
 			resetHeaUI();
 
-			getDirTreeUI().showUI();
+			getHeadUI().showUI();
 		}
 		return headUI;
 	}
 
 	public void resetHeaUI() {
-		getDirTreeUI().setBounds(8, 100, 314, getHeight() - 110);
+		getHeadUI().setBounds(0, 0, getWidth(), 100);
 	}
 
 	// #begin【getter and setter】

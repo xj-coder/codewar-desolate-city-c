@@ -1,6 +1,6 @@
 package platform.test;
 
-import platform.ui.LoginUI;
+import platform.ui.login.LoginUI;
 
 public class TestMain {
 	public static void main(String[] args) {

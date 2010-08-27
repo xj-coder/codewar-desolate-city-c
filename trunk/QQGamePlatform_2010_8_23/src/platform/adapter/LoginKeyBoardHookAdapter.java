@@ -4,7 +4,7 @@ import org.eclipse.swt.extension.hook.data.HookData;
 import org.eclipse.swt.extension.hook.data.KeyboardHookData;
 import org.eclipse.swt.extension.hook.listener.HookEventListener;
 
-import platform.ui.LoginUI;
+import platform.ui.login.LoginUI;
 
 public class LoginKeyBoardHookAdapter implements HookEventListener {
 	private LoginUI loginUI;

@@ -7,9 +7,9 @@ import platform.action.LoginAction;
 import platform.bean.LoginBean;
 import platform.bean.PlayerBean;
 import platform.exception.LoginException;
-import platform.ui.IndexUI;
-import platform.ui.LoginParams;
-import platform.ui.LoginUI;
+import platform.ui.index.IndexUI;
+import platform.ui.login.LoginParams;
+import platform.ui.login.LoginUI;
 
 public class LoginButtonActionAdapter implements ActionListener {
 	private LoginUI loginUI;

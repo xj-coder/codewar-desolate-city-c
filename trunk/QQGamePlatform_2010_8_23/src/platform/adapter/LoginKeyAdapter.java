@@ -3,7 +3,7 @@ package platform.adapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import platform.ui.LoginUI;
+import platform.ui.login.LoginUI;
 
 public class LoginKeyAdapter extends KeyAdapter {
 	private LoginUI loginUI;
