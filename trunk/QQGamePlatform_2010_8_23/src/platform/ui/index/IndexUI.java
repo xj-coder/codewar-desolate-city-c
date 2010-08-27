@@ -354,7 +354,7 @@ public class IndexUI extends JFrame {
 	}
 
 	public void maxTabbedPane() {
-		getTabbedPane().setBounds(10, getDirTreeUI().getY(), getWidth() - 5 - 5, getHeight() - getDirTreeUI().getY() - 5);
+		getTabbedPane().setBounds(10, getDirTreeUI().getY(), getWidth() - 10 - 5, getHeight() - getDirTreeUI().getY() - 5);
 	}
 
 	// #end 【选项卡】
