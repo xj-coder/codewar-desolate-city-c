@@ -22,6 +22,7 @@ import platform.define.IndexUIDefine;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
 import platform.tools.Tools;
+import platform.ui.widget.IndexTabbedPaneUI;
 import platform.ui.widget.WidgetFactory;
 
 import com.sun.awt.AWTUtilities;
@@ -342,6 +343,7 @@ public class IndexUI extends JFrame {
 	public IndexTabbedPane getTabbedPane() {
 		if (tabbedPane == null) {
 			tabbedPane = new IndexTabbedPane();
+			tabbedPane.setUI(new IndexTabbedPaneUI());
 
 			resetTabbedPane();
 		}
