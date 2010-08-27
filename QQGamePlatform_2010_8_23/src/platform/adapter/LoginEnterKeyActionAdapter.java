@@ -3,8 +3,8 @@ package platform.adapter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import platform.ui.LoginParams;
-import platform.ui.LoginUI;
+import platform.ui.login.LoginParams;
+import platform.ui.login.LoginUI;
 
 public class LoginEnterKeyActionAdapter implements ActionListener {
 	private LoginUI loginUI;

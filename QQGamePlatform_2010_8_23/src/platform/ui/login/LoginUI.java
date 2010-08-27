@@ -1,4 +1,4 @@
-package platform.ui;
+package platform.ui.login;
 
 /**
  * 登入界面

@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 
 import platform.tools.Tools;
-import platform.ui.IndexUI;
+import platform.ui.index.IndexUI;
 
 public class UIDoubleClockTitleAdapter extends MouseAdapter {
 	private JFrame UI;
@@ -24,16 +24,16 @@ public class UIDoubleClockTitleAdapter extends MouseAdapter {
 			if (event.getClickCount() == 2) {
 				if (UI instanceof IndexUI) {
 					if (((IndexUI) UI).isMax()) {
-						((IndexUI) UI).getRestr_button().setVisible(false);
-						((IndexUI) UI).getMax_button().setVisible(true);
+						((IndexUI) UI).getHeadUI().getRestr_button().setVisible(false);
+						((IndexUI) UI).getHeadUI().getMax_button().setVisible(true);
 						((IndexUI) UI).setMax(false);
 						UI.setSize(((IndexUI) UI).getHistorySize());
 
 						UI.addMouseListener(((IndexUI) UI).getDragAdapter());
 						UI.addMouseMotionListener(((IndexUI) UI).getDragAdapter());
 					} else {
-						((IndexUI) UI).getRestr_button().setVisible(true);
-						((IndexUI) UI).getMax_button().setVisible(false);
+						((IndexUI) UI).getHeadUI().getRestr_button().setVisible(true);
+						((IndexUI) UI).getHeadUI().getMax_button().setVisible(false);
 						((IndexUI) UI).setMax(true);
 
 						Dimension screenSize = Tools.getScreenSize();

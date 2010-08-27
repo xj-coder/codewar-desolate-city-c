@@ -1,4 +1,4 @@
-package platform.ui;
+package platform.ui.login;
 
 public class LoginParams {
 	public static String ACTION_CLOSE = "close";

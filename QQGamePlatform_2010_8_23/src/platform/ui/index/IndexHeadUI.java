@@ -1,4 +1,4 @@
-package platform.ui;
+package platform.ui.index;
 
 import java.awt.Cursor;
 import java.awt.FontMetrics;
@@ -43,7 +43,7 @@ public class IndexHeadUI extends JPanel {
 		this.indexUI = indexUI;
 		setLayout(null);
 
-		setOpaque(true);
+		setOpaque(false);
 	}
 
 	public void showUI() {
@@ -88,7 +88,12 @@ public class IndexHeadUI extends JPanel {
 	 * 调用情况:当整个窗体发生大小变化时
 	 */
 	public void resetAllComponents() {
-
+		resetClose_button();
+		resetRestr_button();
+		resetMax_button();
+		resetMin_button();
+		resetChange_face_button();
+		resetMenu_button();
 	}
 
 	public JLabel getTitle_label() {

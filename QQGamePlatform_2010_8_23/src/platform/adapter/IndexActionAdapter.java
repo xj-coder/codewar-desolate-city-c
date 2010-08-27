@@ -8,8 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import platform.tools.Tools;
-import platform.ui.IndexParams;
-import platform.ui.IndexUI;
+import platform.ui.index.IndexParams;
+import platform.ui.index.IndexUI;
 
 public class IndexActionAdapter implements ActionListener {
 	private IndexUI indexUI;
@@ -26,8 +26,8 @@ public class IndexActionAdapter implements ActionListener {
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_MIN)) {
 			indexUI.setExtendedState(Frame.ICONIFIED);
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_MAX)) {
-			indexUI.getRestr_button().setVisible(true);
-			indexUI.getMax_button().setVisible(false);
+			indexUI.getHeadUI().getRestr_button().setVisible(true);
+			indexUI.getHeadUI().getMax_button().setVisible(false);
 			indexUI.setMax(true);
 			Dimension screenSize = Tools.getScreenSize();
 			Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets(indexUI.getGraphicsConfiguration());
@@ -37,8 +37,8 @@ public class IndexActionAdapter implements ActionListener {
 			indexUI.removeMouseListener(indexUI.getDragAdapter());
 			indexUI.removeMouseMotionListener(indexUI.getDragAdapter());
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_RESTR)) {
-			indexUI.getRestr_button().setVisible(false);
-			indexUI.getMax_button().setVisible(true);
+			indexUI.getHeadUI().getRestr_button().setVisible(false);
+			indexUI.getHeadUI().getMax_button().setVisible(true);
 			indexUI.setMax(false);
 			indexUI.setSize(indexUI.getHistorySize());
 

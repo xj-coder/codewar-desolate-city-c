@@ -1,4 +1,4 @@
-package platform.ui;
+package platform.ui.index;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -56,7 +56,7 @@ public class IndexDirTreeUI extends JPanel {
 		this.indexUI = indexUI;
 		setLayout(null);
 
-		setOpaque(true);
+		setOpaque(false);
 	}
 
 	public void showUI() {
