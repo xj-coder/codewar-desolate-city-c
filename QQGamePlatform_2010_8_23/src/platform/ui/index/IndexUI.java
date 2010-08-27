@@ -30,8 +30,10 @@ public class IndexUI extends JFrame {
 
 	private static final long serialVersionUID = 5192639441087069602L;
 
-	private PlayerBean player;
+	@SuppressWarnings("unused")
+	private PlayerBean player;// 用户Bean
 
+	// #begin【背景图Label】
 	private JLabel bg_up_left_label;
 	private JLabel bg_up_center_label;
 	private JLabel bg_up_right_label;
@@ -41,29 +43,35 @@ public class IndexUI extends JFrame {
 	private JLabel bg_down_center_label;
 	private JLabel bg_down_left_label;
 	private JLabel bg_down_right_label;
+	// #end【背景图Label】
 
-	// #begin【splitter】
+	// #begin【目录树收缩splitter】
 	private JButton search_left_splitter_button;
 	private JButton search_right_splitter_button;
-	// #end【splitter】
+	// #end【目录树收缩splitter】
 
 	private IndexHeadUI headUI;// 头部
 	private IndexDirTreeUI dirTreeUI;// 左侧目录树
+	private IndexTabbedPane tabbedPane;// 右侧选项卡组件
 
-	private Dimension historySize = IndexUIDefine.MINIMUM_SIZE;
+	private Dimension historySize = IndexUIDefine.MINIMUM_SIZE;// 用来记录窗体的历史大小,供还原按钮使用
 
-	private IndexActionAdapter actionAdapter = new IndexActionAdapter(this);
-	private UIMouseDragAdapter dragAdapter = new UIMouseDragAdapter(this);
-	private UIDoubleClockTitleAdapter doubleClockTitleAdapter = new UIDoubleClockTitleAdapter(this);
+	// #begin【事件监听器】
+	private IndexActionAdapter actionAdapter = new IndexActionAdapter(this);// 按钮事件
+	private UIMouseDragAdapter dragAdapter = new UIMouseDragAdapter(this);// 鼠标拖动事件
+	private UIDoubleClockTitleAdapter doubleClockTitleAdapter = new UIDoubleClockTitleAdapter(this);// 鼠标双击窗体头部事件
+	// #end【事件监听器】
 
-	private boolean isMax = true;
+	private boolean isMax = true;// 是否最大化
 
 	public IndexUI(PlayerBean player) {
 		this.player = player;
-
 		initComponents();
 	}
 
+	/**
+	 * 设置窗体基本属性,初始化窗体元素
+	 */
 	private void initComponents() {
 		// 设置整个窗体大小
 		Dimension screenSize = Tools.getScreenSize();
@@ -71,7 +79,6 @@ public class IndexUI extends JFrame {
 		setSize(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top - screenInsets.bottom);
 		setMinimumSize(IndexUIDefine.MINIMUM_SIZE);
 		setMaximumSize(new Dimension(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top - screenInsets.bottom));
-		setResizable(true);
 
 		// 头部
 		getLayeredPane().add(getHeadUI(), new Integer(Integer.MIN_VALUE));
@@ -79,11 +86,14 @@ public class IndexUI extends JFrame {
 		// 左侧目录树
 		getLayeredPane().add(getDirTreeUI(), new Integer(Integer.MIN_VALUE));
 
-		// 目录树splitter
+		// 目录树收缩splitter
 		getLayeredPane().add(getSearch_left_splitter_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getSearch_right_splitter_button(), new Integer(Integer.MIN_VALUE));
 
-		// 最后背景
+		// 右侧选项卡
+		getLayeredPane().add(getTabbedPane(), new Integer(Integer.MIN_VALUE));
+
+		// 背景图
 		getLayeredPane().add(getBg_center_label(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getBg_left_label(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getBg_right_label(), new Integer(Integer.MIN_VALUE));
@@ -99,19 +109,26 @@ public class IndexUI extends JFrame {
 
 		// 设置无边框
 		setUndecorated(true);
+		// 设置可改变大小的,在使用了setUndecorated(true)之后,setResizable(true)是无效的,这里使用只是为了说明他是可改变大小的,改变大小的事件处理由自己完成
+		setResizable(true);
+		// 监听鼠标双击窗体头部事件
 		addMouseListener(doubleClockTitleAdapter);
 	}
 
+	/**
+	 * 显示窗体
+	 */
 	public void showMe() {
 		setVisible(true);
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				AWTUtilities.setWindowShape(IndexUI.this, new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 12, 12));
-				// AWTUtilities.setWindowOpacity(IndexUI.this, 0.93f);
+				AWTUtilities.setWindowShape(IndexUI.this, new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 12, 12));// 圆角
+				// AWTUtilities.setWindowOpacity(IndexUI.this, 0.93f);//窗体透明度
 			}
 		});
 	}
 
+	// #begin【双缓冲技术】
 	@Override
 	public void paint(Graphics g) {
 		update(g);
@@ -128,7 +145,7 @@ public class IndexUI extends JFrame {
 
 		g.drawImage(screen, 0, 0, null);// 最后个参数一定要用null，这样可以防止drawImage调用update方法
 		g.dispose();
-	}
+	}// #end【双缓冲技术】
 
 	/**
 	 * 作用:重新排列所有相对位置的元素 <BR>
@@ -147,12 +164,13 @@ public class IndexUI extends JFrame {
 
 		resetDirTreeUI();
 		resetHeaUI();
+		resetTabbedPane();
 
 		resetSearch_left_splitter_button();
 		resetSearch_right_splitter_button();
 	}
 
-	// #begin【label元素】
+	// #begin【背景label】
 	public JLabel getBg_up_left_label() {
 		if (bg_up_left_label == null) {
 			bg_up_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgUpLeftImage().getScaledInstance(314, 94, Image.SCALE_DEFAULT)));
@@ -262,9 +280,9 @@ public class IndexUI extends JFrame {
 
 	public void resetBg_right_label() {
 		getBg_right_label().setBounds(getWidth() - 5, 94, 5, getHeight() - 104);
-	}// #end【label元素】
+	}// #end【背景label】
 
-	// #begin【splitter元素】
+	// #begin【目录树收缩splitter】
 	public JButton getSearch_left_splitter_button() {
 		if (search_left_splitter_button == null) {
 			search_left_splitter_button = WidgetFactory.createIndexLeftSplitterButton(9, 80, "", IndexParams.ACTION_HIDE_SEARCH_DIR, actionAdapter);
@@ -275,7 +293,7 @@ public class IndexUI extends JFrame {
 	}
 
 	public void resetSearch_left_splitter_button() {
-		getSearch_left_splitter_button().setBounds(313, (getHeight() - 100) / 2 - 80 / 2 + 100, 9, 80);
+		getSearch_left_splitter_button().setBounds(getDirTreeUI().getWidth() + 4, (getHeight() - 100) / 2 - 80 / 2 + 100, 9, 80);
 	}
 
 	public JButton getSearch_right_splitter_button() {
@@ -289,30 +307,28 @@ public class IndexUI extends JFrame {
 	}
 
 	public void resetSearch_right_splitter_button() {
-		getSearch_right_splitter_button().setBounds(313, (getHeight() - 100) / 2 - 80 / 2 + 100, 9, 80);
-	}// #end【splitter元素】
+		getSearch_right_splitter_button().setBounds(1, (getHeight() - 100) / 2 - 80 / 2 + 100, 9, 80);
+	}// #end【目录树收缩splitter】
 
+	// #begin【目录树】
 	public IndexDirTreeUI getDirTreeUI() {
 		if (dirTreeUI == null) {
 			dirTreeUI = new IndexDirTreeUI(this);
-
 			resetDirTreeUI();
-
 			getDirTreeUI().showUI();
 		}
 		return dirTreeUI;
 	}
 
 	public void resetDirTreeUI() {
-		getDirTreeUI().setBounds(8, 100, 314, getHeight() - 110);
-	}
+		getDirTreeUI().setBounds(5, 95, 305, getHeight() - 100);
+	}// #end【目录树】
 
+	// #begin【头部】
 	public IndexHeadUI getHeadUI() {
 		if (headUI == null) {
 			headUI = new IndexHeadUI(this);
-
 			resetHeaUI();
-
 			getHeadUI().showUI();
 		}
 		return headUI;
@@ -320,7 +336,28 @@ public class IndexUI extends JFrame {
 
 	public void resetHeaUI() {
 		getHeadUI().setBounds(0, 0, getWidth(), 100);
+	}// #end【头部】
+
+	// #begin 【选项卡】
+	public IndexTabbedPane getTabbedPane() {
+		if (tabbedPane == null) {
+			tabbedPane = new IndexTabbedPane();
+
+			resetTabbedPane();
+		}
+		return tabbedPane;
 	}
+
+	public void resetTabbedPane() {
+		int tmpX = getDirTreeUI().getX() + getDirTreeUI().getWidth() + 10;
+		getTabbedPane().setBounds(tmpX, getDirTreeUI().getY(), getWidth() - tmpX - 5, getHeight() - getDirTreeUI().getY() - 5);
+	}
+
+	public void maxTabbedPane() {
+		getTabbedPane().setBounds(10, getDirTreeUI().getY(), getWidth() - 5 - 5, getHeight() - getDirTreeUI().getY() - 5);
+	}
+
+	// #end 【选项卡】
 
 	// #begin【getter and setter】
 	public Dimension getHistorySize() {

@@ -47,16 +47,21 @@ public class IndexActionAdapter implements ActionListener {
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_DIR_LOCK)) {
 			indexUI.getDirTreeUI().getDir_unlock_button().setVisible(true);
 			indexUI.getDirTreeUI().getDir_lock_button().setVisible(false);
-
+			indexUI.getSearch_left_splitter_button().setEnabled(true);
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_DIR_UNLOCK)) {
 			indexUI.getDirTreeUI().getDir_unlock_button().setVisible(false);
 			indexUI.getDirTreeUI().getDir_lock_button().setVisible(true);
+			indexUI.getSearch_left_splitter_button().setEnabled(false);
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_SHOW_SEARCH_DI)) {
 			indexUI.getSearch_left_splitter_button().setVisible(true);
 			indexUI.getSearch_right_splitter_button().setVisible(false);
+			indexUI.getDirTreeUI().setVisible(true);
+			indexUI.resetTabbedPane();
 		} else if (event.getActionCommand().equals(IndexParams.ACTION_HIDE_SEARCH_DIR)) {
 			indexUI.getSearch_left_splitter_button().setVisible(false);
 			indexUI.getSearch_right_splitter_button().setVisible(true);
+			indexUI.getDirTreeUI().setVisible(false);
+			indexUI.maxTabbedPane();
 		}
 	}
 

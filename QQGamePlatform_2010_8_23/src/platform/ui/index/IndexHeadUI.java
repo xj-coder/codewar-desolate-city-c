@@ -22,20 +22,24 @@ public class IndexHeadUI extends JPanel {
 
 	private static final long serialVersionUID = 2229808502441513661L;
 
-	// #begin【头部界面元素】
+	// #begin【Label元素】
 	private JLabel title_label;
 	private JLabel icon_label;
 	private JLabel head_pic_border_label;
+	// #end【Label元素】
 
+	// #begin【URLLabel元素】
 	private URLLabel player_info_urllabel;
+	// #end【URLLabel元素】
 
+	// #begin【Button元素】
 	private JButton close_button;
 	private JButton min_button;
 	private JButton max_button;
 	private JButton restr_button;
 	private JButton change_face_button;
 	private JButton menu_button;
-	// #end【头部】
+	// #end【Button元素】
 
 	private IndexUI indexUI;
 
@@ -43,17 +47,20 @@ public class IndexHeadUI extends JPanel {
 		this.indexUI = indexUI;
 		setLayout(null);
 
-		setOpaque(false);
+		setOpaque(false);// 透明
 	}
 
+	/**
+	 * 显示窗体
+	 */
 	public void showUI() {
-		// 头部
+		// Label元素
 		add(getIcon_label(), new Integer(Integer.MIN_VALUE));
 		add(getTitle_label(), new Integer(Integer.MIN_VALUE));
 		add(getHead_pic_border_label(), new Integer(Integer.MIN_VALUE));
 		add(getPlayer_info_urllabel(), new Integer(Integer.MIN_VALUE));
 
-		// 头部[按钮]
+		// 按钮元素
 		add(getClose_button(), new Integer(Integer.MIN_VALUE));
 		add(getMin_button(), new Integer(Integer.MIN_VALUE));
 		add(getMax_button(), new Integer(Integer.MIN_VALUE));
@@ -64,6 +71,7 @@ public class IndexHeadUI extends JPanel {
 		setVisible(true);
 	}
 
+	// #begin【双缓冲技术】
 	@Override
 	public void paint(Graphics g) {
 		update(g);
@@ -80,7 +88,7 @@ public class IndexHeadUI extends JPanel {
 
 		g.drawImage(screen, 0, 0, null);// 最后个参数一定要用null，这样可以防止drawImage调用update方法
 		g.dispose();
-	}
+	}// #end【双缓冲技术】
 
 	/**
 	 * 作用:重新排列所有相对位置的元素 <BR>
@@ -96,6 +104,7 @@ public class IndexHeadUI extends JPanel {
 		resetMenu_button();
 	}
 
+	// #begin【Label元素】
 	public JLabel getTitle_label() {
 		if (title_label == null) {
 			title_label = new JLabel(new ImageIcon(ImageFactory.getIndexTitleImage().getScaledInstance(75, 12, Image.SCALE_DEFAULT)));
@@ -169,8 +178,6 @@ public class IndexHeadUI extends JPanel {
 	}// #end【URLlabel元素】
 
 	// #begin【button元素】
-
-	// #begin【头部button元素】
 	public JButton getClose_button() {
 		if (close_button == null) {
 			close_button = WidgetFactory.createIndexCloseButton(37, 22, "", IndexParams.ACTION_CLOSE, indexUI.getActionAdapter());
