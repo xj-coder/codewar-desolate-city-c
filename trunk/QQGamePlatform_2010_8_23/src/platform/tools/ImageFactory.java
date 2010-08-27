@@ -548,4 +548,66 @@ public class ImageFactory {
 		return ImageTools.cut(url, 27, 0, 9, 80, "png");
 	}
 
+	public static Image getIndexPageTabTitleIcon() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/QQGame.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexTabBackgroundPressed(int width, int height) {
+		URL url1 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_left.png");
+		URL url2 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_mid.png");
+		URL url3 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_right.png");
+
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = bufferedImage.createGraphics();
+
+		Image left = ImageTools.cut(url1, 0, 0, 4, 26, "png");
+		Image center = ImageTools.cut(url2, 0, 0, 1, 24, "png");
+		Image right = ImageTools.cut(url3, 0, 0, 4, 26, "png");
+
+		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 8, height, Image.SCALE_DEFAULT), 4, 0, null);
+		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT), width - 4, 0, null);
+
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+	}
+
+	public static Image getIndexTabBackgroundRollover(int width, int height) {
+		URL url1 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_left.png");
+		URL url2 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_mid.png");
+		URL url3 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_right.png");
+
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = bufferedImage.createGraphics();
+
+		Image left = ImageTools.cut(url1, 4, 0, 4, 26, "png");
+		Image center = ImageTools.cut(url2, 1, 0, 1, 24, "png");
+		Image right = ImageTools.cut(url3, 4, 0, 4, 26, "png");
+
+		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 8, height, Image.SCALE_DEFAULT), 4, 0, null);
+		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT), width - 4, 0, null);
+
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+	}
+
+	public static Image getIndexTabBackground(int width, int height) {
+		URL url1 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_left.png");
+		URL url2 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_mid.png");
+		URL url3 = ImageFactory.class.getClassLoader().getResource("image/common/tab/tab_item_right.png");
+
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = bufferedImage.createGraphics();
+
+		Image left = ImageTools.cut(url1, 8, 0, 4, 26, "png");
+		Image center = ImageTools.cut(url2, 2, 0, 1, 24, "png");
+		Image right = ImageTools.cut(url3, 8, 0, 4, 26, "png");
+
+		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 8, height, Image.SCALE_DEFAULT), 4, 0, null);
+		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT), width - 4, 0, null);
+
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+	}
+
 }
