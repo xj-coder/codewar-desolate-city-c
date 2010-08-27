@@ -1,16 +1,23 @@
 package platform.ui.widget;
 
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 
 import platform.define.Define;
 import platform.tools.ImageFactory;
@@ -398,8 +405,46 @@ public class WidgetFactory {
 		} catch (Exception exe) {
 			exe.printStackTrace();
 		}
-		JButton button = createButton(name, cmd, listener, images);
+		final JButton button = createButton(name, cmd, listener, images);
 		button.setDisabledIcon(new ImageIcon(images[3]));
+
+		button.addAncestorListener(new AncestorListener() {
+			private boolean isAdded = false;
+
+			@Override
+			public void ancestorRemoved(AncestorEvent event) {
+
+			}
+
+			@Override
+			public void ancestorMoved(AncestorEvent event) {
+
+			}
+
+			@Override
+			public void ancestorAdded(AncestorEvent event) {
+				if (isAdded)
+					return;
+				button.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						Component comp = SwingUtilities.getRoot(button);
+						if (comp != null && comp instanceof JFrame) {
+							comp.setCursor(new Cursor(Cursor.HAND_CURSOR));
+						}
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+						Component comp = SwingUtilities.getRoot(button);
+						if (comp != null && comp instanceof JFrame) {
+							comp.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+						}
+					}
+				});
+				isAdded = true;
+			}
+		});
 		return button;
 	}
 
@@ -423,8 +468,47 @@ public class WidgetFactory {
 		} catch (Exception exe) {
 			exe.printStackTrace();
 		}
-		JButton button = createButton(name, cmd, listener, images);
+		final JButton button = createButton(name, cmd, listener, images);
 		button.setDisabledIcon(new ImageIcon(images[3]));
+		button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+		button.addAncestorListener(new AncestorListener() {
+			private boolean isAdded = false;
+
+			@Override
+			public void ancestorRemoved(AncestorEvent event) {
+
+			}
+
+			@Override
+			public void ancestorMoved(AncestorEvent event) {
+
+			}
+
+			@Override
+			public void ancestorAdded(AncestorEvent event) {
+				if (isAdded)
+					return;
+				button.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						Component comp = SwingUtilities.getRoot(button);
+						if (comp != null && comp instanceof JFrame) {
+							comp.setCursor(new Cursor(Cursor.HAND_CURSOR));
+						}
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+						Component comp = SwingUtilities.getRoot(button);
+						if (comp != null && comp instanceof JFrame) {
+							comp.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+						}
+					}
+				});
+				isAdded = true;
+			}
+		});
 		return button;
 	}
 }
