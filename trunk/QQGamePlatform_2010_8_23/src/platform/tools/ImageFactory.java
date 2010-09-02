@@ -610,4 +610,14 @@ public class ImageFactory {
 		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
+	public static Image getExpandOpenImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/LedOff.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getExpandCloseImage() {
+		URL url = ImageFactory.class.getClassLoader().getResource("image/index/DirTree/LedOn.png");
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
 }

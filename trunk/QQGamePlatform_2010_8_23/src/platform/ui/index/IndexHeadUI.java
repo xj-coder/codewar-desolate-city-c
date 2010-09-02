@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import platform.define.Define;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
-import platform.ui.widget.URLLabel;
 import platform.ui.widget.WidgetFactory;
+import platform.ui.widget.ui.URLLabelUI;
 
 public class IndexHeadUI extends JPanel {
 
@@ -29,7 +29,7 @@ public class IndexHeadUI extends JPanel {
 	// #end【Label元素】
 
 	// #begin【URLLabel元素】
-	private URLLabel player_info_urllabel;
+	private URLLabelUI player_info_urllabel;
 	// #end【URLLabel元素】
 
 	// #begin【Button元素】
@@ -160,9 +160,9 @@ public class IndexHeadUI extends JPanel {
 	}// #end【label元素】
 
 	// #begin【URLlabel元素】
-	public URLLabel getPlayer_info_urllabel() {
+	public URLLabelUI getPlayer_info_urllabel() {
 		if (player_info_urllabel == null) {
-			player_info_urllabel = new URLLabel("荒城:左手程序。。右手诗");
+			player_info_urllabel = new URLLabelUI("荒城:左手程序。。右手诗");
 
 			resetPlayer_info_urllabel();
 		}

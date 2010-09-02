@@ -1,4 +1,4 @@
-package platform.ui.widget;
+package platform.ui.widget.ui;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

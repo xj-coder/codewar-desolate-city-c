@@ -12,6 +12,8 @@ import platform.define.Define;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
 import platform.ui.widget.WidgetFactory;
+import platform.ui.widget.model.QTableTreeModel;
+import platform.ui.widget.ui.QTableTreeUI;
 
 @SuppressWarnings("serial")
 public class IndexDirTreeUI extends JPanel {
@@ -50,7 +52,10 @@ public class IndexDirTreeUI extends JPanel {
 	private JButton dir_unlock_button;
 	// #end【Button元素】
 
-	private IndexUI indexUI;
+	private IndexUI indexUI;// 父元素
+
+	private QTableTreeUI tree;// 目录树UI
+	private QTableTreeModel treeModel;// 目录树模型
 
 	public IndexDirTreeUI(IndexUI indexUI) {
 		this.indexUI = indexUI;
@@ -63,6 +68,8 @@ public class IndexDirTreeUI extends JPanel {
 	 * 显示窗体
 	 */
 	public void showUI() {
+		add(getTree(), new Integer(Integer.MIN_VALUE));
+
 		// 按钮元素
 		add(getDir_lock_button(), new Integer(Integer.MIN_VALUE));
 		add(getDir_unlock_button(), new Integer(Integer.MIN_VALUE));
@@ -121,6 +128,8 @@ public class IndexDirTreeUI extends JPanel {
 		resetDir_bg_up_left_label();
 		resetDir_bg_up_right_label();
 		resetDir_bg_up_center_label();
+
+		resetTree();
 	}
 
 	// #begin【Label元素】
@@ -448,5 +457,27 @@ public class IndexDirTreeUI extends JPanel {
 	public void resetDir_unlock_button() {
 		getDir_unlock_button().setBounds(getWidth() - 20, 5, 18, 17);
 	}// #end【button元素】
+
+	// #begin QTableTree元素
+	public QTableTreeModel getTreeModel() {
+		if (treeModel == null) {
+			treeModel = new QTableTreeModel();
+		}
+		return treeModel;
+	}
+
+	public QTableTreeUI getTree() {
+		if (tree == null) {
+			tree = new QTableTreeUI(getTreeModel());
+			// tree.setModel(null);
+			resetTree();
+		}
+		return tree;
+	}
+
+	public void resetTree() {
+		tree.setBounds(5, 58, getWidth() - 10, getHeight() - getDir_bg_up_center_label().getHeight() - 5);
+	}
+	// #end QTableTree元素
 
 }
