@@ -87,6 +87,7 @@ public class QTableTreeUI extends JList {
 		if (!item.isExpand()) {
 			if (item.getChilds().size() > 0) {
 				for (int i = 0; i < item.getChilds().size(); i++) {
+					item.getChilds().get(i).setExpand(false);
 					closeAll(item.getChilds().get(i));
 					treeModel.removeElement(item.getChilds().get(i));
 				}
@@ -103,6 +104,7 @@ public class QTableTreeUI extends JList {
 			if (item.getChilds().size() > 0) {
 				for (int i = 0; i < item.getChilds().size(); i++) {
 					treeModel.addElement(index + 1, item.getChilds().get(i));
+					item.getChilds().get(i).setExpand(!item.getChilds().get(i).isExpand());
 					openAll(item.getChilds().get(i));
 				}
 			}
