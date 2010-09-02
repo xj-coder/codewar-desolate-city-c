@@ -7,5 +7,6 @@ public class Test1 {
 		JWindow jf = new JWindow();
 		jf.setSize(500, 500);
 		jf.setVisible(true);
+
 	}
 }

@@ -22,8 +22,8 @@ import platform.define.IndexUIDefine;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
 import platform.tools.Tools;
-import platform.ui.widget.IndexTabbedPaneUI;
 import platform.ui.widget.WidgetFactory;
+import platform.ui.widget.ui.IndexTabbedPaneUI;
 
 import com.sun.awt.AWTUtilities;
 

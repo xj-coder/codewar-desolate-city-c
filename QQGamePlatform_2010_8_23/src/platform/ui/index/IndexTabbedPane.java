@@ -31,12 +31,6 @@ public class IndexTabbedPane extends JTabbedPane {
 		if (indexPageTab == null) {
 			indexPageTab = new IndexPageTab();
 			addTab(indexPageTab.getTitle() + "1", indexPageTab.getTitleIcon(), indexPageTab);
-			indexPageTab = new IndexPageTab();
-			addTab(indexPageTab.getTitle() + "2", indexPageTab.getTitleIcon(), indexPageTab);
-			indexPageTab = new IndexPageTab();
-			addTab(indexPageTab.getTitle() + "3", indexPageTab.getTitleIcon(), indexPageTab);
-			indexPageTab = new IndexPageTab();
-			addTab(indexPageTab.getTitle() + "4", indexPageTab.getTitleIcon(), indexPageTab);
 		}
 	}
 

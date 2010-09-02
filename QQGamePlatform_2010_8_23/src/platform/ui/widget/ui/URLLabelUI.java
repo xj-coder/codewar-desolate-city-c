@@ -1,4 +1,4 @@
-package platform.ui.widget;
+package platform.ui.widget.ui;
 
 import java.awt.Cursor;
 import java.awt.FontMetrics;
@@ -13,17 +13,17 @@ import javax.swing.SwingUtilities;
 
 import platform.define.Define;
 
-public class URLLabel extends JLabel {
+public class URLLabelUI extends JLabel {
 	private static final long serialVersionUID = 3517076967172024352L;
 
 	private String show_text;
 	private URL url;
 
-	public URLLabel() {
+	public URLLabelUI() {
 		super();
 	}
 
-	public URLLabel(String show_text) {
+	public URLLabelUI(String show_text) {
 		super();
 		this.show_text = show_text;
 
@@ -37,16 +37,16 @@ public class URLLabel extends JLabel {
 				int _x = 3;
 				int _x_ = _x + fontMetrics.stringWidth(getShow_text());
 
-				g.setColor(URLLabel.this.getForeground());
+				g.setColor(URLLabelUI.this.getForeground());
 				g.drawLine(_x, _y, _x_, _y);
-				SwingUtilities.getRoot(URLLabel.this).setCursor(new Cursor(Cursor.HAND_CURSOR));
+				SwingUtilities.getRoot(URLLabelUI.this).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				super.mouseExited(e);
 				repaint();
-				SwingUtilities.getRoot(URLLabel.this).setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+				SwingUtilities.getRoot(URLLabelUI.this).setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 
 			@Override

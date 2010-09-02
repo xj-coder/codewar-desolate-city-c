@@ -40,8 +40,8 @@ import platform.define.LoginUIDefine;
 import platform.tools.ImageFactory;
 import platform.tools.Tools;
 import platform.ui.focustraversalpolicy.QFocusTraversalPolicy;
-import platform.ui.widget.URLLabel;
 import platform.ui.widget.WidgetFactory;
+import platform.ui.widget.ui.URLLabelUI;
 
 import com.sun.awt.AWTUtilities;
 
@@ -65,9 +65,9 @@ public class LoginUI extends JFrame {
 	private JButton login_button;
 	private JButton set_button;
 
-	private URLLabel register_account_urllabel;
-	private URLLabel get_back_password_urllabel;
-	private URLLabel article_urllabel;
+	private URLLabelUI register_account_urllabel;
+	private URLLabelUI get_back_password_urllabel;
+	private URLLabelUI article_urllabel;
 
 	private JComboBox account_input;
 	private JPasswordField password_input;
@@ -404,9 +404,9 @@ public class LoginUI extends JFrame {
 	}
 
 	// urlLabel
-	public URLLabel getRegister_account_urllabel() {
+	public URLLabelUI getRegister_account_urllabel() {
 		if (register_account_urllabel == null) {
-			register_account_urllabel = new URLLabel("申请账号");
+			register_account_urllabel = new URLLabelUI("申请账号");
 			register_account_urllabel.setFont(Define.DEFAULT_FONT);
 			register_account_urllabel.setForeground(LoginUIDefine.URLLABEL_FONT_COLOR);
 
@@ -415,9 +415,9 @@ public class LoginUI extends JFrame {
 		return register_account_urllabel;
 	}
 
-	public URLLabel getGet_back_password_urllabel() {
+	public URLLabelUI getGet_back_password_urllabel() {
 		if (get_back_password_urllabel == null) {
-			get_back_password_urllabel = new URLLabel("忘了密码？");
+			get_back_password_urllabel = new URLLabelUI("忘了密码？");
 			get_back_password_urllabel.setFont(Define.DEFAULT_FONT);
 			get_back_password_urllabel.setForeground(LoginUIDefine.URLLABEL_FONT_COLOR);
 
@@ -426,9 +426,9 @@ public class LoginUI extends JFrame {
 		return get_back_password_urllabel;
 	}
 
-	public URLLabel getArticle_urllabel() {
+	public URLLabelUI getArticle_urllabel() {
 		if (article_urllabel == null) {
-			article_urllabel = new URLLabel("同意条款");
+			article_urllabel = new URLLabelUI("同意条款");
 			article_urllabel.setForeground(LoginUIDefine.URLLABEL_FONT_COLOR);
 
 			article_urllabel.setBounds(241, 180, 60, 20);
