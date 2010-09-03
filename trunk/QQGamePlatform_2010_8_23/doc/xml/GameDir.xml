@@ -1,0 +1,11 @@
+<!--服务端发往客户端的游戏列表数据格式-->
+<Items>
+	<Game>
+		<name>游戏名</name>
+		<GID>游戏唯一标识</GID>
+		<category>游戏分类</category>
+		<index>游戏官方主页</index>
+		<download>游戏Jar包下载地址</download>
+		<main>游戏入口类</main>
+	</Game>
+</Items>

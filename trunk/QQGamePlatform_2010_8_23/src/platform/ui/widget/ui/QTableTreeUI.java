@@ -2,10 +2,10 @@ package platform.ui.widget.ui;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,12 +13,16 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
+import platform.adapter.QTableTreeMouseAdapter;
+import platform.tools.ImageTools;
 import platform.ui.widget.bean.QTableTreeItem;
 import platform.ui.widget.model.QTableTreeModel;
 
 public class QTableTreeUI extends JList {
 
 	private static final long serialVersionUID = 234963439260527147L;
+
+	private QTableTreeMouseAdapter mouseAdapter = new QTableTreeMouseAdapter(this);
 
 	public QTableTreeUI(QTableTreeModel model) {
 		super(model);
@@ -43,73 +47,27 @@ public class QTableTreeUI extends JList {
 				return itemUI;
 			}
 		});
-		addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				int index = locationToIndex(e.getPoint());
-				QTableTreeItem item = (QTableTreeItem) getModel().getElementAt(index);
-				item.setExpand(!item.isExpand());
 
-				if (!item.isExpand()) {
-					closeAll(item);
-				} else {
-					openAll(item);
-				}
-
-			}
-		});
-		addMouseMotionListener(new MouseAdapter() {
-			int oldIndex = -1;
-
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				int index = locationToIndex(e.getPoint());
-
-				if (oldIndex != index) {
-					if (oldIndex == -1) {
-						oldIndex = index;
-					} else {
-						((QTableTreeItem) getModel().getElementAt(oldIndex)).setRollover(false);
-					}
-				}
-				((QTableTreeItem) getModel().getElementAt(index)).setRollover(true);
-				oldIndex = index;
-
-				updateUI();
-			}
-		});
+		addMouseListener(mouseAdapter);
+		addMouseMotionListener(mouseAdapter);
 	}
 
-	private void closeAll(QTableTreeItem item) {
-
-		QTableTreeModel treeModel = (QTableTreeModel) getModel();
-
-		if (!item.isExpand()) {
-			if (item.getChilds().size() > 0) {
-				for (int i = 0; i < item.getChilds().size(); i++) {
-					item.getChilds().get(i).setExpand(false);
-					closeAll(item.getChilds().get(i));
-					treeModel.removeElement(item.getChilds().get(i));
-				}
-			}
-		}
+	// #begin【双缓冲技术】
+	@Override
+	public void paint(Graphics g) {
+		update(g);
 	}
 
-	private void openAll(QTableTreeItem item) {
+	@Override
+	public void update(Graphics g) {
+		Image screen = ImageTools.createImage(getWidth(), getHeight(), true);// 双缓冲
+		Graphics graphics = screen.getGraphics();
 
-		QTableTreeModel treeModel = (QTableTreeModel) getModel();
-		int index = treeModel.indexOf(item);
+		super.paint(graphics);
 
-		if (item.isExpand()) {
-			if (item.getChilds().size() > 0) {
-				for (int i = 0; i < item.getChilds().size(); i++) {
-					treeModel.addElement(index + 1, item.getChilds().get(i));
-					item.getChilds().get(i).setExpand(!item.getChilds().get(i).isExpand());
-					openAll(item.getChilds().get(i));
-				}
-			}
-		}
-	}
+		g.drawImage(screen, 0, 0, null);// 最后个参数一定要用null，这样可以防止drawImage调用update方法
+		g.dispose();
+	}// #end【双缓冲技术】
 
 	public static void main(String[] args) {
 		JFrame jf = new JFrame();
@@ -122,12 +80,19 @@ public class QTableTreeUI extends JList {
 		QTableTreeUI tableTreeUI = new QTableTreeUI(tableTreeModel);
 
 		QTableTreeItem t1 = new QTableTreeItem("1111", false, false, 1);
-		QTableTreeItem t2 = new QTableTreeItem("2222", false, false, 2);
+		QTableTreeItem t2 = new QTableTreeItem("2222", true, false, 2);
 		t1.getChilds().add(t2);
+
 		QTableTreeItem t3 = new QTableTreeItem("3333", false, false, 1);
-		QTableTreeItem t4 = new QTableTreeItem("4444", false, false, 2);
+		QTableTreeItem t4 = new QTableTreeItem("4444", true, false, 2);
 		QTableTreeItem t5 = new QTableTreeItem("5555", false, false, 3);
+		QTableTreeItem t6 = new QTableTreeItem("6666", true, false, 2);
+		QTableTreeItem t7 = new QTableTreeItem("7777", false, false, 3);
+		QTableTreeItem t8 = new QTableTreeItem("8888", false, false, 4);
 		t3.getChilds().add(t4);
+		t3.getChilds().add(t6);
+		t6.getChilds().add(t7);
+		t7.getChilds().add(t8);
 		t4.getChilds().add(t5);
 
 		tableTreeModel.addElement(t1);
