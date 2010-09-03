@@ -127,6 +127,7 @@ public class IndexUI extends JFrame {
 				// AWTUtilities.setWindowOpacity(IndexUI.this, 0.93f);//窗体透明度
 			}
 		});
+		getDirTreeUI().requestFocus();
 	}
 
 	// #begin【双缓冲技术】
@@ -262,6 +263,7 @@ public class IndexUI extends JFrame {
 		if (bg_center_label == null) {
 			bg_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgCenterImage().getScaledInstance(getWidth() - 10, getHeight() - 104,
 					Image.SCALE_DEFAULT)));
+
 			resetBg_center_label();
 		}
 		return bg_center_label;

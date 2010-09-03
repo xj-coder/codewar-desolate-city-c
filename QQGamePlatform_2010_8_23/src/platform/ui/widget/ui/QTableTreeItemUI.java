@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
 
 import platform.tools.ImageFactory;
 import platform.ui.widget.bean.QTableTreeItem;
@@ -12,11 +13,14 @@ import platform.ui.widget.bean.QTableTreeItem;
 public class QTableTreeItemUI extends JButton {
 	private static final long serialVersionUID = -1218664142186173889L;
 
-	public static Color ITEM_NONE = new Color(0x000000);
-	public static Color ITEM_SELECT = new Color(0xFF0000);
-	public static Color ITEM_ROLLOVER = new Color(0xFFFF00);
+	public static Color ITEM_NONE = new Color(0xffffff);
+	public static Color ITEM_SELECT = new Color(0x41a4e7);
+	public static Color ITEM_ROLLOVER = new Color(0xcbe8fb);
+	public static Color ITEM_BORDER = new Color(0xeeeeee);
 
-	private static int UNIT_SPANE_WIDTH = 20;
+	public static int UNIT_SPANE_WIDTH = 20;
+	public static int UNIT_WIDTH = 196;
+	public static int UNIT_HEIGHT = 20;
 
 	private QTableTreeItem item;
 
@@ -30,6 +34,8 @@ public class QTableTreeItemUI extends JButton {
 
 		this.item = item;
 		setLayout(null);
+		setBorder(new LineBorder(ITEM_BORDER));
+
 		if (item.isSelect()) {
 			setBackground(ITEM_SELECT);
 		} else if (item.isRollover()) {
