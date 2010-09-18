@@ -74,6 +74,7 @@ public class IndexHeadUI extends JPanel {
 	// #begin【双缓冲技术】
 	@Override
 	public void paint(Graphics g) {
+		System.out.println("paint IndexHeadUI");
 		update(g);
 	}
 

@@ -67,7 +67,6 @@ public class IndexDirTreeUI extends JPanel {
 
 	public IndexDirTreeUI(IndexUI indexUI) {
 		this.indexUI = indexUI;
-		setFocusable(true);
 		setLayout(null);
 
 		setOpaque(false);
@@ -110,6 +109,7 @@ public class IndexDirTreeUI extends JPanel {
 	// #begin【双缓冲技术】
 	@Override
 	public void paint(Graphics g) {
+		System.out.println("paint IndexDirTreeUI");
 		update(g);
 	}
 
@@ -150,6 +150,7 @@ public class IndexDirTreeUI extends JPanel {
 	public JLabel getDir_bg_up_left_label() {
 		if (dir_bg_up_left_label == null) {
 			dir_bg_up_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirBgUpLeftImage().getScaledInstance(15, 58, Image.SCALE_DEFAULT)));
+
 			resetDir_bg_up_left_label();
 		}
 		return dir_bg_up_left_label;
@@ -162,6 +163,7 @@ public class IndexDirTreeUI extends JPanel {
 	public JLabel getDir_bg_up_right_label() {
 		if (dir_bg_up_right_label == null) {
 			dir_bg_up_right_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirBgUpRightImage().getScaledInstance(15, 58, Image.SCALE_DEFAULT)));
+
 			resetDir_bg_up_right_label();
 		}
 		return dir_bg_up_right_label;
@@ -175,6 +177,7 @@ public class IndexDirTreeUI extends JPanel {
 		if (dir_bg_up_center_label == null) {
 			dir_bg_up_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirBgUpCenterImage().getScaledInstance(
 					getWidth() - getDir_bg_up_left_label().getWidth() - getDir_bg_up_right_label().getWidth(), 58, Image.SCALE_DEFAULT)));
+
 			resetDir_bg_up_center_label();
 		}
 		return dir_bg_up_center_label;
@@ -322,6 +325,7 @@ public class IndexDirTreeUI extends JPanel {
 	public JButton getSearch_list_button() {
 		if (search_list_button == null) {
 			search_list_button = WidgetFactory.createIndexSearchListButton(8, 5, "", IndexParams.ACTION_SEARCH_LIST, indexUI.getActionAdapter());
+			search_list_button.setFocusable(true);
 
 			resetSearch_list_button();
 		}
@@ -335,6 +339,7 @@ public class IndexDirTreeUI extends JPanel {
 	public JButton getSearch_enter_button() {
 		if (search_enter_button == null) {
 			search_enter_button = WidgetFactory.createIndexSearchEnterButton(10, 10, "", IndexParams.ACTION_SEARCH_ENTER, indexUI.getActionAdapter());
+			search_enter_button.setFocusable(true);
 
 			resetSearch_enter_button();
 		}
