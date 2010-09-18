@@ -83,16 +83,14 @@ public class IndexUI extends JFrame {
 
 		// 头部
 		getLayeredPane().add(getHeadUI(), new Integer(Integer.MIN_VALUE));
-
 		// 左侧目录树
 		getLayeredPane().add(getDirTreeUI(), new Integer(Integer.MIN_VALUE));
+		// 右侧选项卡
+		getLayeredPane().add(getTabbedPane(), new Integer(Integer.MIN_VALUE));
 
 		// 目录树收缩splitter
 		getLayeredPane().add(getSearch_left_splitter_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getSearch_right_splitter_button(), new Integer(Integer.MIN_VALUE));
-
-		// 右侧选项卡
-		getLayeredPane().add(getTabbedPane(), new Integer(Integer.MIN_VALUE));
 
 		// 背景图
 		getLayeredPane().add(getBg_center_label(), new Integer(Integer.MIN_VALUE));
@@ -134,6 +132,7 @@ public class IndexUI extends JFrame {
 	@Override
 	public void paint(Graphics g) {
 		update(g);
+		System.out.println("paint IndexUI");
 	}
 
 	@Override
@@ -164,8 +163,8 @@ public class IndexUI extends JFrame {
 		resetBg_center_label();
 		resetBg_right_label();
 
+		resetHeadUI();
 		resetDirTreeUI();
-		resetHeaUI();
 		resetTabbedPane();
 
 		resetSearch_left_splitter_button();
@@ -317,6 +316,7 @@ public class IndexUI extends JFrame {
 	public IndexDirTreeUI getDirTreeUI() {
 		if (dirTreeUI == null) {
 			dirTreeUI = new IndexDirTreeUI(this);
+
 			resetDirTreeUI();
 			getDirTreeUI().showUI();
 		}
@@ -331,13 +331,14 @@ public class IndexUI extends JFrame {
 	public IndexHeadUI getHeadUI() {
 		if (headUI == null) {
 			headUI = new IndexHeadUI(this);
-			resetHeaUI();
+
+			resetHeadUI();
 			getHeadUI().showUI();
 		}
 		return headUI;
 	}
 
-	public void resetHeaUI() {
+	public void resetHeadUI() {
 		getHeadUI().setBounds(0, 0, getWidth(), 100);
 	}// #end【头部】
 

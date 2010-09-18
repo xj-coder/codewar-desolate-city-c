@@ -15,7 +15,7 @@ import platform.tools.ImageFactory;
 public class IndexTabbedPaneUI extends BasicTabbedPaneUI {
 
 	public IndexTabbedPaneUI() {
-
+		super();
 	}
 
 	/**
