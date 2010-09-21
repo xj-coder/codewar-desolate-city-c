@@ -7,10 +7,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -23,6 +21,7 @@ import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
 import platform.tools.Tools;
 import platform.ui.widget.WidgetFactory;
+import platform.ui.widget.ui.ImagePanelUI;
 import platform.ui.widget.ui.IndexTabbedPaneUI;
 
 import com.sun.awt.AWTUtilities;
@@ -34,16 +33,16 @@ public class IndexUI extends JFrame {
 	@SuppressWarnings("unused")
 	private PlayerBean player;// 用户Bean
 
-	// #begin【背景图Label】
-	private JLabel bg_up_left_label;
-	private JLabel bg_up_center_label;
-	private JLabel bg_up_right_label;
-	private JLabel bg_center_label;
-	private JLabel bg_right_label;
-	private JLabel bg_left_label;
-	private JLabel bg_down_center_label;
-	private JLabel bg_down_left_label;
-	private JLabel bg_down_right_label;
+	// #begin【背景图ImagePanelUI】
+	private ImagePanelUI bg_up_left_image_panel;
+	private ImagePanelUI bg_up_center_image_panel;
+	private ImagePanelUI bg_up_right_image_panel;
+	private ImagePanelUI bg_center_image_panel;
+	private ImagePanelUI bg_right_image_panel;
+	private ImagePanelUI bg_left_image_panel;
+	private ImagePanelUI bg_down_center_image_panel;
+	private ImagePanelUI bg_down_left_image_panel;
+	private ImagePanelUI bg_down_right_image_panel;
 	// #end【背景图Label】
 
 	// #begin【目录树收缩splitter】
@@ -84,24 +83,25 @@ public class IndexUI extends JFrame {
 		// 头部
 		getLayeredPane().add(getHeadUI(), new Integer(Integer.MIN_VALUE));
 		// 左侧目录树
-		getLayeredPane().add(getDirTreeUI(), new Integer(Integer.MIN_VALUE));
+		// getLayeredPane().add(getDirTreeUI(), new Integer(Integer.MIN_VALUE));
 		// 右侧选项卡
-		getLayeredPane().add(getTabbedPane(), new Integer(Integer.MIN_VALUE));
+		// getLayeredPane().add(getTabbedPane(), new
+		// Integer(Integer.MIN_VALUE));
 
 		// 目录树收缩splitter
 		getLayeredPane().add(getSearch_left_splitter_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getSearch_right_splitter_button(), new Integer(Integer.MIN_VALUE));
 
 		// 背景图
-		getLayeredPane().add(getBg_center_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_left_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_right_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_down_center_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_down_left_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_down_right_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_up_center_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_up_left_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_up_right_label(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_center_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_left_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_right_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_down_center_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_down_left_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_down_right_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_up_center_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_up_left_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_up_right_image_panel(), new Integer(Integer.MIN_VALUE));
 
 		// 设置ContentPane透明
 		((JPanel) getContentPane()).setOpaque(false);
@@ -119,6 +119,7 @@ public class IndexUI extends JFrame {
 	 */
 	public void showMe() {
 		setVisible(true);
+
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				AWTUtilities.setWindowShape(IndexUI.this, new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 12, 12));// 圆角
@@ -131,8 +132,8 @@ public class IndexUI extends JFrame {
 	// #begin【双缓冲技术】
 	@Override
 	public void paint(Graphics g) {
-		update(g);
 		System.out.println("paint IndexUI");
+		update(g);
 	}
 
 	@Override
@@ -154,14 +155,14 @@ public class IndexUI extends JFrame {
 	 * 调用情况:当整个窗体发生大小变化时
 	 */
 	public void resetAllComponents() {
-		resetBg_up_center_label();
-		resetBg_up_right_label();
-		resetBg_down_left_label();
-		resetBg_down_center_label();
-		resetBg_down_right_label();
-		resetBg_left_label();
-		resetBg_center_label();
-		resetBg_right_label();
+		resetBg_up_center_image_panel();
+		resetBg_up_right_image_panel();
+		resetBg_down_left_image_panel();
+		resetBg_down_center_image_panel();
+		resetBg_down_right_image_panel();
+		resetBg_left_image_panel();
+		resetBg_center_image_panel();
+		resetBg_right_image_panel();
 
 		resetHeadUI();
 		resetDirTreeUI();
@@ -172,116 +173,115 @@ public class IndexUI extends JFrame {
 	}
 
 	// #begin【背景label】
-	public JLabel getBg_up_left_label() {
-		if (bg_up_left_label == null) {
-			bg_up_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgUpLeftImage().getScaledInstance(314, 94, Image.SCALE_DEFAULT)));
-			resetBg_up_left_label();
+	public ImagePanelUI getBg_up_left_image_panel() {
+		if (bg_up_left_image_panel == null) {
+			bg_up_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpLeftImage().getScaledInstance(314, 94, Image.SCALE_DEFAULT));
+			resetBg_up_left_image_panel();
 		}
-		return bg_up_left_label;
+		return bg_up_left_image_panel;
 	}
 
-	public void resetBg_up_left_label() {
-		getBg_up_left_label().setBounds(0, 0, 314, 94);
+	public void resetBg_up_left_image_panel() {
+		getBg_up_left_image_panel().setBounds(0, 0, 314, 94);
 	}
 
-	public JLabel getBg_up_center_label() {
-		if (bg_up_center_label == null) {
-			bg_up_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgUpCenterImage().getScaledInstance(
-					getWidth() - getBg_up_right_label().getWidth() - getBg_up_left_label().getWidth(), 94, Image.SCALE_DEFAULT)));
-			resetBg_up_center_label();
+	public ImagePanelUI getBg_up_center_image_panel() {
+		if (bg_up_center_image_panel == null) {
+			bg_up_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpCenterImage().getScaledInstance(
+					getWidth() - getBg_up_right_image_panel().getWidth() - getBg_up_left_image_panel().getWidth(), 94, Image.SCALE_DEFAULT));
+			resetBg_up_center_image_panel();
 		}
-		return bg_up_center_label;
+		return bg_up_center_image_panel;
 	}
 
-	public void resetBg_up_center_label() {
-		getBg_up_center_label().setBounds(314, 0, getWidth() - getBg_up_right_label().getWidth() - getBg_up_left_label().getWidth(), 94);
+	public void resetBg_up_center_image_panel() {
+		getBg_up_center_image_panel().setBounds(314, 0, getWidth() - getBg_up_right_image_panel().getWidth() - getBg_up_left_image_panel().getWidth(), 94);
 	}
 
-	public JLabel getBg_up_right_label() {
-		if (bg_up_right_label == null) {
-			bg_up_right_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgUpRightImage().getScaledInstance(8, 94, Image.SCALE_DEFAULT)));
-			resetBg_up_right_label();
+	public ImagePanelUI getBg_up_right_image_panel() {
+		if (bg_up_right_image_panel == null) {
+			bg_up_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpRightImage().getScaledInstance(8, 94, Image.SCALE_DEFAULT));
+			resetBg_up_right_image_panel();
 		}
-		return bg_up_right_label;
+		return bg_up_right_image_panel;
 	}
 
-	public void resetBg_up_right_label() {
-		getBg_up_right_label().setBounds(getWidth() - 8, 0, 8, 94);
+	public void resetBg_up_right_image_panel() {
+		getBg_up_right_image_panel().setBounds(getWidth() - 8, 0, 8, 94);
 	}
 
-	public JLabel getBg_down_left_label() {
-		if (bg_down_left_label == null) {
-			bg_down_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgDownLeftImage().getScaledInstance(10, 10, Image.SCALE_DEFAULT)));
-			resetBg_down_left_label();
+	public ImagePanelUI getBg_down_left_image_panel() {
+		if (bg_down_left_image_panel == null) {
+			bg_down_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownLeftImage().getScaledInstance(10, 10, Image.SCALE_DEFAULT));
+			resetBg_down_left_image_panel();
 		}
-		return bg_down_left_label;
+		return bg_down_left_image_panel;
 	}
 
-	public void resetBg_down_left_label() {
-		getBg_down_left_label().setBounds(0, getHeight() - 10, 10, 10);
+	public void resetBg_down_left_image_panel() {
+		getBg_down_left_image_panel().setBounds(0, getHeight() - 10, 10, 10);
 	}
 
-	public JLabel getBg_down_center_label() {
-		if (bg_down_center_label == null) {
-			bg_down_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgDownCenterImage()
-					.getScaledInstance(getWidth() - 20, 10, Image.SCALE_DEFAULT)));
-			resetBg_down_center_label();
+	public ImagePanelUI getBg_down_center_image_panel() {
+		if (bg_down_center_image_panel == null) {
+			bg_down_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownCenterImage().getScaledInstance(getWidth() - 20, 10, Image.SCALE_DEFAULT));
+			resetBg_down_center_image_panel();
 		}
-		return bg_down_center_label;
+		return bg_down_center_image_panel;
 	}
 
-	public void resetBg_down_center_label() {
-		getBg_down_center_label().setBounds(10, getHeight() - 10, getWidth() - 20, 10);
+	public void resetBg_down_center_image_panel() {
+		getBg_down_center_image_panel().setBounds(10, getHeight() - 10, getWidth() - 20, 10);
 	}
 
-	public JLabel getBg_down_right_label() {
-		if (bg_down_right_label == null) {
-			bg_down_right_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgDownRightImage().getScaledInstance(10, 10, Image.SCALE_DEFAULT)));
-			resetBg_down_right_label();
+	public ImagePanelUI getBg_down_right_image_panel() {
+		if (bg_down_right_image_panel == null) {
+			bg_down_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownRightImage().getScaledInstance(10, 10, Image.SCALE_DEFAULT));
+			resetBg_down_right_image_panel();
 		}
-		return bg_down_right_label;
+		return bg_down_right_image_panel;
 	}
 
-	public void resetBg_down_right_label() {
-		getBg_down_right_label().setBounds(getWidth() - 10, getHeight() - 10, 10, 10);
+	public void resetBg_down_right_image_panel() {
+		getBg_down_right_image_panel().setBounds(getWidth() - 10, getHeight() - 10, 10, 10);
 	}
 
-	public JLabel getBg_left_label() {
-		if (bg_left_label == null) {
-			bg_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgLeftImage().getScaledInstance(5, getHeight() - 104, Image.SCALE_DEFAULT)));
-			resetBg_left_label();
+	public ImagePanelUI getBg_left_image_panel() {
+		if (bg_left_image_panel == null) {
+			bg_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgLeftImage().getScaledInstance(5, getHeight() - 104, Image.SCALE_DEFAULT));
+			resetBg_left_image_panel();
 		}
-		return bg_left_label;
+		return bg_left_image_panel;
 	}
 
-	public void resetBg_left_label() {
-		getBg_left_label().setBounds(0, 94, 5, getHeight() - 104);
+	public void resetBg_left_image_panel() {
+		getBg_left_image_panel().setBounds(0, 94, 5, getHeight() - 104);
 	}
 
-	public JLabel getBg_center_label() {
-		if (bg_center_label == null) {
-			bg_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgCenterImage().getScaledInstance(getWidth() - 10, getHeight() - 104,
-					Image.SCALE_DEFAULT)));
+	public ImagePanelUI getBg_center_image_panel() {
+		if (bg_center_image_panel == null) {
+			bg_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgCenterImage().getScaledInstance(getWidth() - 10, getHeight() - 104,
+					Image.SCALE_DEFAULT));
 
-			resetBg_center_label();
+			resetBg_center_image_panel();
 		}
-		return bg_center_label;
+		return bg_center_image_panel;
 	}
 
-	public void resetBg_center_label() {
-		getBg_center_label().setBounds(5, 94, getWidth() - 10, getHeight() - 104);
+	public void resetBg_center_image_panel() {
+		getBg_center_image_panel().setBounds(5, 94, getWidth() - 10, getHeight() - 104);
 	}
 
-	public JLabel getBg_right_label() {
-		if (bg_right_label == null) {
-			bg_right_label = new JLabel(new ImageIcon(ImageFactory.getIndexBgRightImage().getScaledInstance(5, getHeight() - 104, Image.SCALE_DEFAULT)));
-			resetBg_right_label();
+	public ImagePanelUI getBg_right_image_panel() {
+		if (bg_right_image_panel == null) {
+			bg_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgRightImage().getScaledInstance(5, getHeight() - 104, Image.SCALE_DEFAULT));
+			resetBg_right_image_panel();
 		}
-		return bg_right_label;
+		return bg_right_image_panel;
 	}
 
-	public void resetBg_right_label() {
-		getBg_right_label().setBounds(getWidth() - 5, 94, 5, getHeight() - 104);
+	public void resetBg_right_image_panel() {
+		getBg_right_image_panel().setBounds(getWidth() - 5, 94, 5, getHeight() - 104);
 	}// #end【背景label】
 
 	// #begin【目录树收缩splitter】
@@ -318,7 +318,9 @@ public class IndexUI extends JFrame {
 			dirTreeUI = new IndexDirTreeUI(this);
 
 			resetDirTreeUI();
+
 			getDirTreeUI().showUI();
+			getDirTreeUI().setVisible(true);
 		}
 		return dirTreeUI;
 	}
@@ -333,7 +335,6 @@ public class IndexUI extends JFrame {
 			headUI = new IndexHeadUI(this);
 
 			resetHeadUI();
-			getHeadUI().showUI();
 		}
 		return headUI;
 	}

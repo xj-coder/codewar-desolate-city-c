@@ -233,14 +233,13 @@ public class IndexSearchResultBox extends JComponent {
 
 	// #end 【Label元素】
 
+	// #begin List模型
 	public ListModel getListModel() {
 		if (listModel == null) {
 			listModel = new DefaultListModel();
-
-			((DefaultListModel) listModel).addElement(new Object());
 		}
 		return listModel;
-	}
+	}// #end List模型
 
 	public JList getListResult() {
 		if (listResult == null) {
