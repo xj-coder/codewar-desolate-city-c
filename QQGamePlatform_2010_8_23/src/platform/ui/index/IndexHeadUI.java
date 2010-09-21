@@ -47,13 +47,17 @@ public class IndexHeadUI extends JPanel {
 		this.indexUI = indexUI;
 		setLayout(null);
 
+		initComponents();
+
 		setOpaque(false);// 透明
+
+		setVisible(true);
 	}
 
 	/**
 	 * 显示窗体
 	 */
-	public void showUI() {
+	private void initComponents() {
 		// Label元素
 		add(getIcon_label(), new Integer(Integer.MIN_VALUE));
 		add(getTitle_label(), new Integer(Integer.MIN_VALUE));
@@ -67,8 +71,6 @@ public class IndexHeadUI extends JPanel {
 		add(getRestr_button(), new Integer(Integer.MIN_VALUE));
 		add(getMenu_button(), new Integer(Integer.MIN_VALUE));
 		add(getChange_face_button(), new Integer(Integer.MIN_VALUE));
-
-		setVisible(true);
 	}
 
 	// #begin【双缓冲技术】

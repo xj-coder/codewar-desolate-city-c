@@ -7,6 +7,7 @@ package platform.ui.login;
  */
 
 import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.FocusEvent;
@@ -16,7 +17,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Vector;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -41,6 +41,7 @@ import platform.tools.ImageFactory;
 import platform.tools.Tools;
 import platform.ui.focustraversalpolicy.QFocusTraversalPolicy;
 import platform.ui.widget.WidgetFactory;
+import platform.ui.widget.ui.ImagePanelUI;
 import platform.ui.widget.ui.URLLabelUI;
 
 import com.sun.awt.AWTUtilities;
@@ -49,13 +50,14 @@ public class LoginUI extends JFrame {
 
 	private static final long serialVersionUID = -3745375316666171374L;
 
-	private JLabel bg_up_label;
-	private JLabel bg_center_label;
-	private JLabel bg_down_label;
-	private JLabel banner_label;
-	private JLabel login_processbar_out_label;
-	private JLabel login_processbar_in_label;
-	private JLabel login_processbar_bg_label;
+	private ImagePanelUI bg_up_image_panel;
+	private ImagePanelUI bg_center_image_panel;
+	private ImagePanelUI bg_down_image_panel;
+	private ImagePanelUI banner_image_panel;
+	private ImagePanelUI login_processbar_out_image_panel;
+	private ImagePanelUI login_processbar_in_image_panel;
+	private ImagePanelUI login_processbar_bg_image_panel;
+
 	private JLabel info_label;
 	private JLabel account_label;
 	private JLabel password_label;
@@ -100,6 +102,13 @@ public class LoginUI extends JFrame {
 		setFocusTraversalPolicy(qFocusTraversalPolicy);
 	}
 
+	// #begin【双缓冲技术】
+	@Override
+	public void paint(Graphics g) {
+		System.out.println("paint LoginUI");
+		super.paint(g);
+	}
+
 	public void registerKeyBoardHook() {
 		Hook.KEYBOARD.addListener(keyActionAdapter);
 
@@ -120,13 +129,13 @@ public class LoginUI extends JFrame {
 		getLayeredPane().add(getHelp_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getClose_button(), new Integer(Integer.MIN_VALUE));
 
-		getLayeredPane().add(getLogin_processbar_out_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getLogin_processbar_in_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getLogin_processbar_bg_label(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getLogin_processbar_out_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getLogin_processbar_in_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getLogin_processbar_bg_image_panel(), new Integer(Integer.MIN_VALUE));
 
-		getLayeredPane().add(getInfo_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getAccount_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getPassword_label(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getInfo_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getAccount_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getPassword_image_panel(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getAccount_input(), new Integer(Integer.MIN_VALUE));
 
 		getLayeredPane().add(getMemory_check(), new Integer(Integer.MIN_VALUE));
@@ -137,15 +146,15 @@ public class LoginUI extends JFrame {
 		getLayeredPane().add(getGet_back_password_urllabel(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getRegister_account_urllabel(), new Integer(Integer.MIN_VALUE));
 
-		getLayeredPane().add(getBanner_label(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBanner_image_panel(), new Integer(Integer.MIN_VALUE));
 
 		getLayeredPane().add(getSet_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getLogin_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getPassword_input(), new Integer(Integer.MIN_VALUE));
 
-		getLayeredPane().add(getBg_up_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_center_label(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getBg_down_label(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_up_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_center_image_panel(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getBg_down_image_panel(), new Integer(Integer.MIN_VALUE));
 
 		((JPanel) getContentPane()).setOpaque(false);
 
@@ -174,9 +183,10 @@ public class LoginUI extends JFrame {
 					while (true) {
 						if (isLoginProcessStart) {
 							Thread.sleep(8);
-							x = (getLogin_processbar_in_label().getX() + 1) % (LoginUIDefine.FRAME_WIDTH - getLogin_processbar_in_label().getWidth());
-							y = getLogin_processbar_in_label().getY();
-							getLogin_processbar_in_label().setLocation(x, y);
+							x = (getLogin_processbar_in_image_panel().getX() + 1)
+									% (LoginUIDefine.FRAME_WIDTH - getLogin_processbar_in_image_panel().getWidth());
+							y = getLogin_processbar_in_image_panel().getY();
+							getLogin_processbar_in_image_panel().setLocation(x, y);
 						} else {
 							Thread.sleep(15);
 						}
@@ -190,64 +200,64 @@ public class LoginUI extends JFrame {
 	}
 
 	// label
-	public JLabel getBg_up_label() {
-		if (bg_up_label == null) {
-			bg_up_label = new JLabel(new ImageIcon(ImageFactory.getLoginBgUpImage().getScaledInstance(355, 130, Image.SCALE_DEFAULT)));
-			bg_up_label.setBounds(0, 0, 355, 130);
+	public ImagePanelUI getBg_up_image_panel() {
+		if (bg_up_image_panel == null) {
+			bg_up_image_panel = new ImagePanelUI(ImageFactory.getLoginBgUpImage().getScaledInstance(355, 130, Image.SCALE_DEFAULT));
+			bg_up_image_panel.setBounds(0, 0, 355, 130);
 		}
-		return bg_up_label;
+		return bg_up_image_panel;
 	}
 
-	public JLabel getBg_center_label() {
-		if (bg_center_label == null) {
-			bg_center_label = new JLabel(new ImageIcon(ImageFactory.getLoginBgCenterImage().getScaledInstance(355, 40, Image.SCALE_DEFAULT)));
-			bg_center_label.setBounds(0, 130, 355, 40);
+	public ImagePanelUI getBg_center_image_panel() {
+		if (bg_center_image_panel == null) {
+			bg_center_image_panel = new ImagePanelUI(ImageFactory.getLoginBgCenterImage().getScaledInstance(355, 40, Image.SCALE_DEFAULT));
+			bg_center_image_panel.setBounds(0, 130, 355, 40);
 		}
-		return bg_center_label;
+		return bg_center_image_panel;
 	}
 
-	public JLabel getBg_down_label() {
-		if (bg_down_label == null) {
-			bg_down_label = new JLabel(new ImageIcon(ImageFactory.getLoginBgDownImage().getScaledInstance(355, 70, Image.SCALE_DEFAULT)));
-			bg_down_label.setBounds(0, 170, 355, 70);
+	public ImagePanelUI getBg_down_image_panel() {
+		if (bg_down_image_panel == null) {
+			bg_down_image_panel = new ImagePanelUI(ImageFactory.getLoginBgDownImage().getScaledInstance(355, 70, Image.SCALE_DEFAULT));
+			bg_down_image_panel.setBounds(0, 170, 355, 70);
 		}
-		return bg_down_label;
+		return bg_down_image_panel;
 	}
 
-	public JLabel getBanner_label() {
-		if (banner_label == null) {
-			banner_label = new JLabel(new ImageIcon(ImageFactory.getLoginBannerImage().getScaledInstance(351, 70, Image.SCALE_DEFAULT)));
-			banner_label.setName("banner_label");
-			banner_label.setBounds(2, 25, 350, 70);
+	public ImagePanelUI getBanner_image_panel() {
+		if (banner_image_panel == null) {
+			banner_image_panel = new ImagePanelUI(ImageFactory.getLoginBannerImage().getScaledInstance(351, 70, Image.SCALE_DEFAULT));
+			banner_image_panel.setName("banner_image_panel");
+			banner_image_panel.setBounds(2, 25, 350, 70);
 		}
-		return banner_label;
+		return banner_image_panel;
 	}
 
-	public JLabel getLogin_processbar_in_label() {
-		if (login_processbar_in_label == null) {
-			login_processbar_in_label = new JLabel(new ImageIcon(ImageFactory.getLoginProcessbarInImage().getScaledInstance(75, 4, Image.SCALE_DEFAULT)));
-			login_processbar_in_label.setBounds((int) Math.random() * (355 - 75), 95, 75, 4);
+	public ImagePanelUI getLogin_processbar_in_image_panel() {
+		if (login_processbar_in_image_panel == null) {
+			login_processbar_in_image_panel = new ImagePanelUI(ImageFactory.getLoginProcessbarInImage().getScaledInstance(75, 4, Image.SCALE_DEFAULT));
+			login_processbar_in_image_panel.setBounds((int) Math.random() * (355 - 75), 95, 75, 4);
 		}
-		return login_processbar_in_label;
+		return login_processbar_in_image_panel;
 	}
 
-	public JLabel getLogin_processbar_out_label() {
-		if (login_processbar_out_label == null) {
-			login_processbar_out_label = new JLabel(new ImageIcon(ImageFactory.getLoginProcessbarOutImage().getScaledInstance(355, 4, Image.SCALE_DEFAULT)));
-			login_processbar_out_label.setBounds(0, 95, 355, 4);
+	public ImagePanelUI getLogin_processbar_out_image_panel() {
+		if (login_processbar_out_image_panel == null) {
+			login_processbar_out_image_panel = new ImagePanelUI(ImageFactory.getLoginProcessbarOutImage().getScaledInstance(355, 4, Image.SCALE_DEFAULT));
+			login_processbar_out_image_panel.setBounds(0, 95, 355, 4);
 		}
-		return login_processbar_out_label;
+		return login_processbar_out_image_panel;
 	}
 
-	public JLabel getLogin_processbar_bg_label() {
-		if (login_processbar_bg_label == null) {
-			login_processbar_bg_label = new JLabel(new ImageIcon(ImageFactory.getLoginProcessbarBgImage().getScaledInstance(355, 4, Image.SCALE_SMOOTH)));
-			login_processbar_bg_label.setBounds(0, 95, 355, 4);
+	public ImagePanelUI getLogin_processbar_bg_image_panel() {
+		if (login_processbar_bg_image_panel == null) {
+			login_processbar_bg_image_panel = new ImagePanelUI(ImageFactory.getLoginProcessbarBgImage().getScaledInstance(355, 4, Image.SCALE_SMOOTH));
+			login_processbar_bg_image_panel.setBounds(0, 95, 355, 4);
 		}
-		return login_processbar_bg_label;
+		return login_processbar_bg_image_panel;
 	}
 
-	public JLabel getInfo_label() {
+	public JLabel getInfo_image_panel() {
 		if (info_label == null) {
 			info_label = new JLabel("请输入账号和密码∶");
 			info_label.setBounds(20, 105, 120, 15);
@@ -256,7 +266,7 @@ public class LoginUI extends JFrame {
 		return info_label;
 	}
 
-	public JLabel getAccount_label() {
+	public JLabel getAccount_image_panel() {
 		if (account_label == null) {
 			account_label = new JLabel("账号∶");
 			account_label.setFont(Define.DEFAULT_FONT);
@@ -266,7 +276,7 @@ public class LoginUI extends JFrame {
 		return account_label;
 	}
 
-	public JLabel getPassword_label() {
+	public JLabel getPassword_image_panel() {
 		if (password_label == null) {
 			password_label = new JLabel("密码∶");
 			password_label.setFont(Define.DEFAULT_FONT);
