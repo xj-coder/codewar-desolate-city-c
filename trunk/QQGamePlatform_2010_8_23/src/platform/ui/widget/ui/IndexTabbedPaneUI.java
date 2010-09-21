@@ -36,7 +36,7 @@ public class IndexTabbedPaneUI extends BasicTabbedPaneUI {
 
 		switch (tabPlacement) {
 		case TOP:
-			g.drawImage(bg_image, x, 0, tabPane);
+			g.drawImage(bg_image, x, 0, null);// 草
 		}
 
 	}
