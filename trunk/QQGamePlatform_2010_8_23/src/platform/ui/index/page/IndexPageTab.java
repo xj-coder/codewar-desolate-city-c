@@ -1,5 +1,6 @@
 package platform.ui.index.page;
 
+import java.awt.Color;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -14,8 +15,13 @@ public class IndexPageTab extends JPanel {
 	private ImageIcon titleIcon;
 	private String title = "游戏大厅";
 
+	public IndexPageTab() {
+		setBackground(Color.white);
+	}
+
 	public ImageIcon getTitleIcon() {
-		titleIcon = new ImageIcon(ImageFactory.getIndexPageTabTitleIcon().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
+		titleIcon = new ImageIcon(ImageFactory.getIndexPageTabTitleIcon()
+				.getScaledInstance(16, 16, Image.SCALE_DEFAULT));
 		return titleIcon;
 	}
 
