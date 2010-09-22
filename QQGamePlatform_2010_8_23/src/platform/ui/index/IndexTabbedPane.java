@@ -30,7 +30,8 @@ public class IndexTabbedPane extends JTabbedPane {
 	public void openIndexTab() {
 		if (indexPageTab == null) {
 			indexPageTab = new IndexPageTab();
-			addTab(indexPageTab.getTitle() + "1", indexPageTab.getTitleIcon(), indexPageTab);
+			addTab(indexPageTab.getTitle() + "1", indexPageTab.getTitleIcon(),
+					indexPageTab);
 		}
 	}
 
