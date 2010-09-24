@@ -9,15 +9,15 @@ import javax.swing.JTabbedPane;
 
 import platform.bean.GameBean;
 import platform.bean.PlayerBean;
-import platform.ui.index.page.GameRoomTab;
-import platform.ui.index.page.IndexPageTab;
+import platform.ui.index.page.RoomPage;
+import platform.ui.index.page.IndexPage;
 
 public class IndexTabbedPane extends JTabbedPane {
 
 	private static final long serialVersionUID = -7604196421802833735L;
 
-	private IndexPageTab indexPageTab;
-	private ArrayList<GameRoomTab> gameRoomTabs = new ArrayList<GameRoomTab>();
+	private IndexPage indexPageTab;
+	private ArrayList<RoomPage> gameRoomTabs = new ArrayList<RoomPage>();
 
 	public IndexTabbedPane() {
 		openIndexTab();
@@ -46,14 +46,14 @@ public class IndexTabbedPane extends JTabbedPane {
 		return false;
 	}
 
-	public IndexPageTab getIndexPageTab() {
+	public IndexPage getIndexPageTab() {
 		if (indexPageTab == null) {
-			indexPageTab = new IndexPageTab();
+			indexPageTab = new IndexPage();
 		}
 		return indexPageTab;
 	}
 
-	public void setIndexPageTab(IndexPageTab indexPageTab) {
+	public void setIndexPageTab(IndexPage indexPageTab) {
 		this.indexPageTab = indexPageTab;
 	}
 }
