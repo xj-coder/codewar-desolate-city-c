@@ -1,11 +1,18 @@
 <!--服务端发往客户端的游戏列表数据格式-->
 <Items>
+	<!--
 	<Game>
 		<name>游戏名</name>
-		<GID>游戏唯一标识</GID>
+		<id>游戏唯一标识</id>
+		<max_player>游戏最大人数</max_player>
+		<min_player>游戏最小人数</min_player>
+		<game_icon>游戏图标</game_icon>
+		<wait_game_icon>游戏等待图标</wait_game_icon>
+		<begin_game_icon>游戏开始图标</begin_game_icon>
 		<category>游戏分类</category>
-		<index>游戏官方主页</index>
-		<download>游戏Jar包下载地址</download>
-		<main>游戏入口类</main>
+		<index_url>游戏官方主页</index_url>
+		<download_url>游戏Jar包下载地址</download_url>
+		<main_class>游戏入口类</main_class>
 	</Game>
+	-->
 </Items>
