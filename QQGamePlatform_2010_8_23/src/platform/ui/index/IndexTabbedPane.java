@@ -20,7 +20,6 @@ public class IndexTabbedPane extends JTabbedPane {
 	private ArrayList<GameRoomTab> gameRoomTabs = new ArrayList<GameRoomTab>();
 
 	public IndexTabbedPane() {
-		setBorder(null);
 		openIndexTab();
 	}
 
@@ -28,11 +27,8 @@ public class IndexTabbedPane extends JTabbedPane {
 	 * 打开首页Tab
 	 */
 	public void openIndexTab() {
-		if (indexPageTab == null) {
-			indexPageTab = new IndexPageTab();
-			addTab(indexPageTab.getTitle() + "1", indexPageTab.getTitleIcon(),
-					indexPageTab);
-		}
+		addTab(getIndexPageTab().getTitle(), getIndexPageTab().getTitleIcon(),
+				getIndexPageTab());
 	}
 
 	/**
@@ -40,5 +36,24 @@ public class IndexTabbedPane extends JTabbedPane {
 	 */
 	public void openGameRoomTab(PlayerBean playerBean, GameBean gameBean) {
 
+	}
+
+	/**
+	 *关闭指定游戏房间Tab
+	 */
+	public boolean closeGameRoomTab(GameBean gameBean) {
+
+		return false;
+	}
+
+	public IndexPageTab getIndexPageTab() {
+		if (indexPageTab == null) {
+			indexPageTab = new IndexPageTab();
+		}
+		return indexPageTab;
+	}
+
+	public void setIndexPageTab(IndexPageTab indexPageTab) {
+		this.indexPageTab = indexPageTab;
 	}
 }

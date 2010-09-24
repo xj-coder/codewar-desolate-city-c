@@ -19,7 +19,6 @@ import javax.swing.JTextField;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
-import platform.action.IndexAction;
 import platform.define.Define;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
@@ -108,6 +107,7 @@ public class IndexDirTreeUI extends JPanel {
 		add(getDir_bg_down_center_image_panel(), new Integer(Integer.MIN_VALUE));
 		add(getDir_bg_down_right_image_panel(), new Integer(Integer.MIN_VALUE));
 
+		loadGameList();
 	}
 
 	// #begin【双缓冲技术】
@@ -149,6 +149,13 @@ public class IndexDirTreeUI extends JPanel {
 		resetTreeScrollPane();
 		resetSearchResultBox();
 	}
+
+	// #begin 载入游戏列表
+	public void loadGameList() {
+		indexUI.action.loadGameDirTree(getTree());
+	}
+
+	// end 载入游戏列表
 
 	// #begin【Label元素】
 	public ImagePanelUI getDir_bg_up_left_image_panel() {
@@ -485,8 +492,6 @@ public class IndexDirTreeUI extends JPanel {
 				public void contentsChanged(ListDataEvent e) {
 				}
 			});
-
-			new IndexAction().loadGameDirTree(treeModel);
 		}
 		return treeModel;
 	}
