@@ -8,14 +8,14 @@ import javax.swing.JPanel;
 
 import platform.tools.ImageFactory;
 
-public class IndexPageTab extends JPanel {
+public class IndexPage extends JPanel {
 
 	private static final long serialVersionUID = -5290158585413109951L;
 
 	private ImageIcon titleIcon;
 	private String title = "游戏大厅";
 
-	public IndexPageTab() {
+	public IndexPage() {
 		setBackground(Color.white);
 	}
 
