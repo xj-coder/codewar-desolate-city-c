@@ -1,6 +1,5 @@
 package platform.ui.index;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -21,6 +20,7 @@ import platform.bean.PlayerBean;
 import platform.define.IndexUIDefine;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
+import platform.tools.LookAndFeel;
 import platform.tools.Tools;
 import platform.ui.widget.WidgetFactory;
 import platform.ui.widget.ui.ImagePanelUI;
@@ -352,7 +352,7 @@ public class IndexUI extends JFrame {
 	public IndexTabbedPane getTabbedPane() {
 		if (tabbedPane == null) {
 			IndexTabbedPaneUI tabbedPaneUI = new IndexTabbedPaneUI();
-			tabbedPaneUI.setBorderColor(Color.red);
+			// tabbedPaneUI.setBorderColor(Color.red);
 
 			tabbedPane = new IndexTabbedPane();
 			tabbedPane.setUI(tabbedPaneUI);
@@ -400,6 +400,7 @@ public class IndexUI extends JFrame {
 
 	// Main test
 	public static void main(String[] args) {
+		LookAndFeel.installDefaultLookAndFeel();
 		new IndexUI(new PlayerBean()).showMe();
 	}
 }
