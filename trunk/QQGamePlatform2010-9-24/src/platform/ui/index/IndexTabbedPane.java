@@ -16,8 +16,8 @@ public class IndexTabbedPane extends JTabbedPane {
 
 	private static final long serialVersionUID = -7604196421802833735L;
 
-	private IndexPage indexPageTab;
-	private ArrayList<RoomPage> gameRoomTabs = new ArrayList<RoomPage>();
+	private IndexPage indexPage;
+	private ArrayList<RoomPage> roomPages = new ArrayList<RoomPage>();
 
 	public IndexTabbedPane() {
 		setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -76,13 +76,13 @@ public class IndexTabbedPane extends JTabbedPane {
 	}
 
 	public IndexPage getIndexPageTab() {
-		if (indexPageTab == null) {
-			indexPageTab = new IndexPage();
+		if (indexPage == null) {
+			indexPage = new IndexPage();
 		}
-		return indexPageTab;
+		return indexPage;
 	}
 
 	public void setIndexPageTab(IndexPage indexPageTab) {
-		this.indexPageTab = indexPageTab;
+		this.indexPage = indexPageTab;
 	}
 }
