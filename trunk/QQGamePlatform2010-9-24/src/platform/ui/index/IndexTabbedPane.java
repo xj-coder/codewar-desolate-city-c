@@ -9,8 +9,8 @@ import javax.swing.JTabbedPane;
 
 import platform.bean.GameBean;
 import platform.bean.PlayerBean;
-import platform.ui.index.page.RoomPage;
 import platform.ui.index.page.IndexPage;
+import platform.ui.index.page.RoomPage;
 
 public class IndexTabbedPane extends JTabbedPane {
 
@@ -20,6 +20,8 @@ public class IndexTabbedPane extends JTabbedPane {
 	private ArrayList<RoomPage> gameRoomTabs = new ArrayList<RoomPage>();
 
 	public IndexTabbedPane() {
+		setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+
 		openIndexTab();
 	}
 
@@ -27,8 +29,35 @@ public class IndexTabbedPane extends JTabbedPane {
 	 * 打开首页Tab
 	 */
 	public void openIndexTab() {
-		addTab(getIndexPageTab().getTitle(), getIndexPageTab().getTitleIcon(),
-				getIndexPageTab());
+		addTab(getIndexPageTab().getTitle(), getIndexPageTab().getTitleIcon(), getIndexPageTab());
+		addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(), new IndexPage());
+		addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(), new IndexPage());
+		addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(), new IndexPage());
+		addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(), new IndexPage());
+		addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(), new IndexPage());
+		addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(), new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
+		// addTab(getIndexPageTab().getTitle(), new IndexPage().getTitleIcon(),
+		// new IndexPage());
 	}
 
 	/**
