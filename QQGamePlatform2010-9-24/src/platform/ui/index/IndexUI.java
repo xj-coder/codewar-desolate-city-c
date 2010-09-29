@@ -352,7 +352,6 @@ public class IndexUI extends JFrame {
 	public IndexTabbedPane getTabbedPane() {
 		if (tabbedPane == null) {
 			IndexTabbedPaneUI tabbedPaneUI = new IndexTabbedPaneUI();
-			// tabbedPaneUI.setBorderColor(Color.red);
 
 			tabbedPane = new IndexTabbedPane();
 			tabbedPane.setUI(tabbedPaneUI);
