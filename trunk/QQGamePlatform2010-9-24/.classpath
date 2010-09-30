@@ -7,6 +7,5 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.swt.win32.extension.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.swt.win32.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.ui.forms.jar"/>
-	<classpathentry kind="lib" path="lib/twaver.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
