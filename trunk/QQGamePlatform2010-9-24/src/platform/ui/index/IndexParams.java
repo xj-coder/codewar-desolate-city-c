@@ -13,6 +13,8 @@ public class IndexParams {
 	public static final String ACTION_DIR_UNLOCK = "dir unlock";
 	public static final String ACTION_HIDE_SEARCH_DIR = "hide search dir";
 	public static final String ACTION_SHOW_SEARCH_DI = "show search dir";
+	public static final String ACTION_TAB_SCROLL_LEFT = "tab scroll left";
+	public static final String ACTION_TAB_SCROLL_RIGHT = "tab scroll right";
 
 	public static final String NAME_SHOW_ONLINE_PLAYERS = "当前在线人数:";
 	public static final String SEARCH_FIELD_DEFAULT_CONTEXT = "查找游戏...";
