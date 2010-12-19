@@ -10,8 +10,8 @@ import platform.define.RunTimeDefine;
 import platform.exception.XMLException;
 import platform.tools.Tools;
 import platform.ui.widget.bean.QTableTreeItem;
-import platform.ui.widget.ui.QTableTree;
-import platform.ui.widget.ui.QTableTreeModel;
+import platform.ui.widget.tabletree.QTableTree;
+import platform.ui.widget.tabletree.QTableTreeModel;
 import platform.xml.parse.XMLParse;
 
 public class IndexAction {
