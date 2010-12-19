@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Iterator;
 
 import javax.imageio.ImageIO;
@@ -15,7 +14,7 @@ import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 
 public class ImageTools {
-	public static Image cut(URL url, int x, int y, int width, int height, String format) {
+	public static Image cut(String path, int x, int y, int width, int height, String format) {
 		Image result = null;
 
 		ImageInputStream iis = null;
@@ -25,7 +24,7 @@ public class ImageTools {
 			Iterator<ImageReader> it = ImageIO.getImageReadersByFormatName(format);
 			ImageReader reader = it.next();
 
-			iis = ImageIO.createImageInputStream(new File(url.getPath()));
+			iis = ImageIO.createImageInputStream(new File(path));
 
 			reader.setInput(iis, true);
 

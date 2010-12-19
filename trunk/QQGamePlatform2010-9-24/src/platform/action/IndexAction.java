@@ -1,5 +1,6 @@
 package platform.action;
 
+import java.awt.Toolkit;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -62,6 +63,10 @@ public class IndexAction {
 				for (int i = 0; i < gameList.size(); i++) {
 					GameBean gameBean = new GameBean();
 					Tools.mapToBean(gameList.get(i), gameBean);
+
+					// 载入游戏图标
+					String url = PathDefine.RES_GAME_MAIN_PATH + gameBean.getGid() + ".png";
+					gameBean.setMainImage(Toolkit.getDefaultToolkit().getImage(url));
 
 					QTableTreeItem item = new QTableTreeItem(gameBean, true, Integer
 							.parseInt(gameBean.getOrder()));

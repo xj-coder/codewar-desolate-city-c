@@ -1,5 +1,7 @@
 package platform.bean;
 
+import java.awt.Image;
+
 public class GameBean {
 	private String gid;// 游戏唯一标示
 	private String show_name;// 游戏名
@@ -9,6 +11,8 @@ public class GameBean {
 	private String category;// 游戏分类
 	private String index_url;// 游戏主页地址
 	private String download_url;// 游戏jar下载地址
+
+	private Image mainImage;// 主图标
 
 	public String getGid() {
 		return gid;
@@ -77,6 +81,14 @@ public class GameBean {
 	@Override
 	public String toString() {
 		return show_name;
+	}
+
+	public Image getMainImage() {
+		return mainImage;
+	}
+
+	public void setMainImage(Image mainImage) {
+		this.mainImage = mainImage;
 	}
 
 }

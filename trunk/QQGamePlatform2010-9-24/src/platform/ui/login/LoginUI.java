@@ -125,7 +125,8 @@ public class LoginUI extends JFrame {
 	private void initComponents() {
 		setResizable(false);
 		setSize(LoginUIDefine.FRAME_WIDTH, LoginUIDefine.FRAME_HEIGHT);
-		setLocation(Tools.getScreenSize().width / 2 - getWidth() / 2, (int) (Tools.getScreenSize().getHeight() / 2 - getHeight() / 2));
+		setLocation(Tools.getScreenSize().width / 2 - getWidth() / 2, (int) (Tools.getScreenSize()
+				.getHeight() / 2 - getHeight() / 2));
 
 		getLayeredPane().add(getHelp_button(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getClose_button(), new Integer(Integer.MIN_VALUE));
@@ -170,7 +171,8 @@ public class LoginUI extends JFrame {
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
-				AWTUtilities.setWindowShape(LoginUI.this, new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 8, 8));
+				AWTUtilities.setWindowShape(LoginUI.this, new RoundRectangle2D.Float(0, 0,
+						getWidth(), getHeight(), 8, 8));
 				// AWTUtilities.setWindowOpacity(LoginUI.this, 0.93f);
 			}
 		});
@@ -183,7 +185,9 @@ public class LoginUI extends JFrame {
 					while (true) {
 						if (isLoginProcessStart) {
 							Thread.sleep(8);
-							x = (getLogin_processbar_in_image_panel().getX() + 1) % (LoginUIDefine.FRAME_WIDTH - getLogin_processbar_in_image_panel().getWidth());
+							x = (getLogin_processbar_in_image_panel().getX() + 1)
+									% (LoginUIDefine.FRAME_WIDTH - getLogin_processbar_in_image_panel()
+											.getWidth());
 							y = getLogin_processbar_in_image_panel().getY();
 							getLogin_processbar_in_image_panel().setLocation(x, y);
 						} else {
@@ -201,7 +205,8 @@ public class LoginUI extends JFrame {
 	// label
 	public ImagePanel getBg_up_image_panel() {
 		if (bg_up_image_panel == null) {
-			bg_up_image_panel = new ImagePanel(ImageFactory.getLoginBgUpImage().getScaledInstance(355, 130, Image.SCALE_DEFAULT));
+			bg_up_image_panel = new ImagePanel(ImageFactory.getLoginBgUpImage().getScaledInstance(
+					355, 130, Image.SCALE_DEFAULT));
 			bg_up_image_panel.setBounds(0, 0, 355, 130);
 		}
 		return bg_up_image_panel;
@@ -209,7 +214,8 @@ public class LoginUI extends JFrame {
 
 	public ImagePanel getBg_center_image_panel() {
 		if (bg_center_image_panel == null) {
-			bg_center_image_panel = new ImagePanel(ImageFactory.getLoginBgCenterImage().getScaledInstance(355, 40, Image.SCALE_DEFAULT));
+			bg_center_image_panel = new ImagePanel(ImageFactory.getLoginBgCenterImage()
+					.getScaledInstance(355, 40, Image.SCALE_DEFAULT));
 			bg_center_image_panel.setBounds(0, 130, 355, 40);
 		}
 		return bg_center_image_panel;
@@ -217,7 +223,8 @@ public class LoginUI extends JFrame {
 
 	public ImagePanel getBg_down_image_panel() {
 		if (bg_down_image_panel == null) {
-			bg_down_image_panel = new ImagePanel(ImageFactory.getLoginBgDownImage().getScaledInstance(355, 70, Image.SCALE_DEFAULT));
+			bg_down_image_panel = new ImagePanel(ImageFactory.getLoginBgDownImage()
+					.getScaledInstance(355, 70, Image.SCALE_DEFAULT));
 			bg_down_image_panel.setBounds(0, 170, 355, 70);
 		}
 		return bg_down_image_panel;
@@ -225,7 +232,8 @@ public class LoginUI extends JFrame {
 
 	public ImagePanel getBanner_image_panel() {
 		if (banner_image_panel == null) {
-			banner_image_panel = new ImagePanel(ImageFactory.getLoginBannerImage().getScaledInstance(351, 70, Image.SCALE_DEFAULT));
+			banner_image_panel = new ImagePanel(ImageFactory.getLoginBannerImage()
+					.getScaledInstance(351, 70, Image.SCALE_DEFAULT));
 			banner_image_panel.setName("banner_image_panel");
 			banner_image_panel.setBounds(2, 25, 350, 70);
 		}
@@ -234,7 +242,8 @@ public class LoginUI extends JFrame {
 
 	public ImagePanel getLogin_processbar_in_image_panel() {
 		if (login_processbar_in_image_panel == null) {
-			login_processbar_in_image_panel = new ImagePanel(ImageFactory.getLoginProcessbarInImage().getScaledInstance(75, 4, Image.SCALE_DEFAULT));
+			login_processbar_in_image_panel = new ImagePanel(ImageFactory
+					.getLoginProcessbarInImage().getScaledInstance(75, 4, Image.SCALE_DEFAULT));
 			login_processbar_in_image_panel.setBounds((int) Math.random() * (355 - 75), 95, 75, 4);
 		}
 		return login_processbar_in_image_panel;
@@ -242,7 +251,8 @@ public class LoginUI extends JFrame {
 
 	public ImagePanel getLogin_processbar_out_image_panel() {
 		if (login_processbar_out_image_panel == null) {
-			login_processbar_out_image_panel = new ImagePanel(ImageFactory.getLoginProcessbarOutImage().getScaledInstance(355, 4, Image.SCALE_DEFAULT));
+			login_processbar_out_image_panel = new ImagePanel(ImageFactory
+					.getLoginProcessbarOutImage().getScaledInstance(355, 4, Image.SCALE_DEFAULT));
 			login_processbar_out_image_panel.setBounds(0, 95, 355, 4);
 		}
 		return login_processbar_out_image_panel;
@@ -250,7 +260,8 @@ public class LoginUI extends JFrame {
 
 	public ImagePanel getLogin_processbar_bg_image_panel() {
 		if (login_processbar_bg_image_panel == null) {
-			login_processbar_bg_image_panel = new ImagePanel(ImageFactory.getLoginProcessbarBgImage().getScaledInstance(355, 4, Image.SCALE_SMOOTH));
+			login_processbar_bg_image_panel = new ImagePanel(ImageFactory
+					.getLoginProcessbarBgImage().getScaledInstance(355, 4, Image.SCALE_SMOOTH));
 			login_processbar_bg_image_panel.setBounds(0, 95, 355, 4);
 		}
 		return login_processbar_bg_image_panel;
@@ -287,7 +298,8 @@ public class LoginUI extends JFrame {
 	// button
 	public JButton getClose_button() {
 		if (close_button == null) {
-			close_button = WidgetFactory.createLoginCloseButton(40, 22, "", LoginParams.ACTION_CLOSE, actionAdapter);
+			close_button = WidgetFactory.createLoginCloseButton(40, 22, "",
+					LoginParams.ACTION_CLOSE, actionAdapter);
 			close_button.setBounds(300, 1, 40, 22);
 		}
 		return close_button;
@@ -295,7 +307,8 @@ public class LoginUI extends JFrame {
 
 	public JButton getHelp_button() {
 		if (help_button == null) {
-			help_button = WidgetFactory.createHelpButton(21, 22, "", LoginParams.ACTION_HELP, actionAdapter);
+			help_button = WidgetFactory.createHelpButton(21, 22, "", LoginParams.ACTION_HELP,
+					actionAdapter);
 			help_button.setBounds(275, 0, 21, 22);
 		}
 		return help_button;
@@ -303,7 +316,8 @@ public class LoginUI extends JFrame {
 
 	public JButton getLogin_button() {
 		if (login_button == null) {
-			login_button = WidgetFactory.createLoginButton(80, 25, LoginParams.NAME_LOGIN, LoginParams.ACTION_LOGIN, actionAdapter);
+			login_button = WidgetFactory.createLoginButton(80, 25, LoginParams.NAME_LOGIN,
+					LoginParams.ACTION_LOGIN, actionAdapter);
 			login_button.setBounds(270, 208, 80, 25);
 		}
 		return login_button;
@@ -311,7 +325,8 @@ public class LoginUI extends JFrame {
 
 	public JButton getSet_button() {
 		if (set_button == null) {
-			set_button = WidgetFactory.createButton(80, 25, LoginParams.NAME_SETTING, LoginParams.ACTION_SETTING, actionAdapter);
+			set_button = WidgetFactory.createButton(80, 25, LoginParams.NAME_SETTING,
+					LoginParams.ACTION_SETTING, actionAdapter);
 			set_button.setBounds(20, 208, 80, 25);
 		}
 		return set_button;
@@ -398,6 +413,8 @@ public class LoginUI extends JFrame {
 	public JCheckBox getAlone_check() {
 		if (alone_check == null) {
 			alone_check = WidgetFactory.createCheckBox("单机登录");
+			alone_check.setSelected(true);
+
 			alone_check.setBounds(140, 180, 80, 20);
 		}
 		return alone_check;

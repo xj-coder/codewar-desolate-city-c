@@ -1,8 +1,11 @@
 package platform.ui.widget.bean;
 
+import java.awt.Image;
 import java.util.Vector;
 
 import javax.swing.JComponent;
+
+import platform.tools.ImageFactory;
 
 public class QTableTreeItem extends JComponent {
 	private static final long serialVersionUID = -1329277543951092617L;
@@ -13,6 +16,7 @@ public class QTableTreeItem extends JComponent {
 	private int order;// 排序
 	private boolean isRollover;// 鼠标是否在上面
 	private boolean isSelect;// 是否选择
+	private Image icon;// 图标
 	private Vector<QTableTreeItem> childs = new Vector<QTableTreeItem>();// 子节点
 
 	private Object userObject;
@@ -20,12 +24,25 @@ public class QTableTreeItem extends JComponent {
 	public QTableTreeItem() {
 	}
 
+	public QTableTreeItem(Object userObject) {
+		this(userObject, false, 0, null);
+	}
+
+	public QTableTreeItem(Object userObject, boolean isExpand) {
+		this(userObject, isExpand, 0, null);
+	}
+
 	public QTableTreeItem(Object userObject, boolean isExpand, int order) {
+		this(userObject, isExpand, order, null);
+	}
+
+	public QTableTreeItem(Object userObject, boolean isExpand, int order, Image icon) {
 		super();
 		this.userObject = userObject;
 		this.showName = userObject.toString();
 		this.isExpand = isExpand;
 		this.order = order;
+		this.icon = icon;
 	}
 
 	public String getShowName() {
@@ -112,6 +129,17 @@ public class QTableTreeItem extends JComponent {
 			getItemAt(i).setLevel(
 					(getItemAt(i).getLevel() == 0 ? 1 : getItemAt(i).getLevel()) + getLevel());
 		}
+	}
+
+	public Image getIcon() {
+		if (icon == null) {
+			icon = ImageFactory.getDefaultDirTreeIcon();
+		}
+		return icon;
+	}
+
+	public void setIcon(Image icon) {
+		this.icon = icon;
 	}
 
 }

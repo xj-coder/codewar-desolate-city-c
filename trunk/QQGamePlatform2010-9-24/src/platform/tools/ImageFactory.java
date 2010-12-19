@@ -9,818 +9,832 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.net.URL;
+import java.net.MalformedURLException;
+
+import platform.define.PathDefine;
 
 public class ImageFactory {
 
 	public static Image getLoginBgUpImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/bg_up.png");
+		String url = PathDefine.RES_PATH + "bg_up.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getLoginBgDownImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/bg_down.png");
+		String url = PathDefine.RES_PATH + "bg_down.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getLoginBgCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/bg_center.png");
+		String url = PathDefine.RES_PATH + "bg_center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getLoginBannerImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/banner.png");
+		String url = PathDefine.RES_PATH + "banner.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getLoginProcessbarInImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/Login_processbar_in.png");
+		String url = PathDefine.RES_PATH + "Login_processbar_in.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getLoginProcessbarOutImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/Login_processbar_out.png");
+		String url = PathDefine.RES_PATH + "Login_processbar_out.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getLoginProcessbarBgImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/Login_processbar_update.png");
+		String url = PathDefine.RES_PATH + "Login_processbar_update.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getButton(int width, int height) {
-		URL url1 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bleft.png");
-		URL url2 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bcenter.png");
-		URL url3 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bright.png");
-		BufferedImage bufferedImage = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
+		String url1 = PathDefine.RES_PATH + "button/bleft.png";
+		String url2 = PathDefine.RES_PATH + "button/bcenter.png";
+		String url3 = PathDefine.RES_PATH + "button/bright.png";
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = bufferedImage.createGraphics();
 
 		Image left = ImageTools.cut(url1, 0, 0, 6, 24, "png");
 		Image center = ImageTools.cut(url2, 0, 0, 6, 24, "png");
 		Image right = ImageTools.cut(url3, 0, 0, 6, 24, "png");
 
-		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0,
-				0, null);
-		g2.drawImage(center.getScaledInstance(width - 12, height,
-				Image.SCALE_DEFAULT), 6, 0, null);
-		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT),
-				width - 6, 0, null);
+		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 12, height, Image.SCALE_DEFAULT), 6, 0, null);
+		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT), width - 6, 0, null);
 
-		return bufferedImage.getScaledInstance(width, height,
-				Image.SCALE_DEFAULT);
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
 	public static Image getButtonWithBorder(int width, int height) {
-		URL url1 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bleft.png");
-		URL url2 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bcenter.png");
-		URL url3 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bright.png");
-		BufferedImage bufferedImage = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
+		String url1 = PathDefine.RES_PATH + "button/bleft.png";
+		String url2 = PathDefine.RES_PATH + "button/bcenter.png";
+		String url3 = PathDefine.RES_PATH + "button/bright.png";
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = bufferedImage.createGraphics();
 
 		Image left = ImageTools.cut(url1, 24, 0, 6, 24, "png");
 		Image center = ImageTools.cut(url2, 24, 0, 6, 24, "png");
 		Image right = ImageTools.cut(url3, 24, 0, 6, 24, "png");
 
-		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0,
-				0, null);
-		g2.drawImage(center.getScaledInstance(width - 12, height,
-				Image.SCALE_DEFAULT), 6, 0, null);
-		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT),
-				width - 6, 0, null);
+		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 12, height, Image.SCALE_DEFAULT), 6, 0, null);
+		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT), width - 6, 0, null);
 
-		return bufferedImage.getScaledInstance(width, height,
-				Image.SCALE_DEFAULT);
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
 	public static Image getButtonPressed(int width, int height) {
-		URL url1 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bleft.png");
-		URL url2 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bcenter.png");
-		URL url3 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bright.png");
+		String url1 = PathDefine.RES_PATH + "button/bleft.png";
+		String url2 = PathDefine.RES_PATH + "button/bcenter.png";
+		String url3 = PathDefine.RES_PATH + "button/bright.png";
 
-		BufferedImage bufferedImage = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = bufferedImage.createGraphics();
 
 		Image left = ImageTools.cut(url1, 12, 0, 6, 24, "png");
 		Image center = ImageTools.cut(url2, 12, 0, 6, 24, "png");
 		Image right = ImageTools.cut(url3, 12, 0, 6, 24, "png");
 
-		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0,
-				0, null);
-		g2.drawImage(center.getScaledInstance(width - 12, height,
-				Image.SCALE_DEFAULT), 6, 0, null);
-		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT),
-				width - 6, 0, null);
+		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 12, height, Image.SCALE_DEFAULT), 6, 0, null);
+		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT), width - 6, 0, null);
 
-		return bufferedImage.getScaledInstance(width, height,
-				Image.SCALE_DEFAULT);
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
 	public static Image getButtonRollover(int width, int height) {
-		URL url1 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bleft.png");
-		URL url2 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bcenter.png");
-		URL url3 = ImageFactory.class.getClassLoader().getResource(
-				"image/button/bright.png");
+		String url1 = PathDefine.RES_PATH + "button/bleft.png";
+		String url2 = PathDefine.RES_PATH + "button/bcenter.png";
+		String url3 = PathDefine.RES_PATH + "button/bright.png";
 
-		BufferedImage bufferedImage = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = bufferedImage.createGraphics();
 
 		Image left = ImageTools.cut(url1, 6, 0, 6, 24, "png");
 		Image center = ImageTools.cut(url2, 6, 0, 6, 24, "png");
 		Image right = ImageTools.cut(url3, 6, 0, 6, 24, "png");
 
-		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0,
-				0, null);
-		g2.drawImage(center.getScaledInstance(width - 12, height,
-				Image.SCALE_DEFAULT), 6, 0, null);
-		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT),
-				width - 6, 0, null);
+		g2.drawImage(left.getScaledInstance(6, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 12, height, Image.SCALE_DEFAULT), 6, 0, null);
+		g2.drawImage(right.getScaledInstance(6, height, Image.SCALE_DEFAULT), width - 6, 0, null);
 
-		return bufferedImage.getScaledInstance(width, height,
-				Image.SCALE_DEFAULT);
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
 	public static Image getIndexBgUpLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/up-left.png");
+		String url = PathDefine.RES_PATH + "index/border/up-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgDownRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/down-right.png");
+		String url = PathDefine.RES_PATH + "index/border/down-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgDownLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/down-left.png");
+		String url = PathDefine.RES_PATH + "index/border/down-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgDownCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/down-center.png");
+		String url = PathDefine.RES_PATH + "index/border/down-center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/left.png");
+		String url = PathDefine.RES_PATH + "index/border/left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/right.png");
+		String url = PathDefine.RES_PATH + "index/border/right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/center.png");
+		String url = PathDefine.RES_PATH + "index/border/center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgUpRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/up-right.png");
+		String url = PathDefine.RES_PATH + "index/border/up-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexBgUpCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/border/up-center.png");
+		String url = PathDefine.RES_PATH + "index/border/up-center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexIconImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/QQGame.png");
+		String url = PathDefine.RES_PATH + "index/QQGame.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexTitleImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/HallTitle.png");
+		String url = PathDefine.RES_PATH + "index/HallTitle.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getLoginCloseButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/close_btn.png");
+		String url = PathDefine.RES_PATH + "close_btn.png";
 		return ImageTools.cut(url, 0, 0, 37, 21, "png");
 	}
 
 	public static Image getLoginCloseButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/close_btn.png");
+		String url = PathDefine.RES_PATH + "close_btn.png";
 		return ImageTools.cut(url, 37, 0, 37, 21, "png");
 	}
 
 	public static Image getLoginCloseButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/close_btn.png");
+		String url = PathDefine.RES_PATH + "close_btn.png";
 		return ImageTools.cut(url, 74, 0, 37, 21, "png");
 	}
 
-	public static Image getLoginHelpButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/help.png");
+	public static Image getLoginHelpButton() throws MalformedURLException {
+		String url = PathDefine.RES_PATH + "help.png";
 		return ImageTools.cut(url, 0, 0, 21, 22, "png");
 	}
 
 	public static Image getLoginHelpButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/help.png");
+		String url = PathDefine.RES_PATH + "help.png";
 		return ImageTools.cut(url, 21, 0, 21, 22, "png");
 	}
 
 	public static Image getLoginHelpButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/help.png");
+		String url = PathDefine.RES_PATH + "help.png";
 		return ImageTools.cut(url, 42, 0, 21, 22, "png");
 	}
 
 	public static Image getIndexCloseButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/close_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/close_btn.png";
 		return ImageTools.cut(url, 0, 0, 37, 22, "png");
 	}
 
 	public static Image getIndexCloseButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/close_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/close_btn.png";
 		return ImageTools.cut(url, 37, 0, 37, 22, "png");
 	}
 
 	public static Image getIndexCloseButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/close_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/close_btn.png";
 		return ImageTools.cut(url, 74, 0, 37, 22, "png");
 	}
 
 	public static Image getIndexMinButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/min_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/min_btn.png";
 		return ImageTools.cut(url, 0, 0, 31, 22, "png");
 	}
 
 	public static Image getIndexMinButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/min_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/min_btn.png";
 		return ImageTools.cut(url, 31, 0, 31, 22, "png");
 	}
 
 	public static Image getIndexMinButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/min_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/min_btn.png";
 		return ImageTools.cut(url, 62, 0, 31, 22, "png");
 	}
 
 	public static Image getIndexMaxButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/max_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/max_btn.png";
 		return ImageTools.cut(url, 0, 0, 32, 22, "png");
 	}
 
 	public static Image getIndexMaxButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/max_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/max_btn.png";
 		return ImageTools.cut(url, 32, 0, 32, 22, "png");
 	}
 
 	public static Image getIndexMaxButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/max_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/max_btn.png";
 		return ImageTools.cut(url, 64, 0, 32, 22, "png");
 	}
 
 	public static Image getIndexRestrButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/restr_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/restr_btn.png";
 		return ImageTools.cut(url, 0, 0, 33, 22, "png");
 	}
 
 	public static Image getIndexRestrButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/restr_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/restr_btn.png";
 		return ImageTools.cut(url, 32, 0, 32, 22, "png");
 	}
 
 	public static Image getIndexRestrButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/restr_btn.png");
+		String url = PathDefine.RES_PATH + "index/button/restr_btn.png";
 		return ImageTools.cut(url, 64, 0, 32, 22, "png");
 	}
 
 	public static Image getIndexChangeFaceButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/change-face-btn.png");
+		String url = PathDefine.RES_PATH + "index/button/change-face-btn.png";
 		return ImageTools.cut(url, 0, 0, 40, 14, "png");
 	}
 
 	public static Image getIndexChangeFaceButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/change-face-btn.png");
+		String url = PathDefine.RES_PATH + "index/button/change-face-btn.png";
 		return ImageTools.cut(url, 40, 0, 40, 14, "png");
 	}
 
 	public static Image getIndexChangeFaceButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/change-face-btn.png");
+		String url = PathDefine.RES_PATH + "index/button/change-face-btn.png";
 		return ImageTools.cut(url, 80, 0, 40, 14, "png");
 	}
 
 	public static Image getIndexMenuButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/menu-btn.png");
+		String url = PathDefine.RES_PATH + "index/button/menu-btn.png";
 		return ImageTools.cut(url, 0, 0, 40, 14, "png");
 	}
 
 	public static Image getIndexMenuButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/menu-btn.png");
+		String url = PathDefine.RES_PATH + "index/button/menu-btn.png";
 		return ImageTools.cut(url, 40, 0, 40, 14, "png");
 	}
 
 	public static Image getIndexMenuButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/menu-btn.png");
+		String url = PathDefine.RES_PATH + "index/button/menu-btn.png";
 		return ImageTools.cut(url, 80, 0, 40, 14, "png");
 	}
 
 	public static Image getIndexHeadPicBorderImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/pic.png");
+		String url = PathDefine.RES_PATH + "index/pic.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexHeadPicBorderHighLightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/pic_hl.png");
+		String url = PathDefine.RES_PATH + "index/pic_hl.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getCheckBoxImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/check.png");
+		String url = PathDefine.RES_PATH + "button/check.png";
 		return ImageTools.cut(url, 0, 0, 13, 13, "png");
 	}
 
 	public static Image getDisableCheckBoxImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/check.png");
+		String url = PathDefine.RES_PATH + "button/check.png";
 		return ImageTools.cut(url, 13, 0, 13, 13, "png");
 	}
 
 	public static Image getCheckedBoxImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/checked.png");
+		String url = PathDefine.RES_PATH + "button/checked.png";
 		return ImageTools.cut(url, 0, 0, 13, 13, "png");
 	}
 
 	public static Image getDisableCheckedBoxImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/checked.png");
+		String url = PathDefine.RES_PATH + "button/checked.png";
 		return ImageTools.cut(url, 13, 0, 13, 13, "png");
 	}
 
 	public static Image getLoginAccountInputButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/arrow.png");
+		String url = PathDefine.RES_PATH + "button/arrow.png";
 		return ImageTools.cut(url, 0, 0, 16, 16, "png");
 	}
 
 	public static Image getLoginAccountInputButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/arrow.png");
+		String url = PathDefine.RES_PATH + "button/arrow.png";
 		return ImageTools.cut(url, 16, 0, 16, 16, "png");
 	}
 
 	public static Image getLoginAccountInputButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/arrow.png");
+		String url = PathDefine.RES_PATH + "button/arrow.png";
 		return ImageTools.cut(url, 32, 0, 16, 16, "png");
 	}
 
 	public static Image getLoginAccountInputButtonDisable() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/button/arrow.png");
+		String url = PathDefine.RES_PATH + "button/arrow.png";
 		return ImageTools.cut(url, 48, 0, 16, 16, "png");
 	}
 
 	// 左侧目录树
 	public static Image getIndexDirBgUpLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/up-left.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/up-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgUpCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/up-center.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/up-center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgUpRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/up-right.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/up-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/left.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/right.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgDownLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/down-left.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/down-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgDownCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/down-center.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/down-center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgDownRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/down-right.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/down-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirSearchBgLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-left.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirSearchBgCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-center.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirSearchBgRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-right.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgUpLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-up-left.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-up-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgUpCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-up-center.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-up-center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgUpRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-up-right.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-up-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-left.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-right.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgDownLeftImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-down-left.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-down-left.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgDownCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-down-center.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-down-center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirListBgDownRightImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/l-down-right.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/l-down-right.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexDirBgCenterImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/center.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/center.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexSearchListButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-list.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-list.png";
 		return ImageTools.cut(url, 0, 0, 7, 5, "png");
 	}
 
 	public static Image getIndexSearchListButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-list.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-list.png";
 		return ImageTools.cut(url, 7, 0, 7, 5, "png");
 	}
 
 	public static Image getIndexSearchListButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-list.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-list.png";
 		return ImageTools.cut(url, 14, 0, 7, 5, "png");
 	}
 
 	public static Image getIndexSearchEnterButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-enter.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-enter.png";
 		return ImageTools.cut(url, 0, 0, 10, 10, "png");
 	}
 
 	public static Image getIndexSearchEnterButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-enter.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-enter.png";
 		return ImageTools.cut(url, 10, 0, 10, 10, "png");
 	}
 
 	public static Image getIndexSearchEnterButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/s-enter.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/s-enter.png";
 		return ImageTools.cut(url, 20, 0, 10, 10, "png");
 	}
 
 	public static Image getIndexDirLockButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/lock.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/lock.png";
 		return ImageTools.cut(url, 0, 0, 18, 17, "png");
 	}
 
 	public static Image getIndexDirLockButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/lock.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/lock.png";
 		return ImageTools.cut(url, 18, 0, 18, 17, "png");
 	}
 
 	public static Image getIndexDirLockButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/unlock.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/unlock.png";
 		return ImageTools.cut(url, 0, 0, 18, 17, "png");
 	}
 
 	public static Image getIndexDirUnLockButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/unlock.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/unlock.png";
 		return ImageTools.cut(url, 0, 0, 18, 17, "png");
 	}
 
 	public static Image getIndexDirUnLockButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/unlock.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/unlock.png";
 		return ImageTools.cut(url, 18, 0, 18, 17, "png");
 	}
 
 	public static Image getIndexDirUnLockButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/lock.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/lock.png";
 		return ImageTools.cut(url, 0, 0, 18, 17, "png");
 	}
 
 	public static Image getIndexLeftSplitterButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/left.png");
+		String url = PathDefine.RES_PATH + "common/splitter/left.png";
 		return ImageTools.cut(url, 0, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexLeftSplitterButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/left.png");
+		String url = PathDefine.RES_PATH + "common/splitter/left.png";
 		return ImageTools.cut(url, 9, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexLeftSplitterButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/left.png");
+		String url = PathDefine.RES_PATH + "common/splitter/left.png";
 		return ImageTools.cut(url, 18, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexLeftSplitterButtonDisable() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/left.png");
+		String url = PathDefine.RES_PATH + "common/splitter/left.png";
 		return ImageTools.cut(url, 27, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexRightSplitterButton() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/right.png");
+		String url = PathDefine.RES_PATH + "common/splitter/right.png";
 		return ImageTools.cut(url, 0, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexRightSplitterButtonRollover() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/right.png");
+		String url = PathDefine.RES_PATH + "common/splitter/right.png";
 		return ImageTools.cut(url, 9, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexRightSplitterButtonPressed() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/right.png");
+		String url = PathDefine.RES_PATH + "common/splitter/right.png";
 		return ImageTools.cut(url, 18, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexRightSplitterButtonDisable() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/common/splitter/right.png");
+		String url = PathDefine.RES_PATH + "common/splitter/right.png";
 		return ImageTools.cut(url, 27, 0, 9, 80, "png");
 	}
 
 	public static Image getIndexPageTabTitleIcon() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/QQGame.png");
+		String url = PathDefine.RES_PATH + "index/QQGame.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexTabBackgroundPressed(int width, int height) {
-		URL url1 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_left.png");
-		URL url2 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_mid.png");
-		URL url3 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_right.png");
+		String url1 = PathDefine.RES_PATH + "common/tab/tab_item_left.png";
+		String url2 = PathDefine.RES_PATH + "common/tab/tab_item_mid.png";
+		String url3 = PathDefine.RES_PATH + "common/tab/tab_item_right.png";
 
-		BufferedImage bufferedImage = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = bufferedImage.createGraphics();
 
 		Image left = ImageTools.cut(url1, 0, 0, 4, 26, "png");
 		Image center = ImageTools.cut(url2, 0, 0, 1, 24, "png");
 		Image right = ImageTools.cut(url3, 0, 0, 4, 26, "png");
 
-		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0,
-				0, null);
-		g2.drawImage(center.getScaledInstance(width - 8, height,
-				Image.SCALE_DEFAULT), 4, 0, null);
-		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT),
-				width - 4, 0, null);
+		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 8, height, Image.SCALE_DEFAULT), 4, 0, null);
+		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT), width - 4, 0, null);
 
-		return bufferedImage.getScaledInstance(width, height,
-				Image.SCALE_DEFAULT);
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
 	public static Image getIndexTabBackgroundRollover(int width, int height) {
-		URL url1 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_left.png");
-		URL url2 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_mid.png");
-		URL url3 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_right.png");
+		String url1 = PathDefine.RES_PATH + "common/tab/tab_item_left.png";
+		String url2 = PathDefine.RES_PATH + "common/tab/tab_item_mid.png";
+		String url3 = PathDefine.RES_PATH + "common/tab/tab_item_right.png";
 
-		BufferedImage bufferedImage = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = bufferedImage.createGraphics();
 
 		Image left = ImageTools.cut(url1, 4, 0, 4, 24, "png");
 		Image center = ImageTools.cut(url2, 1, 0, 1, 24, "png");
 		Image right = ImageTools.cut(url3, 4, 0, 4, 24, "png");
 
-		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0,
-				0, null);
-		g2.drawImage(center.getScaledInstance(width - 8, height,
-				Image.SCALE_DEFAULT), 4, 0, null);
-		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT),
-				width - 4, 0, null);
+		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 8, height, Image.SCALE_DEFAULT), 4, 0, null);
+		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT), width - 4, 0, null);
 
-		return bufferedImage.getScaledInstance(width, height,
-				Image.SCALE_DEFAULT);
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
 	public static Image getIndexTabBackground(int width, int height) {
-		URL url1 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_left.png");
-		URL url2 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_mid.png");
-		URL url3 = ImageFactory.class.getClassLoader().getResource(
-				"image/common/tab/tab_item_right.png");
+		String url1 = PathDefine.RES_PATH + "common/tab/tab_item_left.png";
+		String url2 = PathDefine.RES_PATH + "common/tab/tab_item_mid.png";
+		String url3 = PathDefine.RES_PATH + "common/tab/tab_item_right.png";
 
-		BufferedImage bufferedImage = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = bufferedImage.createGraphics();
 
 		Image left = ImageTools.cut(url1, 8, 0, 4, 24, "png");
 		Image center = ImageTools.cut(url2, 2, 0, 1, 24, "png");
 		Image right = ImageTools.cut(url3, 8, 0, 4, 24, "png");
 
-		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0,
-				0, null);
-		g2.drawImage(center.getScaledInstance(width - 8, height,
-				Image.SCALE_DEFAULT), 4, 0, null);
-		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT),
-				width - 4, 0, null);
+		g2.drawImage(left.getScaledInstance(4, height, Image.SCALE_DEFAULT), 0, 0, null);
+		g2.drawImage(center.getScaledInstance(width - 8, height, Image.SCALE_DEFAULT), 4, 0, null);
+		g2.drawImage(right.getScaledInstance(4, height, Image.SCALE_DEFAULT), width - 4, 0, null);
 
-		return bufferedImage.getScaledInstance(width, height,
-				Image.SCALE_DEFAULT);
+		return bufferedImage.getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	}
 
 	public static Image getExpandOpenImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/LedOff.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/LedOff.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getExpandCloseImage() {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/DirTree/LedOn.png");
+		String url = PathDefine.RES_PATH + "index/DirTree/LedOn.png";
 		return Toolkit.getDefaultToolkit().getImage(url);
 	}
 
 	public static Image getIndexTabScrollLeftButton(int width, int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/pre.png");
+		String url = PathDefine.RES_PATH + "index/button/pre.png";
 		return ImageTools.cut(url, 0, 0, 15, 15, "png");
 	}
 
-	public static Image getIndexTabScrollLeftButtonRollover(int width,
-			int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/pre.png");
+	public static Image getIndexTabScrollLeftButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/button/pre.png";
 		return ImageTools.cut(url, 15, 0, width, height, "png");
 	}
 
 	public static Image getIndexTabScrollLeftButtonPressed(int width, int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/pre.png");
+		String url = PathDefine.RES_PATH + "index/button/pre.png";
 		return ImageTools.cut(url, 30, 0, width, height, "png");
 	}
 
 	public static Image getIndexTabScrollLeftDisableButton(int width, int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/pre.png");
+		String url = PathDefine.RES_PATH + "index/button/pre.png";
 		return ImageTools.cut(url, 45, 0, width, height, "png");
 	}
 
 	public static Image getIndexTabScrollRightButton(int width, int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/next.png");
+		String url = PathDefine.RES_PATH + "index/button/next.png";
 		return ImageTools.cut(url, 0, 0, width, height, "png");
 	}
 
-	public static Image getIndexTabScrollRightButtonRollover(int width,
-			int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/next.png");
+	public static Image getIndexTabScrollRightButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/button/next.png";
 		return ImageTools.cut(url, 15, 0, width, height, "png");
 	}
 
-	public static Image getIndexTabScrollRightButtonPressed(int width,
-			int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/next.png");
+	public static Image getIndexTabScrollRightButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/button/next.png";
 		return ImageTools.cut(url, 30, 0, width, height, "png");
 	}
 
-	public static Image getIndexTabScrollRightDisableButton(int width,
-			int height) {
-		URL url = ImageFactory.class.getClassLoader().getResource(
-				"image/index/button/next.png");
+	public static Image getIndexTabScrollRightDisableButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/button/next.png";
 		return ImageTools.cut(url, 45, 0, width, height, "png");
+	}
+
+	public static Image getDefaultDirTreeIcon() {
+		String url = PathDefine.RES_PATH + "index/DirTree/defaultIcon.png";
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getIndexPageBackButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_pre.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageBackButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_pre.png";
+		return ImageTools.cut(url, 20, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageBackButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_pre.png";
+		return ImageTools.cut(url, 40, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageBackButtonDisabled(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_pre.png";
+		return ImageTools.cut(url, 60, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageGoButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_next.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageGoButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_next.png";
+		return ImageTools.cut(url, 20, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageGoButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_next.png";
+		return ImageTools.cut(url, 40, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageGoButtonDisabled(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_next.png";
+		return ImageTools.cut(url, 60, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageCloseButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_stop.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageCloseButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_stop.png";
+		return ImageTools.cut(url, 20, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageCloseButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_stop.png";
+		return ImageTools.cut(url, 40, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageRefreshButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_updt.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageRefreshButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_updt.png";
+		return ImageTools.cut(url, 20, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageRefreshButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_updt.png";
+		return ImageTools.cut(url, 40, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageIndexButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_home.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageIndexButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_home.png";
+		return ImageTools.cut(url, 20, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageIndexButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/web/web_home.png";
+		return ImageTools.cut(url, 40, 0, width, height, "png");
+	}
+
+	public static Image getIndexPageSpliterImage() {
+		String url = PathDefine.RES_PATH + "index/web/web_spliter.png";
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getRoomPageCopyButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/copy.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageCopyButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/copy.png";
+		return ImageTools.cut(url, 16, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageCopyButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/copy.png";
+		return ImageTools.cut(url, 32, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageQuickJoinButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/join.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageQuickJoinButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/join.png";
+		return ImageTools.cut(url, 94, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageQuickJoinButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/join.png";
+		return ImageTools.cut(url, 188, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageQuickJoinButtonDisabled(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/join.png";
+		return ImageTools.cut(url, 282, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageCloseButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/close.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageCloseButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/close.png";
+		return ImageTools.cut(url, 16, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageCloseButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/close.png";
+		return ImageTools.cut(url, 32, 0, width, height, "png");
+	}
+
+	public static Image getRoomPageInfoIcon() {
+		String url = PathDefine.RES_PATH + "index/ToolBar/tringle.png";
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getRoomPageSpliterImage() {
+		String url = PathDefine.RES_PATH + "index/ToolBar/splitter.png";
+		return Toolkit.getDefaultToolkit().getImage(url);
+	}
+
+	public static Image getToolBarDownButton(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/down.png";
+		return ImageTools.cut(url, 0, 0, width, height, "png");
+	}
+
+	public static Image getToolBarDownButtonRollover(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/down.png";
+		return ImageTools.cut(url, 16, 0, width, height, "png");
+	}
+
+	public static Image getToolBarDownButtonPressed(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/down.png";
+		return ImageTools.cut(url, 32, 0, width, height, "png");
+	}
+
+	public static Image getToolBarDownButtonDisabled(int width, int height) {
+		String url = PathDefine.RES_PATH + "index/ToolBar/down.png";
+		return ImageTools.cut(url, 48, 0, width, height, "png");
 	}
 
 }

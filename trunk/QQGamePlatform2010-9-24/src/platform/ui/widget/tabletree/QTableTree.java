@@ -90,8 +90,6 @@ public class QTableTree extends JList {
 					int addCount = 0;
 					for (int i1 = 0; i1 < item.getChildCount(); i1++) {
 						if (treeModel.indexOf(item.getItemAt(i1)) == -1) {
-							System.err.println("add " + item.getItemAt(i1).getUserObject() + " at "
-									+ (index + 1 + i1 + addCount));
 							treeModel.addElement(index + 1 + i1 + addCount, item.getItemAt(i1));
 						}
 						addCount = addCount + openAll(item.getItemAt(i1), 0);
@@ -134,15 +132,11 @@ public class QTableTree extends JList {
 				int _addCount = 0;
 				for (int i = 0; i < item.getChildCount(); i++) {
 					if (treeModel.indexOf(item.getItemAt(i)) == -1) {
-						System.err.println("add " + item.getItemAt(i).getUserObject() + " at "
-								+ (index + 1 + i + _addCount) + "-----index=" + index + "------i="
-								+ i);
 						treeModel.addElement(index + 1 + i + _addCount, item.getItemAt(i));
 						addCount++;
 					}
 					int tmp = openAll(item.getItemAt(i), 0);
 					_addCount = _addCount + tmp;
-					System.err.println(item.getItemAt(i).getUserObject() + " 积累了 " + _addCount);
 					addCount = addCount + tmp;
 				}
 			}

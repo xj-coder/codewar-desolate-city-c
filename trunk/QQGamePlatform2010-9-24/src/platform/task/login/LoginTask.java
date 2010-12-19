@@ -3,6 +3,7 @@ package platform.task.login;
 import platform.action.LoginAction;
 import platform.bean.LoginBean;
 import platform.bean.PlayerBean;
+import platform.define.RunTimeDefine;
 import platform.exception.LoginException;
 import platform.task.Task;
 import platform.ui.index.IndexUI;
@@ -24,7 +25,8 @@ public class LoginTask extends Task {
 	@Override
 	protected void canNotStop() {
 		loginUI.setVisible(false);
-		IndexUI indexUI = new IndexUI(playerBean);
+		RunTimeDefine.player = playerBean;
+		IndexUI indexUI = new IndexUI();
 		indexUI.showMe();
 	}
 
