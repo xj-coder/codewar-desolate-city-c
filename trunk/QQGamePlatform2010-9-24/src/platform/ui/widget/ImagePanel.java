@@ -5,11 +5,11 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
-public class ImagePanelUI extends JPanel {
+public class ImagePanel extends JPanel {
 	private static final long serialVersionUID = -8403177356539806944L;
 	private Image image;
 
-	public ImagePanelUI(Image img) {
+	public ImagePanel(Image img) {
 		super();
 		setFocusable(true);
 		image = img;

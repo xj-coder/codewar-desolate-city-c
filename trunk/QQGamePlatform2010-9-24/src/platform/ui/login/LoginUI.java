@@ -41,7 +41,7 @@ import platform.tools.LookAndFeel;
 import platform.tools.Tools;
 import platform.ui.focustraversalpolicy.QFocusTraversalPolicy;
 import platform.ui.widget.ImageLabel;
-import platform.ui.widget.ImagePanelUI;
+import platform.ui.widget.ImagePanel;
 import platform.ui.widget.URLLabelUI;
 import platform.ui.widget.factory.WidgetFactory;
 
@@ -51,13 +51,13 @@ public class LoginUI extends JFrame {
 
 	private static final long serialVersionUID = -3745375316666171374L;
 
-	private ImagePanelUI bg_up_image_panel;
-	private ImagePanelUI bg_center_image_panel;
-	private ImagePanelUI bg_down_image_panel;
-	private ImagePanelUI banner_image_panel;
-	private ImagePanelUI login_processbar_out_image_panel;
-	private ImagePanelUI login_processbar_in_image_panel;
-	private ImagePanelUI login_processbar_bg_image_panel;
+	private ImagePanel bg_up_image_panel;
+	private ImagePanel bg_center_image_panel;
+	private ImagePanel bg_down_image_panel;
+	private ImagePanel banner_image_panel;
+	private ImagePanel login_processbar_out_image_panel;
+	private ImagePanel login_processbar_in_image_panel;
+	private ImagePanel login_processbar_bg_image_panel;
 
 	private ImageLabel info_label;
 	private ImageLabel account_label;
@@ -199,58 +199,58 @@ public class LoginUI extends JFrame {
 	}
 
 	// label
-	public ImagePanelUI getBg_up_image_panel() {
+	public ImagePanel getBg_up_image_panel() {
 		if (bg_up_image_panel == null) {
-			bg_up_image_panel = new ImagePanelUI(ImageFactory.getLoginBgUpImage().getScaledInstance(355, 130, Image.SCALE_DEFAULT));
+			bg_up_image_panel = new ImagePanel(ImageFactory.getLoginBgUpImage().getScaledInstance(355, 130, Image.SCALE_DEFAULT));
 			bg_up_image_panel.setBounds(0, 0, 355, 130);
 		}
 		return bg_up_image_panel;
 	}
 
-	public ImagePanelUI getBg_center_image_panel() {
+	public ImagePanel getBg_center_image_panel() {
 		if (bg_center_image_panel == null) {
-			bg_center_image_panel = new ImagePanelUI(ImageFactory.getLoginBgCenterImage().getScaledInstance(355, 40, Image.SCALE_DEFAULT));
+			bg_center_image_panel = new ImagePanel(ImageFactory.getLoginBgCenterImage().getScaledInstance(355, 40, Image.SCALE_DEFAULT));
 			bg_center_image_panel.setBounds(0, 130, 355, 40);
 		}
 		return bg_center_image_panel;
 	}
 
-	public ImagePanelUI getBg_down_image_panel() {
+	public ImagePanel getBg_down_image_panel() {
 		if (bg_down_image_panel == null) {
-			bg_down_image_panel = new ImagePanelUI(ImageFactory.getLoginBgDownImage().getScaledInstance(355, 70, Image.SCALE_DEFAULT));
+			bg_down_image_panel = new ImagePanel(ImageFactory.getLoginBgDownImage().getScaledInstance(355, 70, Image.SCALE_DEFAULT));
 			bg_down_image_panel.setBounds(0, 170, 355, 70);
 		}
 		return bg_down_image_panel;
 	}
 
-	public ImagePanelUI getBanner_image_panel() {
+	public ImagePanel getBanner_image_panel() {
 		if (banner_image_panel == null) {
-			banner_image_panel = new ImagePanelUI(ImageFactory.getLoginBannerImage().getScaledInstance(351, 70, Image.SCALE_DEFAULT));
+			banner_image_panel = new ImagePanel(ImageFactory.getLoginBannerImage().getScaledInstance(351, 70, Image.SCALE_DEFAULT));
 			banner_image_panel.setName("banner_image_panel");
 			banner_image_panel.setBounds(2, 25, 350, 70);
 		}
 		return banner_image_panel;
 	}
 
-	public ImagePanelUI getLogin_processbar_in_image_panel() {
+	public ImagePanel getLogin_processbar_in_image_panel() {
 		if (login_processbar_in_image_panel == null) {
-			login_processbar_in_image_panel = new ImagePanelUI(ImageFactory.getLoginProcessbarInImage().getScaledInstance(75, 4, Image.SCALE_DEFAULT));
+			login_processbar_in_image_panel = new ImagePanel(ImageFactory.getLoginProcessbarInImage().getScaledInstance(75, 4, Image.SCALE_DEFAULT));
 			login_processbar_in_image_panel.setBounds((int) Math.random() * (355 - 75), 95, 75, 4);
 		}
 		return login_processbar_in_image_panel;
 	}
 
-	public ImagePanelUI getLogin_processbar_out_image_panel() {
+	public ImagePanel getLogin_processbar_out_image_panel() {
 		if (login_processbar_out_image_panel == null) {
-			login_processbar_out_image_panel = new ImagePanelUI(ImageFactory.getLoginProcessbarOutImage().getScaledInstance(355, 4, Image.SCALE_DEFAULT));
+			login_processbar_out_image_panel = new ImagePanel(ImageFactory.getLoginProcessbarOutImage().getScaledInstance(355, 4, Image.SCALE_DEFAULT));
 			login_processbar_out_image_panel.setBounds(0, 95, 355, 4);
 		}
 		return login_processbar_out_image_panel;
 	}
 
-	public ImagePanelUI getLogin_processbar_bg_image_panel() {
+	public ImagePanel getLogin_processbar_bg_image_panel() {
 		if (login_processbar_bg_image_panel == null) {
-			login_processbar_bg_image_panel = new ImagePanelUI(ImageFactory.getLoginProcessbarBgImage().getScaledInstance(355, 4, Image.SCALE_SMOOTH));
+			login_processbar_bg_image_panel = new ImagePanel(ImageFactory.getLoginProcessbarBgImage().getScaledInstance(355, 4, Image.SCALE_SMOOTH));
 			login_processbar_bg_image_panel.setBounds(0, 95, 355, 4);
 		}
 		return login_processbar_bg_image_panel;
