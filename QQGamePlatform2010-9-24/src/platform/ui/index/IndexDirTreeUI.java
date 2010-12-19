@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
+import platform.adapter.IndexDirTreeAdapter;
 import platform.define.Define;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
@@ -187,8 +188,8 @@ public class IndexDirTreeUI extends JPanel {
 
 	public ImagePanel getDir_bg_up_center_image_panel() {
 		if (dir_bg_up_center_image_panel == null) {
-			dir_bg_up_center_image_panel = new ImagePanel(ImageFactory
-					.getIndexDirBgUpCenterImage().getScaledInstance(
+			dir_bg_up_center_image_panel = new ImagePanel(ImageFactory.getIndexDirBgUpCenterImage()
+					.getScaledInstance(
 							getWidth() - getDir_bg_up_left_image_panel().getWidth()
 									- getDir_bg_up_right_image_panel().getWidth(), 58,
 							Image.SCALE_DEFAULT));
@@ -208,8 +209,8 @@ public class IndexDirTreeUI extends JPanel {
 
 	public ImagePanel getDir_bg_down_left_image_panel() {
 		if (dir_bg_down_left_image_panel == null) {
-			dir_bg_down_left_image_panel = new ImagePanel(ImageFactory
-					.getIndexDirBgDownLeftImage().getScaledInstance(12, 12, Image.SCALE_DEFAULT));
+			dir_bg_down_left_image_panel = new ImagePanel(ImageFactory.getIndexDirBgDownLeftImage()
+					.getScaledInstance(12, 12, Image.SCALE_DEFAULT));
 			resetDir_bg_down_left_image_panel();
 		}
 		return dir_bg_down_left_image_panel;
@@ -487,6 +488,8 @@ public class IndexDirTreeUI extends JPanel {
 		if (tree == null) {
 			tree = new QTableTree(getTreeModel());
 			tree.setAutoscrolls(true);
+
+			tree.addMouseListener(new IndexDirTreeAdapter(indexUI));
 
 			resetTree();
 		}

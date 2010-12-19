@@ -20,7 +20,7 @@ public class QTableTreeItemUI extends JButton {
 	public static Color ITEM_ROLLOVER = new Color(0xcbe8fb);
 	public static Color ITEM_BORDER = new Color(0xeeeeee);
 
-	public static int UNIT_SPANE_WIDTH = 20;
+	public static int UNIT_SPANE_WIDTH = 10;
 	public static int UNIT_WIDTH = 196;
 	public static int UNIT_HEIGHT = 20;
 
@@ -31,6 +31,7 @@ public class QTableTreeItemUI extends JButton {
 	private ImageLabel spanLabel;
 	private ImageLabel expandOpenIcon;
 	private ImageLabel expandCloseIcon;
+	private ImageLabel iconLabel;
 	private ImageLabel nameLabel;
 
 	public QTableTreeItemUI(QTableTree tableTreeUI, QTableTreeItem item) {
@@ -97,6 +98,7 @@ public class QTableTreeItemUI extends JButton {
 		add(getSpanLabel());
 		add(getExpandOpenIcon());
 		add(getExpandCloseIcon());
+		add(getIconLabel());
 		add(getNameLabel());
 
 		if (item.getChildCount() == 0) {
@@ -144,6 +146,20 @@ public class QTableTreeItemUI extends JButton {
 		getExpandCloseIcon().setBounds(getSpanLabel().getWidth(), 2, 16, 16);
 	}
 
+	public ImageLabel getIconLabel() {
+		if (iconLabel == null) {
+			iconLabel = new ImageLabel(new ImageIcon(item.getIcon()));
+
+			resetIconLabel();
+		}
+		return iconLabel;
+	}
+
+	private void resetIconLabel() {
+		getIconLabel().setBounds(getSpanLabel().getWidth() + getExpandOpenIcon().getWidth(), 2, 16,
+				16);
+	}
+
 	public ImageLabel getNameLabel() {
 		if (nameLabel == null) {
 			nameLabel = new ImageLabel(item.getShowName());
@@ -154,9 +170,12 @@ public class QTableTreeItemUI extends JButton {
 	}
 
 	public void resetNameLabel() {
-		getNameLabel().setBounds(getSpanLabel().getWidth() + getExpandOpenIcon().getWidth(), 0,
-				getWidth() - getSpanLabel().getWidth() - getExpandOpenIcon().getWidth(),
-				getHeight());
+		getNameLabel().setBounds(
+				getIconLabel().getWidth() + getSpanLabel().getWidth()
+						+ getExpandOpenIcon().getWidth(),
+				0,
+				getWidth() - getIconLabel().getWidth() - getSpanLabel().getWidth()
+						- getExpandOpenIcon().getWidth(), getHeight());
 	}
 
 	public QTableTree getTableTreeUI() {

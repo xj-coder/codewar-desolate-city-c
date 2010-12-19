@@ -7,8 +7,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import platform.bean.GameBean;
-import platform.bean.PlayerBean;
 import platform.ui.index.page.IndexPage;
+import platform.ui.index.page.Page;
 import platform.ui.index.page.RoomPage;
 import platform.ui.widget.QTabbedPane;
 
@@ -16,11 +16,14 @@ public class IndexTabbedPane extends QTabbedPane {
 
 	private static final long serialVersionUID = -7604196421802833735L;
 
-	private IndexPage indexPage;
-	private final ArrayList<RoomPage> roomPages = new ArrayList<RoomPage>();
+	private Page indexPage;
+	private final ArrayList<Page> roomPages = new ArrayList<Page>();
 
-	public IndexTabbedPane() {
+	private IndexUI indexUI;
+
+	public IndexTabbedPane(IndexUI indexUI) {
 		super();
+		this.indexUI = indexUI;
 	}
 
 	/**
@@ -34,26 +37,26 @@ public class IndexTabbedPane extends QTabbedPane {
 	/**
 	 *打开指定游戏房间Tab
 	 */
-	public void openGameRoomTab(PlayerBean playerBean, GameBean gameBean) {
-
+	public void openGameRoomTab(GameBean gameBean) {
+		RoomPage room = new RoomPage(indexUI, gameBean);
+		addTab(gameBean.getShow_name(), room.getTitleImage(), room);
 	}
 
 	/**
 	 *关闭指定游戏房间Tab
 	 */
-	public boolean closeGameRoomTab(GameBean gameBean) {
-
-		return false;
+	public void closeGameRoomTab(RoomPage room) {
+		closeTab(room);
 	}
 
-	public IndexPage getIndexPageTab() {
+	public Page getIndexPageTab() {
 		if (indexPage == null) {
 			indexPage = new IndexPage();
 		}
 		return indexPage;
 	}
 
-	public void setIndexPageTab(IndexPage indexPageTab) {
+	public void setIndexPageTab(Page indexPageTab) {
 		this.indexPage = indexPageTab;
 	}
 
