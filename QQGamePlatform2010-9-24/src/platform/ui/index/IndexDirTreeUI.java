@@ -22,7 +22,7 @@ import platform.define.Define;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
 import platform.ui.widget.ImageLabel;
-import platform.ui.widget.ImagePanelUI;
+import platform.ui.widget.ImagePanel;
 import platform.ui.widget.IndexSearchResultBox;
 import platform.ui.widget.factory.WidgetFactory;
 import platform.ui.widget.tabletree.QTableTree;
@@ -33,21 +33,21 @@ import platform.ui.widget.tabletree.QTableTreeModel;
 public class IndexDirTreeUI extends JPanel {
 
 	// #begin【Label元素】
-	private ImagePanelUI dir_bg_up_left_image_panel;
-	private ImagePanelUI dir_bg_up_center_image_panel;
-	private ImagePanelUI dir_bg_up_right_image_panel;
-	private ImagePanelUI dir_bg_left_image_panel;
-	private ImagePanelUI dir_bg_center_image_panel;
-	private ImagePanelUI dir_bg_right_image_panel;
-	private ImagePanelUI dir_bg_down_left_image_panel;
-	private ImagePanelUI dir_bg_down_center_image_panel;
-	private ImagePanelUI dir_bg_down_right_image_panel;
+	private ImagePanel dir_bg_up_left_image_panel;
+	private ImagePanel dir_bg_up_center_image_panel;
+	private ImagePanel dir_bg_up_right_image_panel;
+	private ImagePanel dir_bg_left_image_panel;
+	private ImagePanel dir_bg_center_image_panel;
+	private ImagePanel dir_bg_right_image_panel;
+	private ImagePanel dir_bg_down_left_image_panel;
+	private ImagePanel dir_bg_down_center_image_panel;
+	private ImagePanel dir_bg_down_right_image_panel;
 
 	private ImageLabel dir_show_online_players_label;
 
-	private ImagePanelUI dir_search_bg_left_image_panel;
-	private ImagePanelUI dir_search_bg_center_image_panel;
-	private ImagePanelUI dir_search_bg_right_image_panel;
+	private ImagePanel dir_search_bg_left_image_panel;
+	private ImagePanel dir_search_bg_center_image_panel;
+	private ImagePanel dir_search_bg_right_image_panel;
 	// #end【Label元素】
 
 	// #begin【Button元素】
@@ -157,9 +157,9 @@ public class IndexDirTreeUI extends JPanel {
 	// end 打开首页
 
 	// #begin【Label元素】
-	public ImagePanelUI getDir_bg_up_left_image_panel() {
+	public ImagePanel getDir_bg_up_left_image_panel() {
 		if (dir_bg_up_left_image_panel == null) {
-			dir_bg_up_left_image_panel = new ImagePanelUI(ImageFactory.getIndexDirBgUpLeftImage()
+			dir_bg_up_left_image_panel = new ImagePanel(ImageFactory.getIndexDirBgUpLeftImage()
 					.getScaledInstance(15, 58, Image.SCALE_DEFAULT));
 
 			resetDir_bg_up_left_image_panel();
@@ -171,9 +171,9 @@ public class IndexDirTreeUI extends JPanel {
 		getDir_bg_up_left_image_panel().setBounds(0, 0, 15, 58);
 	}
 
-	public ImagePanelUI getDir_bg_up_right_image_panel() {
+	public ImagePanel getDir_bg_up_right_image_panel() {
 		if (dir_bg_up_right_image_panel == null) {
-			dir_bg_up_right_image_panel = new ImagePanelUI(ImageFactory.getIndexDirBgUpRightImage()
+			dir_bg_up_right_image_panel = new ImagePanel(ImageFactory.getIndexDirBgUpRightImage()
 					.getScaledInstance(15, 58, Image.SCALE_DEFAULT));
 
 			resetDir_bg_up_right_image_panel();
@@ -185,9 +185,9 @@ public class IndexDirTreeUI extends JPanel {
 		getDir_bg_up_right_image_panel().setBounds(getWidth() - 15, 0, 15, 58);
 	}
 
-	public ImagePanelUI getDir_bg_up_center_image_panel() {
+	public ImagePanel getDir_bg_up_center_image_panel() {
 		if (dir_bg_up_center_image_panel == null) {
-			dir_bg_up_center_image_panel = new ImagePanelUI(ImageFactory
+			dir_bg_up_center_image_panel = new ImagePanel(ImageFactory
 					.getIndexDirBgUpCenterImage().getScaledInstance(
 							getWidth() - getDir_bg_up_left_image_panel().getWidth()
 									- getDir_bg_up_right_image_panel().getWidth(), 58,
@@ -206,9 +206,9 @@ public class IndexDirTreeUI extends JPanel {
 						- getDir_bg_up_right_image_panel().getWidth(), 58);
 	}
 
-	public ImagePanelUI getDir_bg_down_left_image_panel() {
+	public ImagePanel getDir_bg_down_left_image_panel() {
 		if (dir_bg_down_left_image_panel == null) {
-			dir_bg_down_left_image_panel = new ImagePanelUI(ImageFactory
+			dir_bg_down_left_image_panel = new ImagePanel(ImageFactory
 					.getIndexDirBgDownLeftImage().getScaledInstance(12, 12, Image.SCALE_DEFAULT));
 			resetDir_bg_down_left_image_panel();
 		}
@@ -219,9 +219,9 @@ public class IndexDirTreeUI extends JPanel {
 		getDir_bg_down_left_image_panel().setBounds(0, getHeight() - 12, 12, 12);
 	}
 
-	public ImagePanelUI getDir_bg_down_right_image_panel() {
+	public ImagePanel getDir_bg_down_right_image_panel() {
 		if (dir_bg_down_right_image_panel == null) {
-			dir_bg_down_right_image_panel = new ImagePanelUI(ImageFactory
+			dir_bg_down_right_image_panel = new ImagePanel(ImageFactory
 					.getIndexDirBgDownRightImage().getScaledInstance(12, 12, Image.SCALE_DEFAULT));
 			resetDir_bg_down_right_image_panel();
 		}
@@ -232,9 +232,9 @@ public class IndexDirTreeUI extends JPanel {
 		getDir_bg_down_right_image_panel().setBounds(getWidth() - 12, getHeight() - 12, 12, 12);
 	}
 
-	public ImagePanelUI getDir_bg_down_center_image_panel() {
+	public ImagePanel getDir_bg_down_center_image_panel() {
 		if (dir_bg_down_center_image_panel == null) {
-			dir_bg_down_center_image_panel = new ImagePanelUI(ImageFactory
+			dir_bg_down_center_image_panel = new ImagePanel(ImageFactory
 					.getIndexDirBgDownCenterImage().getScaledInstance(
 							getWidth() - getDir_bg_down_left_image_panel().getWidth()
 									- getDir_bg_down_right_image_panel().getWidth(), 12,
@@ -252,9 +252,9 @@ public class IndexDirTreeUI extends JPanel {
 						- getDir_bg_down_right_image_panel().getWidth(), 12);
 	}
 
-	public ImagePanelUI getDir_bg_left_image_panel() {
+	public ImagePanel getDir_bg_left_image_panel() {
 		if (dir_bg_left_image_panel == null) {
-			dir_bg_left_image_panel = new ImagePanelUI(ImageFactory.getIndexDirBgLeftImage()
+			dir_bg_left_image_panel = new ImagePanel(ImageFactory.getIndexDirBgLeftImage()
 					.getScaledInstance(
 							13,
 							getHeight() - getDir_bg_up_left_image_panel().getHeight()
@@ -274,9 +274,9 @@ public class IndexDirTreeUI extends JPanel {
 						- getDir_bg_down_left_image_panel().getHeight());
 	}
 
-	public ImagePanelUI getDir_bg_right_image_panel() {
+	public ImagePanel getDir_bg_right_image_panel() {
 		if (dir_bg_right_image_panel == null) {
-			dir_bg_right_image_panel = new ImagePanelUI(ImageFactory.getIndexDirBgRightImage()
+			dir_bg_right_image_panel = new ImagePanel(ImageFactory.getIndexDirBgRightImage()
 					.getScaledInstance(
 							13,
 							getHeight() - getDir_bg_up_right_image_panel().getHeight()
@@ -296,9 +296,9 @@ public class IndexDirTreeUI extends JPanel {
 						- getDir_bg_down_right_image_panel().getHeight());
 	}
 
-	public ImagePanelUI getDir_bg_center_image_panel() {
+	public ImagePanel getDir_bg_center_image_panel() {
 		if (dir_bg_center_image_panel == null) {
-			dir_bg_center_image_panel = new ImagePanelUI(ImageFactory.getIndexDirBgCenterImage()
+			dir_bg_center_image_panel = new ImagePanel(ImageFactory.getIndexDirBgCenterImage()
 					.getScaledInstance(
 							getWidth() - getDir_bg_left_image_panel().getWidth()
 									- getDir_bg_right_image_panel().getWidth(),
@@ -334,9 +334,9 @@ public class IndexDirTreeUI extends JPanel {
 		getDir_show_online_players_image_panel().setBounds(15, 5, 150, 15);
 	}
 
-	public ImagePanelUI getDir_search_bg_left_image_panel() {
+	public ImagePanel getDir_search_bg_left_image_panel() {
 		if (dir_search_bg_left_image_panel == null) {
-			dir_search_bg_left_image_panel = new ImagePanelUI(ImageFactory
+			dir_search_bg_left_image_panel = new ImagePanel(ImageFactory
 					.getIndexDirSearchBgLeftImage().getScaledInstance(26, 27, Image.SCALE_DEFAULT));
 			resetDir_search_bg_left_image_panel();
 		}
@@ -347,9 +347,9 @@ public class IndexDirTreeUI extends JPanel {
 		getDir_search_bg_left_image_panel().setBounds(5, 27, 26, 27);
 	}
 
-	public ImagePanelUI getDir_search_bg_right_image_panel() {
+	public ImagePanel getDir_search_bg_right_image_panel() {
 		if (dir_search_bg_right_image_panel == null) {
-			dir_search_bg_right_image_panel = new ImagePanelUI(ImageFactory
+			dir_search_bg_right_image_panel = new ImagePanel(ImageFactory
 					.getIndexDirSearchBgRightImage().getScaledInstance(15, 25, Image.SCALE_DEFAULT));
 			resetDir_search_bg_right_image_panel();
 		}
@@ -360,9 +360,9 @@ public class IndexDirTreeUI extends JPanel {
 		getDir_search_bg_right_image_panel().setBounds(getWidth() - 15, 27, 15, 25);
 	}
 
-	public ImagePanelUI getDir_search_bg_center_image_panel() {
+	public ImagePanel getDir_search_bg_center_image_panel() {
 		if (dir_search_bg_center_image_panel == null) {
-			dir_search_bg_center_image_panel = new ImagePanelUI(ImageFactory
+			dir_search_bg_center_image_panel = new ImagePanel(ImageFactory
 					.getIndexDirSearchBgCenterImage().getScaledInstance(
 							getWidth() - getDir_search_bg_left_image_panel().getWidth() - 10 - 15,
 							27, Image.SCALE_DEFAULT));
