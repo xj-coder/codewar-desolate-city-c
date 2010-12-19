@@ -6,6 +6,12 @@ import org.eclipse.swt.extension.hook.listener.HookEventListener;
 
 import platform.ui.login.LoginUI;
 
+/**
+ * 登入界面全局键盘钩子
+ * 
+ * @author DesolateCity
+ * 
+ */
 public class LoginKeyBoardHookAdapter implements HookEventListener {
 	private LoginUI loginUI;
 

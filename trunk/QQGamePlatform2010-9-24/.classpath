@@ -7,5 +7,7 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.swt.win32.extension.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.swt.win32.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.ui.forms.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jaxen-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

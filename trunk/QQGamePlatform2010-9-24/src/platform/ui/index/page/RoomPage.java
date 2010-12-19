@@ -12,7 +12,6 @@ public class RoomPage extends JPanel {
 
 	public RoomPage(GameBean gameBean) {
 		this.gameBean = gameBean;
-
 	}
 
 	public GameBean getGameBean() {

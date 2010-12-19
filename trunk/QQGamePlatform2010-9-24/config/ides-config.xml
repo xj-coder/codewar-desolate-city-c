@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ides>
+	<ide>
+		<module>Default</module>
+		<show-name>Default</show-name>
+		<ide-class>c.city.desolate.client.ides.def.Default</ide-class>
+	</ide>
+	<ide>
+		<module></module>
+		<show-name></show-name>
+		<ide-class></ide-class>
+	</ide>
+</ides>

@@ -20,7 +20,7 @@ public class UIDoubleClockTitleAdapter extends MouseAdapter {
 
 	@Override
 	public void mouseClicked(MouseEvent event) {
-		if (event.getY() < 25)
+		if (event.getY() < 25) {
 			if (event.getClickCount() == 2) {
 				if (UI instanceof IndexUI) {
 					if (((IndexUI) UI).isMax()) {
@@ -32,6 +32,7 @@ public class UIDoubleClockTitleAdapter extends MouseAdapter {
 						UI.addMouseListener(((IndexUI) UI).getDragAdapter());
 						UI.addMouseMotionListener(((IndexUI) UI).getDragAdapter());
 					} else {
+						((IndexUI) UI).setHistorySize(((IndexUI) UI).getSize());
 						((IndexUI) UI).getHeadUI().getRestr_button().setVisible(true);
 						((IndexUI) UI).getHeadUI().getMax_button().setVisible(false);
 						((IndexUI) UI).setMax(true);
@@ -46,5 +47,7 @@ public class UIDoubleClockTitleAdapter extends MouseAdapter {
 					}
 				}
 			}
+		}
+		super.mouseClicked(event);
 	}
 }

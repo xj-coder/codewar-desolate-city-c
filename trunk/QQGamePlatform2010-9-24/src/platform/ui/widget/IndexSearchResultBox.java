@@ -1,4 +1,4 @@
-package platform.ui.widget.ui;
+package platform.ui.widget;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -6,7 +6,6 @@ import java.awt.Image;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListModel;
 
@@ -19,25 +18,25 @@ public class IndexSearchResultBox extends JComponent {
 	private static final long serialVersionUID = 7252634123532480781L;
 
 	// #begin 【Lable元素】
-	private JLabel dir_list_bg_up_left_label;
-	private JLabel dir_list_bg_up_center_label;
-	private JLabel dir_list_bg_up_right_label;
-	private JLabel dir_list_bg_left_label;
-	private JLabel dir_list_bg_center_label;
-	private JLabel dir_list_bg_right_label;
-	private JLabel dir_list_bg_down_left_label;
-	private JLabel dir_list_bg_down_center_label;
-	private JLabel dir_list_bg_down_right_label;
+	private ImageLabel dir_list_bg_up_left_label;
+	private ImageLabel dir_list_bg_up_center_label;
+	private ImageLabel dir_list_bg_up_right_label;
+	private ImageLabel dir_list_bg_left_label;
+	private ImageLabel dir_list_bg_center_label;
+	private ImageLabel dir_list_bg_right_label;
+	private ImageLabel dir_list_bg_down_left_label;
+	private ImageLabel dir_list_bg_down_center_label;
+	private ImageLabel dir_list_bg_down_right_label;
 
-	private JLabel dir_list_info_label;
+	private ImageLabel dir_list_info_label;
 	// #end 【Lable元素】
 
 	private JList listResult;
 	private ListModel listModel;
 
 	public IndexSearchResultBox() {
+		super();
 		setLayout(null);
-
 		setOpaque(false);
 	}
 
@@ -101,9 +100,9 @@ public class IndexSearchResultBox extends JComponent {
 	}
 
 	// #begin 【Label元素】
-	public JLabel getDir_list_bg_up_left_label() {
+	public ImageLabel getDir_list_bg_up_left_label() {
 		if (dir_list_bg_up_left_label == null) {
-			dir_list_bg_up_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirListBgUpLeftImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
+			dir_list_bg_up_left_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgUpLeftImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
 			resetDir_list_bg_up_left_label();
 		}
 		return dir_list_bg_up_left_label;
@@ -113,10 +112,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_up_left_label().setBounds(0, 0, 4, 5);
 	}
 
-	public JLabel getDir_list_bg_up_center_label() {
+	public ImageLabel getDir_list_bg_up_center_label() {
 		if (dir_list_bg_up_center_label == null) {
-			dir_list_bg_up_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirListBgUpCenterImage().getScaledInstance(getWidth() - 8, 5,
-					Image.SCALE_DEFAULT)));
+			dir_list_bg_up_center_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgUpCenterImage().getScaledInstance(getWidth() - 8, 5, Image.SCALE_DEFAULT)));
 
 			resetDir_list_bg_up_center_label();
 		}
@@ -127,9 +125,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_up_center_label().setBounds(4, 0, getWidth() - 8, 5);
 	}
 
-	public JLabel getDir_list_bg_up_right_label() {
+	public ImageLabel getDir_list_bg_up_right_label() {
 		if (dir_list_bg_up_right_label == null) {
-			dir_list_bg_up_right_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirListBgUpRightImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
+			dir_list_bg_up_right_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgUpRightImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
 			resetDir_list_bg_up_right_label();
 		}
 		return dir_list_bg_up_right_label;
@@ -139,10 +137,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_up_right_label().setBounds(getWidth() - 4, 0, 4, 5);
 	}
 
-	public JLabel getDir_list_bg_left_label() {
+	public ImageLabel getDir_list_bg_left_label() {
 		if (dir_list_bg_left_label == null) {
-			dir_list_bg_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirListBgLeftImage().getScaledInstance(15, getHeight() - 10,
-					Image.SCALE_DEFAULT)));
+			dir_list_bg_left_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgLeftImage().getScaledInstance(15, getHeight() - 10, Image.SCALE_DEFAULT)));
 
 			resetDir_list_bg_left_label();
 		}
@@ -153,10 +150,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_left_label().setBounds(0, 5, 15, getHeight() - 10);
 	}
 
-	public JLabel getDir_list_bg_center_label() {
+	public ImageLabel getDir_list_bg_center_label() {
 		if (dir_list_bg_center_label == null) {
-			dir_list_bg_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirBgCenterImage().getScaledInstance(getWidth() - 10, getHeight() - 10,
-					Image.SCALE_DEFAULT)));
+			dir_list_bg_center_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirBgCenterImage().getScaledInstance(getWidth() - 10, getHeight() - 10, Image.SCALE_DEFAULT)));
 
 			resetDir_list_bg_center_label();
 		}
@@ -167,10 +163,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_center_label().setBounds(5, 5, getWidth() - 10, getHeight() - 10);
 	}
 
-	public JLabel getDir_list_bg_right_label() {
+	public ImageLabel getDir_list_bg_right_label() {
 		if (dir_list_bg_right_label == null) {
-			dir_list_bg_right_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirListBgRightImage().getScaledInstance(15, getHeight() - 10,
-					Image.SCALE_DEFAULT)));
+			dir_list_bg_right_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgRightImage().getScaledInstance(15, getHeight() - 10, Image.SCALE_DEFAULT)));
 			resetDir_list_bg_right_label();
 		}
 		return dir_list_bg_right_label;
@@ -180,9 +175,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_right_label().setBounds(getWidth() - 15, 5, 15, getHeight() - 10);
 	}
 
-	public JLabel getDir_list_bg_down_left_label() {
+	public ImageLabel getDir_list_bg_down_left_label() {
 		if (dir_list_bg_down_left_label == null) {
-			dir_list_bg_down_left_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirListBgDownLeftImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
+			dir_list_bg_down_left_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgDownLeftImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
 			resetDir_list_bg_down_left_label();
 		}
 		return dir_list_bg_down_left_label;
@@ -192,10 +187,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_down_left_label().setBounds(0, getHeight() - 5, 4, 5);
 	}
 
-	public JLabel getDir_list_bg_down_center_label() {
+	public ImageLabel getDir_list_bg_down_center_label() {
 		if (dir_list_bg_down_center_label == null) {
-			dir_list_bg_down_center_label = new JLabel(new ImageIcon(ImageFactory.getIndexDirListBgDownCenterImage().getScaledInstance(getWidth() - 8, 5,
-					Image.SCALE_DEFAULT)));
+			dir_list_bg_down_center_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgDownCenterImage().getScaledInstance(getWidth() - 8, 5, Image.SCALE_DEFAULT)));
 			resetDir_list_bg_down_center_label();
 		}
 		return dir_list_bg_down_center_label;
@@ -205,10 +199,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_down_center_label().setBounds(4, getHeight() - 5, getWidth() - 8, 5);
 	}
 
-	public JLabel getDir_list_bg_down_right_label() {
+	public ImageLabel getDir_list_bg_down_right_label() {
 		if (dir_list_bg_down_right_label == null) {
-			dir_list_bg_down_right_label = new JLabel(
-					new ImageIcon(ImageFactory.getIndexDirListBgDownRightImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
+			dir_list_bg_down_right_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexDirListBgDownRightImage().getScaledInstance(4, 5, Image.SCALE_DEFAULT)));
 			resetDir_list_bg_down_right_label();
 		}
 		return dir_list_bg_down_right_label;
@@ -218,9 +211,9 @@ public class IndexSearchResultBox extends JComponent {
 		getDir_list_bg_down_right_label().setBounds(getWidth() - 4, getHeight() - 5, 4, 5);
 	}
 
-	public JLabel getDir_list_info_label() {
+	public ImageLabel getDir_list_info_label() {
 		if (dir_list_info_label == null) {
-			dir_list_info_label = new JLabel(IndexParams.SEARCH_RESULT_INFO_CONTEXT);
+			dir_list_info_label = new ImageLabel(IndexParams.SEARCH_RESULT_INFO_CONTEXT);
 
 			resetDir_list_info_label();
 		}

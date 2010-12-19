@@ -1,25 +1,31 @@
 package platform.ui.widget.bean;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
-public class QTableTreeItem {
+import javax.swing.JComponent;
+
+public class QTableTreeItem extends JComponent {
+	private static final long serialVersionUID = -1329277543951092617L;
+
 	private String showName;// 显示名
 	private boolean isExpand;// 是否展开
-	private boolean isInstall;// 是否安装
-	private int level;// 所在的层级
+	private int level;// 所在层次
+	private int order;// 排序
 	private boolean isRollover;// 鼠标是否在上面
 	private boolean isSelect;// 是否选择
-	private ArrayList<QTableTreeItem> childs = new ArrayList<QTableTreeItem>();// 子节点
+	private Vector<QTableTreeItem> childs = new Vector<QTableTreeItem>();// 子节点
+
+	private Object userObject;
 
 	public QTableTreeItem() {
 	}
 
-	public QTableTreeItem(String showName, boolean isExpand, boolean isInstall, int level) {
+	public QTableTreeItem(Object userObject, boolean isExpand, int order) {
 		super();
-		this.showName = showName;
+		this.userObject = userObject;
+		this.showName = userObject.toString();
 		this.isExpand = isExpand;
-		this.isInstall = isInstall;
-		this.level = level;
+		this.order = order;
 	}
 
 	public String getShowName() {
@@ -38,28 +44,37 @@ public class QTableTreeItem {
 		this.isExpand = isExpand;
 	}
 
-	public boolean isInstall() {
-		return isInstall;
+	public void addQTableTreeItem(QTableTreeItem item) {
+		item.setLevel(getLevel() == 0 ? 0 : (getLevel() + 1));
+
+		boolean added = false;
+		for (int i = 0; i < childs.size(); i++) {
+			if (childs.get(i).getOrder() > item.getOrder()) {
+				childs.add(i, item);
+				added = true;
+				break;
+			}
+		}
+		if (!added) {
+			childs.add(item);
+		}
+
 	}
 
-	public void setInstall(boolean isInstall) {
-		this.isInstall = isInstall;
+	public int getChildCount() {
+		return childs.size();
 	}
 
-	public ArrayList<QTableTreeItem> getChilds() {
-		return childs;
+	public QTableTreeItem getItemAt(int index) {
+		return childs.get(index);
 	}
 
-	public void setChilds(ArrayList<QTableTreeItem> childs) {
-		this.childs = childs;
+	public int getOrder() {
+		return order;
 	}
 
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
+	public void setOrder(int level) {
+		this.order = level;
 	}
 
 	public boolean isRollover() {
@@ -76,6 +91,27 @@ public class QTableTreeItem {
 
 	public void setSelect(boolean isSelect) {
 		this.isSelect = isSelect;
+	}
+
+	public Object getUserObject() {
+		return userObject;
+	}
+
+	public void setUserObject(Object userObject) {
+		this.userObject = userObject;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+
+		for (int i = 0; i < getChildCount(); i++) {
+			getItemAt(i).setLevel(
+					(getItemAt(i).getLevel() == 0 ? 1 : getItemAt(i).getLevel()) + getLevel());
+		}
 	}
 
 }

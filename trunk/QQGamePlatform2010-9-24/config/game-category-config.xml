@@ -1,0 +1,54 @@
+<!--服务器端发往客户端的信息格式-->
+<!--游戏列表-->
+<map>
+	<entry>
+		<key>cid</key>
+		<value>1</value>
+		<key>show_name</key>
+		<value>单机游戏</value>
+		<key>parent</key>
+		<value>0</value>
+		<key>order</key>
+		<value>1</value>
+	</entry>
+	<entry>
+		<key>cid</key>
+		<value>2</value>
+		<key>show_name</key>
+		<value>联网游戏</value>
+		<key>parent</key>
+		<value>0</value>
+		<key>order</key>
+		<value>2</value>
+	</entry>
+	<entry>
+		<key>cid</key>
+		<value>10</value>
+		<key>show_name</key>
+		<value>牌类游戏</value>
+		<key>parent</key>
+		<value>1</value>
+		<key>order</key>
+		<value>1</value>
+	</entry>
+	<entry>
+		<key>cid</key>
+		<value>11</value>
+		<key>show_name</key>
+		<value>棋类游戏</value>
+		<key>parent</key>
+		<value>1</value>
+		<key>order</key>
+		<value>2</value>
+	</entry>
+	<entry>
+		<key>cid</key>
+		<value>20</value>
+		<key>show_name</key>
+		<value>其他</value>
+		<key>parent</key>
+		<value>2</value>
+		<key>order</key>
+		<value>1</value>
+	</entry>
+</map>

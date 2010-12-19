@@ -9,23 +9,23 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import platform.define.Define;
 import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
-import platform.ui.widget.WidgetFactory;
-import platform.ui.widget.ui.URLLabelUI;
+import platform.ui.widget.ImageLabel;
+import platform.ui.widget.URLLabelUI;
+import platform.ui.widget.factory.WidgetFactory;
 
 public class IndexHeadUI extends JPanel {
 
 	private static final long serialVersionUID = 2229808502441513661L;
 
 	// #begin【Label元素】
-	private JLabel title_label;
-	private JLabel icon_label;
-	private JLabel head_pic_border_label;
+	private ImageLabel title_label;
+	private ImageLabel icon_label;
+	private ImageLabel head_pic_border_label;
 	// #end【Label元素】
 
 	// #begin【URLLabel元素】
@@ -108,9 +108,9 @@ public class IndexHeadUI extends JPanel {
 	}
 
 	// #begin【Label元素】
-	public JLabel getTitle_label() {
+	public ImageLabel getTitle_label() {
 		if (title_label == null) {
-			title_label = new JLabel(new ImageIcon(ImageFactory.getIndexTitleImage().getScaledInstance(75, 12, Image.SCALE_DEFAULT)));
+			title_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexTitleImage().getScaledInstance(75, 12, Image.SCALE_DEFAULT)));
 			resetTitle_label();
 		}
 		return title_label;
@@ -120,9 +120,9 @@ public class IndexHeadUI extends JPanel {
 		getTitle_label().setBounds(30, 10, 75, 12);
 	}
 
-	public JLabel getIcon_label() {
+	public ImageLabel getIcon_label() {
 		if (icon_label == null) {
-			icon_label = new JLabel(new ImageIcon(ImageFactory.getIndexIconImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT)));
+			icon_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexIconImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT)));
 			resetIcon_label();
 		}
 		return icon_label;
@@ -132,15 +132,14 @@ public class IndexHeadUI extends JPanel {
 		getIcon_label().setBounds(7, 7, 16, 16);
 	}
 
-	public JLabel getHead_pic_border_label() {
+	public ImageLabel getHead_pic_border_label() {
 		if (head_pic_border_label == null) {
-			head_pic_border_label = new JLabel(new ImageIcon(ImageFactory.getIndexHeadPicBorderImage().getScaledInstance(52, 46, Image.SCALE_DEFAULT)));
+			head_pic_border_label = new ImageLabel(new ImageIcon(ImageFactory.getIndexHeadPicBorderImage().getScaledInstance(52, 46, Image.SCALE_DEFAULT)));
 
 			MouseAdapter adapter = new MouseAdapter() {
 				@Override
 				public void mouseEntered(MouseEvent e) {
-					getHead_pic_border_label().setIcon(
-							new ImageIcon(ImageFactory.getIndexHeadPicBorderHighLightImage().getScaledInstance(52, 46, Image.SCALE_DEFAULT)));
+					getHead_pic_border_label().setIcon(new ImageIcon(ImageFactory.getIndexHeadPicBorderHighLightImage().getScaledInstance(52, 46, Image.SCALE_DEFAULT)));
 					setCursor(new Cursor(Cursor.HAND_CURSOR));
 				}
 
@@ -176,8 +175,7 @@ public class IndexHeadUI extends JPanel {
 		FontMetrics fontMetrics = getPlayer_info_urllabel().getFontMetrics(Define.DEFAULT_FONT);
 		int _width = fontMetrics.stringWidth(getPlayer_info_urllabel().getShow_text());
 
-		getPlayer_info_urllabel().setBounds(getHead_pic_border_label().getX() + getHead_pic_border_label().getWidth() + 10,
-				getHead_pic_border_label().getY() + 5, _width + 5, 20);
+		getPlayer_info_urllabel().setBounds(getHead_pic_border_label().getX() + getHead_pic_border_label().getWidth() + 10, getHead_pic_border_label().getY() + 5, _width + 5, 20);
 	}// #end【URLlabel元素】
 
 	// #begin【button元素】

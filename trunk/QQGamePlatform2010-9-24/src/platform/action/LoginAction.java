@@ -10,7 +10,6 @@ public class LoginAction {
 		for (int i = 0; i < 1000000000l; i++) {
 			i++;
 		}
-
 		return new PlayerBean();
 	}
 }

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import platform.ui.index.IndexParams;
-import platform.ui.widget.ui.QTabbedPane;
+import platform.ui.widget.QTabbedPane;
 
 public class TabScrollActionAdapter implements ActionListener {
 	private QTabbedPane tabbedPane;

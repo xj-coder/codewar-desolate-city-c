@@ -21,7 +21,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.SwingUtilities;
@@ -38,11 +37,13 @@ import platform.adapter.UIMouseDragAdapter;
 import platform.define.Define;
 import platform.define.LoginUIDefine;
 import platform.tools.ImageFactory;
+import platform.tools.LookAndFeel;
 import platform.tools.Tools;
 import platform.ui.focustraversalpolicy.QFocusTraversalPolicy;
-import platform.ui.widget.WidgetFactory;
-import platform.ui.widget.ui.ImagePanelUI;
-import platform.ui.widget.ui.URLLabelUI;
+import platform.ui.widget.ImageLabel;
+import platform.ui.widget.ImagePanelUI;
+import platform.ui.widget.URLLabelUI;
+import platform.ui.widget.factory.WidgetFactory;
 
 import com.sun.awt.AWTUtilities;
 
@@ -58,24 +59,24 @@ public class LoginUI extends JFrame {
 	private ImagePanelUI login_processbar_in_image_panel;
 	private ImagePanelUI login_processbar_bg_image_panel;
 
-	private JLabel info_label;
-	private JLabel account_label;
-	private JLabel password_label;
+	private ImageLabel info_label;
+	private ImageLabel account_label;
+	private ImageLabel password_label;
 
-	private JButton close_button;
-	private JButton help_button;
-	private JButton login_button;
-	private JButton set_button;
+	private JButton close_button;// 关闭按钮
+	private JButton help_button;// 帮助按钮
+	private JButton login_button;// 登入按钮
+	private JButton set_button;// 设置按钮
 
-	private URLLabelUI register_account_urllabel;
-	private URLLabelUI get_back_password_urllabel;
-	private URLLabelUI article_urllabel;
+	private URLLabelUI register_account_urllabel;// 注册链接
+	private URLLabelUI get_back_password_urllabel;// 找回密码链接
+	private URLLabelUI article_urllabel;// 条款链接
 
-	private JComboBox account_input;
-	private JPasswordField password_input;
-	private JCheckBox memory_check;
-	private JCheckBox hide_check;
-	private JCheckBox agree_check;
+	private JComboBox account_input;// 用户名输入框
+	private JPasswordField password_input;// 密码输入框
+	private JCheckBox memory_check;// 记住账户号选择框
+	private JCheckBox alone_check;// 单机登入选择框
+	private JCheckBox agree_check;// 同意条款选择框
 
 	private final LoginKeyBoardHookAdapter keyActionAdapter = new LoginKeyBoardHookAdapter(this);
 	private final UIMouseDragAdapter mouseAdapter = new UIMouseDragAdapter(this);
@@ -96,7 +97,7 @@ public class LoginUI extends JFrame {
 		comps.add(getAccount_input().getComponent(1));
 		comps.add(getPassword_input());
 		comps.add(getMemory_check());
-		comps.add(getHide_check());
+		comps.add(getAlone_check());
 		comps.add(getAgree_check());
 		qFocusTraversalPolicy = new QFocusTraversalPolicy(comps);
 		setFocusTraversalPolicy(qFocusTraversalPolicy);
@@ -139,7 +140,7 @@ public class LoginUI extends JFrame {
 		getLayeredPane().add(getAccount_input(), new Integer(Integer.MIN_VALUE));
 
 		getLayeredPane().add(getMemory_check(), new Integer(Integer.MIN_VALUE));
-		getLayeredPane().add(getHide_check(), new Integer(Integer.MIN_VALUE));
+		getLayeredPane().add(getAlone_check(), new Integer(Integer.MIN_VALUE));
 		getLayeredPane().add(getAgree_check(), new Integer(Integer.MIN_VALUE));
 
 		getLayeredPane().add(getArticle_urllabel(), new Integer(Integer.MIN_VALUE));
@@ -174,7 +175,6 @@ public class LoginUI extends JFrame {
 			}
 		});
 		new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				try {
@@ -183,8 +183,7 @@ public class LoginUI extends JFrame {
 					while (true) {
 						if (isLoginProcessStart) {
 							Thread.sleep(8);
-							x = (getLogin_processbar_in_image_panel().getX() + 1)
-									% (LoginUIDefine.FRAME_WIDTH - getLogin_processbar_in_image_panel().getWidth());
+							x = (getLogin_processbar_in_image_panel().getX() + 1) % (LoginUIDefine.FRAME_WIDTH - getLogin_processbar_in_image_panel().getWidth());
 							y = getLogin_processbar_in_image_panel().getY();
 							getLogin_processbar_in_image_panel().setLocation(x, y);
 						} else {
@@ -257,18 +256,18 @@ public class LoginUI extends JFrame {
 		return login_processbar_bg_image_panel;
 	}
 
-	public JLabel getInfo_image_panel() {
+	public ImageLabel getInfo_image_panel() {
 		if (info_label == null) {
-			info_label = new JLabel("请输入账号和密码∶");
+			info_label = new ImageLabel("请输入账号和密码∶");
 			info_label.setBounds(20, 105, 120, 15);
 			info_label.setFont(Define.DEFAULT_FONT);
 		}
 		return info_label;
 	}
 
-	public JLabel getAccount_image_panel() {
+	public ImageLabel getAccount_image_panel() {
 		if (account_label == null) {
-			account_label = new JLabel("账号∶");
+			account_label = new ImageLabel("账号∶");
 			account_label.setFont(Define.DEFAULT_FONT);
 			account_label.setFont(Define.DEFAULT_FONT);
 			account_label.setBounds(20, 125, 40, 20);
@@ -276,9 +275,9 @@ public class LoginUI extends JFrame {
 		return account_label;
 	}
 
-	public JLabel getPassword_image_panel() {
+	public ImageLabel getPassword_image_panel() {
 		if (password_label == null) {
-			password_label = new JLabel("密码∶");
+			password_label = new ImageLabel("密码∶");
 			password_label.setFont(Define.DEFAULT_FONT);
 			password_label.setBounds(20, 152, 40, 20);
 		}
@@ -396,12 +395,12 @@ public class LoginUI extends JFrame {
 		return memory_check;
 	}
 
-	public JCheckBox getHide_check() {
-		if (hide_check == null) {
-			hide_check = WidgetFactory.createCheckBox("隐身登录");
-			hide_check.setBounds(140, 180, 80, 20);
+	public JCheckBox getAlone_check() {
+		if (alone_check == null) {
+			alone_check = WidgetFactory.createCheckBox("单机登录");
+			alone_check.setBounds(140, 180, 80, 20);
 		}
-		return hide_check;
+		return alone_check;
 	}
 
 	public JCheckBox getAgree_check() {
@@ -464,6 +463,8 @@ public class LoginUI extends JFrame {
 
 	// test main
 	public static void main(String[] args) {
+		LookAndFeel.installDefaultLookAndFeel();
+
 		new LoginUI().showMe();
 	}
 }

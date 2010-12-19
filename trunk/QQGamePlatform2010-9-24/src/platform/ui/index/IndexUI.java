@@ -22,8 +22,8 @@ import platform.tools.ImageFactory;
 import platform.tools.ImageTools;
 import platform.tools.LookAndFeel;
 import platform.tools.Tools;
-import platform.ui.widget.WidgetFactory;
-import platform.ui.widget.ui.ImagePanelUI;
+import platform.ui.widget.ImagePanelUI;
+import platform.ui.widget.factory.WidgetFactory;
 
 import com.sun.awt.AWTUtilities;
 
@@ -59,7 +59,7 @@ public class IndexUI extends JFrame {
 
 	// #begin【事件监听器】
 	private final IndexActionAdapter actionAdapter = new IndexActionAdapter(this);// 按钮事件
-	private final UIMouseDragAdapter dragAdapter = new UIMouseDragAdapter(this);// 鼠标拖动事件
+	private final UIMouseDragAdapter dragAdapter = new UIMouseDragAdapter(this, true);// 鼠标拖动事件
 	private final UIDoubleClockTitleAdapter doubleClockTitleAdapter = new UIDoubleClockTitleAdapter(this);// 鼠标双击窗体头部事件
 	// #end【事件监听器】
 
@@ -72,6 +72,7 @@ public class IndexUI extends JFrame {
 	public IndexUI(PlayerBean player) {
 		this.player = player;
 		initComponents();
+		initData();
 	}
 
 	/**
@@ -81,11 +82,9 @@ public class IndexUI extends JFrame {
 		// 设置整个窗体大小
 		Dimension screenSize = Tools.getScreenSize();
 		Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets(getGraphicsConfiguration());
-		setSize(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top
-				- screenInsets.bottom);
+		setSize(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top - screenInsets.bottom);
 		setMinimumSize(IndexUIDefine.MINIMUM_SIZE);
-		setMaximumSize(new Dimension(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height
-				- screenInsets.top - screenInsets.bottom));
+		setMaximumSize(new Dimension(screenSize.width - screenInsets.left - screenInsets.right, screenSize.height - screenInsets.top - screenInsets.bottom));
 
 		// 头部
 		getLayeredPane().add(getHeadUI(), new Integer(Integer.MIN_VALUE));
@@ -128,8 +127,7 @@ public class IndexUI extends JFrame {
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				AWTUtilities.setWindowShape(IndexUI.this, new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 12,
-						12));// 圆角
+				AWTUtilities.setWindowShape(IndexUI.this, new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 12, 12));// 圆角
 				// AWTUtilities.setWindowOpacity(IndexUI.this, 0.93f);//窗体透明度
 			}
 		});
@@ -139,7 +137,7 @@ public class IndexUI extends JFrame {
 	/**
 	 * 初始化Action
 	 */
-	public void initAction() {
+	private void initData() {
 		getDirTreeUI().loadGameList();
 		getTabbedPane().openIndexTab();
 	}
@@ -190,8 +188,7 @@ public class IndexUI extends JFrame {
 	// #begin【背景label】
 	public ImagePanelUI getBg_up_left_image_panel() {
 		if (bg_up_left_image_panel == null) {
-			bg_up_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpLeftImage().getScaledInstance(314, 94,
-					Image.SCALE_DEFAULT));
+			bg_up_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpLeftImage().getScaledInstance(314, 94, Image.SCALE_DEFAULT));
 			resetBg_up_left_image_panel();
 		}
 		return bg_up_left_image_panel;
@@ -204,22 +201,19 @@ public class IndexUI extends JFrame {
 	public ImagePanelUI getBg_up_center_image_panel() {
 		if (bg_up_center_image_panel == null) {
 			bg_up_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpCenterImage().getScaledInstance(
-					getWidth() - getBg_up_right_image_panel().getWidth() - getBg_up_left_image_panel().getWidth(), 94,
-					Image.SCALE_DEFAULT));
+					getWidth() - getBg_up_right_image_panel().getWidth() - getBg_up_left_image_panel().getWidth(), 94, Image.SCALE_DEFAULT));
 			resetBg_up_center_image_panel();
 		}
 		return bg_up_center_image_panel;
 	}
 
 	public void resetBg_up_center_image_panel() {
-		getBg_up_center_image_panel().setBounds(314, 0,
-				getWidth() - getBg_up_right_image_panel().getWidth() - getBg_up_left_image_panel().getWidth(), 94);
+		getBg_up_center_image_panel().setBounds(314, 0, getWidth() - getBg_up_right_image_panel().getWidth() - getBg_up_left_image_panel().getWidth(), 94);
 	}
 
 	public ImagePanelUI getBg_up_right_image_panel() {
 		if (bg_up_right_image_panel == null) {
-			bg_up_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpRightImage().getScaledInstance(8, 94,
-					Image.SCALE_DEFAULT));
+			bg_up_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgUpRightImage().getScaledInstance(8, 94, Image.SCALE_DEFAULT));
 			resetBg_up_right_image_panel();
 		}
 		return bg_up_right_image_panel;
@@ -231,8 +225,7 @@ public class IndexUI extends JFrame {
 
 	public ImagePanelUI getBg_down_left_image_panel() {
 		if (bg_down_left_image_panel == null) {
-			bg_down_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownLeftImage().getScaledInstance(10,
-					10, Image.SCALE_DEFAULT));
+			bg_down_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownLeftImage().getScaledInstance(10, 10, Image.SCALE_DEFAULT));
 			resetBg_down_left_image_panel();
 		}
 		return bg_down_left_image_panel;
@@ -244,8 +237,7 @@ public class IndexUI extends JFrame {
 
 	public ImagePanelUI getBg_down_center_image_panel() {
 		if (bg_down_center_image_panel == null) {
-			bg_down_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownCenterImage().getScaledInstance(
-					getWidth() - 20, 10, Image.SCALE_DEFAULT));
+			bg_down_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownCenterImage().getScaledInstance(getWidth() - 20, 10, Image.SCALE_DEFAULT));
 			resetBg_down_center_image_panel();
 		}
 		return bg_down_center_image_panel;
@@ -257,8 +249,7 @@ public class IndexUI extends JFrame {
 
 	public ImagePanelUI getBg_down_right_image_panel() {
 		if (bg_down_right_image_panel == null) {
-			bg_down_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownRightImage().getScaledInstance(10,
-					10, Image.SCALE_DEFAULT));
+			bg_down_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgDownRightImage().getScaledInstance(10, 10, Image.SCALE_DEFAULT));
 			resetBg_down_right_image_panel();
 		}
 		return bg_down_right_image_panel;
@@ -270,8 +261,7 @@ public class IndexUI extends JFrame {
 
 	public ImagePanelUI getBg_left_image_panel() {
 		if (bg_left_image_panel == null) {
-			bg_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgLeftImage().getScaledInstance(5,
-					getHeight() - 104, Image.SCALE_DEFAULT));
+			bg_left_image_panel = new ImagePanelUI(ImageFactory.getIndexBgLeftImage().getScaledInstance(5, getHeight() - 104, Image.SCALE_DEFAULT));
 			resetBg_left_image_panel();
 		}
 		return bg_left_image_panel;
@@ -283,8 +273,7 @@ public class IndexUI extends JFrame {
 
 	public ImagePanelUI getBg_center_image_panel() {
 		if (bg_center_image_panel == null) {
-			bg_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgCenterImage().getScaledInstance(
-					getWidth() - 10, getHeight() - 104, Image.SCALE_DEFAULT));
+			bg_center_image_panel = new ImagePanelUI(ImageFactory.getIndexBgCenterImage().getScaledInstance(getWidth() - 10, getHeight() - 104, Image.SCALE_DEFAULT));
 
 			resetBg_center_image_panel();
 		}
@@ -297,8 +286,7 @@ public class IndexUI extends JFrame {
 
 	public ImagePanelUI getBg_right_image_panel() {
 		if (bg_right_image_panel == null) {
-			bg_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgRightImage().getScaledInstance(5,
-					getHeight() - 104, Image.SCALE_DEFAULT));
+			bg_right_image_panel = new ImagePanelUI(ImageFactory.getIndexBgRightImage().getScaledInstance(5, getHeight() - 104, Image.SCALE_DEFAULT));
 			resetBg_right_image_panel();
 		}
 		return bg_right_image_panel;
@@ -311,8 +299,7 @@ public class IndexUI extends JFrame {
 	// #begin【目录树收缩splitter】
 	public JButton getSearch_left_splitter_button() {
 		if (search_left_splitter_button == null) {
-			search_left_splitter_button = WidgetFactory.createIndexLeftSplitterButton(9, 80, "",
-					IndexParams.ACTION_HIDE_SEARCH_DIR, actionAdapter);
+			search_left_splitter_button = WidgetFactory.createIndexLeftSplitterButton(9, 80, "", IndexParams.ACTION_HIDE_SEARCH_DIR, actionAdapter);
 
 			resetSearch_left_splitter_button();
 		}
@@ -320,14 +307,12 @@ public class IndexUI extends JFrame {
 	}
 
 	public void resetSearch_left_splitter_button() {
-		getSearch_left_splitter_button().setBounds(getDirTreeUI().getWidth() + 4,
-				(getHeight() - 100) / 2 - 80 / 2 + 100, 9, 80);
+		getSearch_left_splitter_button().setBounds(getDirTreeUI().getWidth() + 4, (getHeight() - 100) / 2 - 80 / 2 + 100, 9, 80);
 	}
 
 	public JButton getSearch_right_splitter_button() {
 		if (search_right_splitter_button == null) {
-			search_right_splitter_button = WidgetFactory.createIndexRightSplitterButton(9, 80, "",
-					IndexParams.ACTION_SHOW_SEARCH_DI, actionAdapter);
+			search_right_splitter_button = WidgetFactory.createIndexRightSplitterButton(9, 80, "", IndexParams.ACTION_SHOW_SEARCH_DI, actionAdapter);
 			search_right_splitter_button.setVisible(false);
 
 			resetSearch_right_splitter_button();
@@ -382,14 +367,16 @@ public class IndexUI extends JFrame {
 	}
 
 	public void resetTabbedPane() {
-		int tmpX = getDirTreeUI().getX() + getDirTreeUI().getWidth() + 10;
-		getTabbedPane().setBounds(tmpX, getDirTreeUI().getY(), getWidth() - tmpX - 5,
-				getHeight() - getDirTreeUI().getY() - 5);
+		int tmpX = getDirTreeUI().getX() + 10;
+		if (getDirTreeUI().isVisible()) {
+			tmpX = tmpX + getDirTreeUI().getWidth();
+		}
+
+		getTabbedPane().setBounds(tmpX, getDirTreeUI().getY(), getWidth() - tmpX - 5, getHeight() - getDirTreeUI().getY() - 5);
 	}
 
 	public void maxTabbedPane() {
-		getTabbedPane().setBounds(10, getDirTreeUI().getY(), getWidth() - 10 - 5,
-				getHeight() - getDirTreeUI().getY() - 5);
+		getTabbedPane().setBounds(10, getDirTreeUI().getY(), getWidth() - 10 - 5, getHeight() - getDirTreeUI().getY() - 5);
 	}
 
 	// #end 【选项卡】
@@ -425,6 +412,5 @@ public class IndexUI extends JFrame {
 
 		IndexUI indexUI = new IndexUI(new PlayerBean());
 		indexUI.showMe();
-		indexUI.initAction();
 	}
 }
