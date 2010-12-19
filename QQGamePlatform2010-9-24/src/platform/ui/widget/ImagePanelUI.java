@@ -1,4 +1,4 @@
-package platform.ui.widget.ui;
+package platform.ui.widget;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -11,6 +11,7 @@ public class ImagePanelUI extends JPanel {
 
 	public ImagePanelUI(Image img) {
 		super();
+		setFocusable(true);
 		image = img;
 	}
 

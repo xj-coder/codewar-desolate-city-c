@@ -1,13 +1,15 @@
 package platform.ui.widget.ui;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
 import platform.tools.ImageFactory;
+import platform.ui.widget.ImageLabel;
 import platform.ui.widget.bean.QTableTreeItem;
 
 public class QTableTreeItemUI extends JButton {
@@ -24,15 +26,19 @@ public class QTableTreeItemUI extends JButton {
 
 	private QTableTreeItem item;
 
-	private JLabel spanLabel;
-	private JLabel expandOpenIcon;
-	private JLabel expandCloseIcon;
-	private JLabel nameLabel;
+	private QTableTree tableTreeUI;
 
-	public QTableTreeItemUI(QTableTreeItem item) {
+	private ImageLabel spanLabel;
+	private ImageLabel expandOpenIcon;
+	private ImageLabel expandCloseIcon;
+	private ImageLabel nameLabel;
+
+	public QTableTreeItemUI(QTableTree tableTreeUI, QTableTreeItem item) {
 		super();
 
 		this.item = item;
+		this.tableTreeUI = tableTreeUI;
+
 		setLayout(null);
 		setBorder(new LineBorder(ITEM_BORDER));
 
@@ -51,6 +57,40 @@ public class QTableTreeItemUI extends JButton {
 			getExpandCloseIcon().setVisible(false);
 			getExpandOpenIcon().setVisible(true);
 		}
+
+		addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (getTableTreeUI().getModel().getSize() <= 0) {
+					return;
+				}
+
+				QTableTreeModel treeModel = (QTableTreeModel) getTableTreeUI().getModel();
+				int index = treeModel.indexOf(getItem());
+				QTableTreeItem item = (QTableTreeItem) treeModel.getElementAt(index);
+
+				if (!item.isExpand()) {
+					if (item.getChildCount() > 0) {
+						for (int i = 0; i < item.getChildCount(); i++) {
+							treeModel.addElement(index + 1 + i, item.getItemAt(i));
+							// treeModel.addElement(item.getItemAt(i));
+							openAll(item.getItemAt(i));
+						}
+					}
+					item.setExpand(!item.isExpand());
+				} else {
+					if (item.getChildCount() > 0) {
+						for (int i = 0; i < item.getChildCount(); i++) {
+							// item.getChildCount().get(i).setExpand(!item.getChildCount().get(i).isExpand());
+							closeAll(item.getItemAt(i));
+							treeModel.removeElement(item.getItemAt(i));
+						}
+					}
+					item.setExpand(!item.isExpand());
+				}
+			}
+		});
 	}
 
 	public void buildUI() {
@@ -59,15 +99,15 @@ public class QTableTreeItemUI extends JButton {
 		add(getExpandCloseIcon());
 		add(getNameLabel());
 
-		if (item.getChilds().size() == 0) {
+		if (item.getChildCount() == 0) {
 			getExpandOpenIcon().setVisible(false);
 			getExpandCloseIcon().setVisible(false);
 		}
 	}
 
-	public JLabel getSpanLabel() {
+	public ImageLabel getSpanLabel() {
 		if (spanLabel == null) {
-			spanLabel = new JLabel();
+			spanLabel = new ImageLabel();
 
 			resetSpanLabel();
 		}
@@ -78,9 +118,9 @@ public class QTableTreeItemUI extends JButton {
 		getSpanLabel().setBounds(0, 0, (item.getLevel() - 1) * UNIT_SPANE_WIDTH, getHeight());
 	}
 
-	public JLabel getExpandOpenIcon() {
+	public ImageLabel getExpandOpenIcon() {
 		if (expandOpenIcon == null) {
-			expandOpenIcon = new JLabel(new ImageIcon(ImageFactory.getExpandOpenImage()));
+			expandOpenIcon = new ImageLabel(new ImageIcon(ImageFactory.getExpandOpenImage()));
 
 			resetExpandOpenIcon();
 		}
@@ -91,9 +131,9 @@ public class QTableTreeItemUI extends JButton {
 		getExpandOpenIcon().setBounds(getSpanLabel().getWidth(), 2, 16, 16);
 	}
 
-	public JLabel getExpandCloseIcon() {
+	public ImageLabel getExpandCloseIcon() {
 		if (expandCloseIcon == null) {
-			expandCloseIcon = new JLabel(new ImageIcon(ImageFactory.getExpandCloseImage()));
+			expandCloseIcon = new ImageLabel(new ImageIcon(ImageFactory.getExpandCloseImage()));
 
 			resetExpandCloseIcon();
 		}
@@ -104,9 +144,9 @@ public class QTableTreeItemUI extends JButton {
 		getExpandCloseIcon().setBounds(getSpanLabel().getWidth(), 2, 16, 16);
 	}
 
-	public JLabel getNameLabel() {
+	public ImageLabel getNameLabel() {
 		if (nameLabel == null) {
-			nameLabel = new JLabel(item.getShowName());
+			nameLabel = new ImageLabel(item.getShowName());
 
 			resetNameLabel();
 		}
@@ -115,6 +155,45 @@ public class QTableTreeItemUI extends JButton {
 
 	public void resetNameLabel() {
 		getNameLabel().setBounds(getSpanLabel().getWidth() + getExpandOpenIcon().getWidth(), 0,
-				getWidth() - getSpanLabel().getWidth() - getExpandOpenIcon().getWidth(), getHeight());
+				getWidth() - getSpanLabel().getWidth() - getExpandOpenIcon().getWidth(),
+				getHeight());
+	}
+
+	public QTableTree getTableTreeUI() {
+		return tableTreeUI;
+	}
+
+	public QTableTreeItem getItem() {
+		return item;
+	}
+
+	private void closeAll(QTableTreeItem item) {
+
+		QTableTreeModel treeModel = (QTableTreeModel) tableTreeUI.getModel();
+
+		if (item.isExpand()) {
+			if (item.getChildCount() > 0) {
+				for (int i = 0; i < item.getChildCount(); i++) {
+					closeAll(item.getItemAt(i));
+					treeModel.removeElement(item.getItemAt(i));
+				}
+			}
+		}
+	}
+
+	private void openAll(QTableTreeItem item) {
+
+		QTableTreeModel treeModel = (QTableTreeModel) tableTreeUI.getModel();
+		int index = treeModel.indexOf(item);
+
+		if (item.isExpand()) {
+			if (item.getChildCount() > 0) {
+				for (int i = 0; i < item.getChildCount(); i++) {
+					treeModel.addElement(index + 1 + i, item.getItemAt(i));
+					// treeModel.addElement(item.getItemAt(i));
+					openAll(item.getItemAt(i));
+				}
+			}
+		}
 	}
 }

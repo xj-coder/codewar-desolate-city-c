@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 public class Test1 {
 	public static void main(String[] args) {
@@ -20,5 +21,7 @@ public class Test1 {
 			}
 		};
 		jf.add(jb);
+
+		DefaultMutableTreeNode node = new DefaultMutableTreeNode();
 	}
 }

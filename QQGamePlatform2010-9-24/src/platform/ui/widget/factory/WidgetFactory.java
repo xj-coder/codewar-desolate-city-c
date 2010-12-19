@@ -1,4 +1,4 @@
-package platform.ui.widget;
+package platform.ui.widget.factory;
 
 import java.awt.Component;
 import java.awt.Cursor;

@@ -1,4 +1,4 @@
-package platform.ui.widget.ui;
+package platform.ui.widget;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -20,7 +20,7 @@ import platform.adapter.TabScrollActionAdapter;
 import platform.define.Define;
 import platform.tools.ImageFactory;
 import platform.ui.index.IndexParams;
-import platform.ui.widget.WidgetFactory;
+import platform.ui.widget.factory.WidgetFactory;
 
 public class QTabbedPane extends JComponent {
 
@@ -33,11 +33,11 @@ public class QTabbedPane extends JComponent {
 	private ArrayList<JButton> tabs = new ArrayList<JButton>();
 	private ArrayList<JPanel> panes = new ArrayList<JPanel>();
 
-	private JPanel conterPanel = new JPanel();
+	private JPanel conterPanel = new JPanel();// 中心内容面板
 
 	private int beginIndex = 0;// 开始tab（包含）
 	private int endIndex = 0;// 结束tab（不包含）
-	private int selectIndex = 0;
+	private int selectIndex = -1;// 当前选择tab
 
 	private boolean isMoveToSelected = false;
 
@@ -50,20 +50,35 @@ public class QTabbedPane extends JComponent {
 
 	public QTabbedPane() {
 		super();
+		isMoveToSelected = true;// 移动到当前选择的tab
 
 		setLayout(null);
 
 		conterPanel.setLayout(new CardLayout());
 
 		add(conterPanel);
+		add(getScrollLeft());
+		add(getScrollLeft_disable());
+		add(getScrollRight_disable());
+		add(getScrollRight());
 	}
 
 	public void addTab(String title, Image titleImage, JPanel pane, int index) {
 		JButton tab = createTabButton(title, titleImage);
 		pane.setBorder(new LineBorder(new Color(0x3eb2e2)));
 
+		// 还原上次选择的tab.
+		if (selectIndex != -1) {
+			tabs.get(selectIndex).setSelected(false);
+			tabs.get(selectIndex).setIcon(new ImageIcon(ImageFactory.getIndexTabBackground(tabs.get(selectIndex).getWidth(), DEFAULT_HEIGHT)));
+		}
+		// 设置自己为选择tab,更改Icon
+		tab.setSelected(true);
+		tab.setIcon(new ImageIcon(ImageFactory.getIndexTabBackgroundPressed(tab.getWidth(), DEFAULT_HEIGHT)));
+
+		isMoveToSelected = true;// 移动到当前选择的tab
+		beginIndex = 0;// 初始化beginIndex
 		selectIndex = index;
-		isMoveToSelected = true;
 
 		tabs.add(index, tab);
 		panes.add(index, pane);
@@ -71,7 +86,6 @@ public class QTabbedPane extends JComponent {
 		conterPanel.add(pane, tab.hashCode() + "");
 
 		repaint();
-
 	}
 
 	public void addTab(String title, Image titleImage, JPanel pane) {
@@ -86,77 +100,83 @@ public class QTabbedPane extends JComponent {
 			return;
 		}
 
+		// 移除所有tab
 		for (int i = 0; i < tabs.size(); i++) {
 			remove(tabs.get(i));
 		}
+		validate();
+
+		// 将当前选择的pane显示在最前面
 		((CardLayout) conterPanel.getLayout()).show(conterPanel, tabs.get(selectIndex).hashCode() + "");
 
-		validate();
-		// remove(panes.get(oldSelectIndex));
-
-		// 移动到当前选择tab
+		// 移动到当前选择tab,根据selectIndex计算出beginIndex
 		int _width = 0;// 所有tab总宽度
 		if (isMoveToSelected) {
 			for (int i = selectIndex; i >= 0; i--) {
-				// _width = _width + tabs.get(i).getWidth();
 				_width = _width + tabs.get(i).getWidth();
 				if (_width > getWidth() - 50 && beginIndex == 0) {
 					beginIndex = i + 1;
 				}
 			}
-
 			isMoveToSelected = false;
 		}
 
+		// 根据beginIndex计算出endIndex
 		_width = 0;
 		endIndex = tabs.size();
 		for (int i = beginIndex; i < tabs.size(); i++) {
 			_width = _width + tabs.get(i).getWidth();
-			if (_width > getWidth() - 45 && endIndex == tabs.size()) {
+			if (_width > getWidth() - 50 && endIndex == tabs.size()) {
 				endIndex = i;
 			}
 		}
 
+		// 计算所有tab的宽度和
 		for (int i = 0; i < tabs.size(); i++) {
 			_width = _width + tabs.get(i).getWidth();
 		}
 
+		// 如果tab的宽度和大于总宽度,显示左右滚动按钮
 		if (_width > getWidth()) {
 			if (beginIndex > 0) {
-				add(getScrollLeft());
 				getScrollLeft().setVisible(true);
 				getScrollLeft_disable().setVisible(false);
+				resetScrollLeft();
+				resetScrollLeft_dispble();
 			} else {
-				add(getScrollLeft_disable());
 				getScrollLeft_disable().setVisible(true);
 				getScrollLeft().setVisible(false);
+				resetScrollLeft();
+				resetScrollLeft_dispble();
 			}
 			if (endIndex == tabs.size()) {
-				add(getScrollRight_disable());
 				getScrollRight_disable().setVisible(true);
 				getScrollRight().setVisible(false);
+				resetScrollRight();
+				resetScrollRight_disable();
 			} else {
-				add(getScrollRight());
 				getScrollRight().setVisible(true);
 				getScrollRight_disable().setVisible(false);
+				resetScrollRight();
+				resetScrollRight_disable();
 			}
 		}
 
+		// 计算出当前选择tab的位置
 		int _x = 0;
 		for (int i = beginIndex; i < selectIndex; i++) {
 			_x = _x + tabs.get(i).getWidth();
 		}
-
+		// 先显示当前选择的tab
 		if (selectIndex >= beginIndex && selectIndex < endIndex) {
 			add(tabs.get(selectIndex));
 			tabs.get(selectIndex).setLocation(_x, 0);
 		}
+		// 设置conterPanel的位置
+		conterPanel.setBounds(0, tabs.get(selectIndex).getHeight() - 1, getWidth(), getHeight() - tabs.get(selectIndex).getHeight());
 
-		conterPanel.setBounds(0, tabs.get(selectIndex).getHeight() - 1, getWidth(), getHeight()
-				- tabs.get(selectIndex).getHeight());
-
+		// 计算出每个tab(beginIndex到endIndex之间,并排除当前选择的)的位置,并显示它.
 		_x = 0;
-
 		for (int i = beginIndex; i < tabs.size(); i++) {
 			if (i == endIndex) {
 				break;
@@ -185,8 +205,7 @@ public class QTabbedPane extends JComponent {
 				Object obj = e.getSource();
 				if (obj != null && obj instanceof JButton) {
 					if (!((JButton) obj).isSelected()) {
-						((JButton) obj).setIcon(new ImageIcon(ImageFactory.getIndexTabBackgroundRollover(
-								((JButton) obj).getWidth(), DEFAULT_HEIGHT)));
+						((JButton) obj).setIcon(new ImageIcon(ImageFactory.getIndexTabBackgroundRollover(((JButton) obj).getWidth(), DEFAULT_HEIGHT)));
 					}
 				}
 			}
@@ -196,8 +215,7 @@ public class QTabbedPane extends JComponent {
 				Object obj = e.getSource();
 				if (obj != null && obj instanceof JButton) {
 					if (!((JButton) obj).isSelected()) {
-						((JButton) obj).setIcon(new ImageIcon(ImageFactory.getIndexTabBackground(((JButton) obj)
-								.getWidth(), DEFAULT_HEIGHT)));
+						((JButton) obj).setIcon(new ImageIcon(ImageFactory.getIndexTabBackground(((JButton) obj).getWidth(), DEFAULT_HEIGHT)));
 					}
 				}
 			}
@@ -206,18 +224,16 @@ public class QTabbedPane extends JComponent {
 			public void mouseClicked(MouseEvent e) {
 				Object obj = e.getSource();
 				if (obj != null && obj instanceof JButton) {
+					// 还原上次选择的tab.
+					if (selectIndex != -1) {
+						tabs.get(selectIndex).setSelected(false);
+						tabs.get(selectIndex).setIcon(new ImageIcon(ImageFactory.getIndexTabBackground(tabs.get(selectIndex).getWidth(), DEFAULT_HEIGHT)));
+					}
+
+					// 设置自己为选择tab,更改Icon
 					selectIndex = tabs.indexOf(obj);
 					((JButton) obj).setSelected(true);
-					((JButton) obj).setIcon(new ImageIcon(ImageFactory.getIndexTabBackgroundPressed(((JButton) obj)
-							.getWidth(), DEFAULT_HEIGHT)));
-					for (int i = 0; i < tabs.size(); i++) {
-						if (!tabs.get(i).equals(obj)) {
-							tabs.get(i).setSelected(false);
-							tabs.get(i).setIcon(
-									new ImageIcon(ImageFactory.getIndexTabBackground(tabs.get(i).getWidth(),
-											DEFAULT_HEIGHT)));
-						}
-					}
+					((JButton) obj).setIcon(new ImageIcon(ImageFactory.getIndexTabBackgroundPressed(((JButton) obj).getWidth(), DEFAULT_HEIGHT)));
 				}
 			}
 		}
@@ -282,8 +298,7 @@ public class QTabbedPane extends JComponent {
 
 	public JButton getScrollRight() {
 		if (scrollRight == null) {
-			scrollRight = WidgetFactory.createIndexTabScrollRightButton(15, 15, null,
-					IndexParams.ACTION_TAB_SCROLL_RIGHT, scrollActionAdapter);
+			scrollRight = WidgetFactory.createIndexTabScrollRightButton(15, 15, null, IndexParams.ACTION_TAB_SCROLL_RIGHT, scrollActionAdapter);
 
 			scrollRight.setVisible(false);
 
@@ -298,8 +313,7 @@ public class QTabbedPane extends JComponent {
 
 	public JButton getScrollRight_disable() {
 		if (scrollRight_disable == null) {
-			scrollRight_disable = WidgetFactory.createIndexTabScrollRightDisableButton(15, 15, null, null,
-					scrollActionAdapter);
+			scrollRight_disable = WidgetFactory.createIndexTabScrollRightDisableButton(15, 15, null, null, scrollActionAdapter);
 
 			scrollRight_disable.setVisible(false);
 
@@ -314,8 +328,7 @@ public class QTabbedPane extends JComponent {
 
 	public JButton getScrollLeft() {
 		if (scrollLeft == null) {
-			scrollLeft = WidgetFactory.createIndexTabScrollLeftButton(15, 15, null, IndexParams.ACTION_TAB_SCROLL_LEFT,
-					scrollActionAdapter);
+			scrollLeft = WidgetFactory.createIndexTabScrollLeftButton(15, 15, null, IndexParams.ACTION_TAB_SCROLL_LEFT, scrollActionAdapter);
 
 			scrollLeft.setVisible(false);
 
@@ -330,8 +343,7 @@ public class QTabbedPane extends JComponent {
 
 	public JButton getScrollLeft_disable() {
 		if (scrollLeft_disable == null) {
-			scrollLeft_disable = WidgetFactory.createIndexTabScrollLeftDisableButton(15, 15, null, null,
-					scrollActionAdapter);
+			scrollLeft_disable = WidgetFactory.createIndexTabScrollLeftDisableButton(15, 15, null, null, scrollActionAdapter);
 
 			scrollLeft_disable.setVisible(false);
 

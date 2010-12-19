@@ -6,6 +6,12 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
+/**
+ * 登入界面鼠标监听
+ * 
+ * @author DesolateCity
+ * 
+ */
 public class UIMouseDragAdapter extends MouseAdapter {
 
 	public final static int PULLING_NULL = 0;
@@ -25,8 +31,16 @@ public class UIMouseDragAdapter extends MouseAdapter {
 
 	private int currPullingState;
 
+	private boolean canZoom;
+
+	public UIMouseDragAdapter(JFrame UI, boolean canZoom) {
+		this.UI = UI;
+		this.canZoom = canZoom;
+	}
+
 	public UIMouseDragAdapter(JFrame UI) {
 		this.UI = UI;
+		canZoom = false;
 	}
 
 	@Override
@@ -46,7 +60,7 @@ public class UIMouseDragAdapter extends MouseAdapter {
 			int _x = UI.getX() + e.getX() - pressX;
 			int _y = UI.getY() + e.getY() - pressY;
 			UI.setLocation(_x, _y);
-		} else {
+		} else if (canZoom) {
 			int width = UI.getWidth();
 			int height = UI.getHeight();
 			int _offX = e.getX() - pressX;
@@ -94,8 +108,8 @@ public class UIMouseDragAdapter extends MouseAdapter {
 			case PULLING_LEFT_UP:
 				_height = height - _offY;
 				_width = width - _offX;
-				if (_offX > 0 && _width <= UI.getMinimumSize().getWidth() || _offX < 0 && _width >= UI.getMaximumSize().getWidth() || _offY > 0
-						&& _height <= UI.getMinimumSize().getHeight() || _offY < 0 && _height >= UI.getMaximumSize().getHeight()) {
+				if (_offX > 0 && _width <= UI.getMinimumSize().getWidth() || _offX < 0 && _width >= UI.getMaximumSize().getWidth() || _offY > 0 && _height <= UI.getMinimumSize().getHeight()
+						|| _offY < 0 && _height >= UI.getMaximumSize().getHeight()) {
 					break;
 				}
 				UI.setBounds(UI.getX() + _offX, UI.getY() + _offY, _width, _height);
@@ -104,8 +118,8 @@ public class UIMouseDragAdapter extends MouseAdapter {
 			case PULLING_LEFT_DOWN:
 				_height = height + _offY;
 				_width = width - _offX;
-				if (_offX > 0 && _width <= UI.getMinimumSize().getWidth() || _offX < 0 && _width >= UI.getMaximumSize().getWidth() || _offY < 0
-						&& _height <= UI.getMinimumSize().getHeight() || _offY > 0 && _height >= UI.getMaximumSize().getHeight()) {
+				if (_offX > 0 && _width <= UI.getMinimumSize().getWidth() || _offX < 0 && _width >= UI.getMaximumSize().getWidth() || _offY < 0 && _height <= UI.getMinimumSize().getHeight()
+						|| _offY > 0 && _height >= UI.getMaximumSize().getHeight()) {
 					break;
 				}
 				UI.setBounds(UI.getX() + _offX, UI.getY(), _width, _height);
@@ -115,8 +129,8 @@ public class UIMouseDragAdapter extends MouseAdapter {
 			case PULLING_RIGHT_DOWN:
 				_height = height + _offY;
 				_width = width + _offX;
-				if (_offY < 0 && _height <= UI.getMinimumSize().getHeight() || _offY > 0 && _height >= UI.getMaximumSize().getHeight() || _offX < 0
-						&& _width <= UI.getMinimumSize().getWidth() || _offX > 0 && _width >= UI.getMaximumSize().getWidth()) {
+				if (_offY < 0 && _height <= UI.getMinimumSize().getHeight() || _offY > 0 && _height >= UI.getMaximumSize().getHeight() || _offX < 0 && _width <= UI.getMinimumSize().getWidth()
+						|| _offX > 0 && _width >= UI.getMaximumSize().getWidth()) {
 					break;
 				}
 				UI.setSize(_width, _height);
@@ -127,8 +141,8 @@ public class UIMouseDragAdapter extends MouseAdapter {
 			case PULLING_RIGHT_UP:
 				_height = height - _offY;
 				_width = width + _offX;
-				if (_offY > 0 && _height <= UI.getMinimumSize().getHeight() || _offY < 0 && _height >= UI.getMaximumSize().getHeight() || _offX < 0
-						&& _width <= UI.getMinimumSize().getWidth() || _offX > 0 && _width >= UI.getMaximumSize().getWidth()) {
+				if (_offY > 0 && _height <= UI.getMinimumSize().getHeight() || _offY < 0 && _height >= UI.getMaximumSize().getHeight() || _offX < 0 && _width <= UI.getMinimumSize().getWidth()
+						|| _offX > 0 && _width >= UI.getMaximumSize().getWidth()) {
 					break;
 				}
 				UI.setBounds(UI.getX(), UI.getY() + _offY, _width, _height);
@@ -137,37 +151,44 @@ public class UIMouseDragAdapter extends MouseAdapter {
 				break;
 			}
 		}
+		super.mouseDragged(e);
 	}
 
+	/**
+	 * 缩放窗体
+	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		currPullingState = PULLING_NULL;
 		UI.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 
-		if (e.getX() < 5 && e.getY() < 5) {
-			currPullingState = PULLING_LEFT_UP;
-			UI.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
-		} else if (e.getX() < 5 && e.getY() > UI.getHeight() - 5) {
-			currPullingState = PULLING_LEFT_DOWN;
-			UI.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
-		} else if (e.getX() < 5 && e.getY() > 5 && e.getY() < UI.getHeight() - 5) {
-			currPullingState = PULLING_LEFT;
-			UI.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
-		} else if (e.getX() > UI.getWidth() - 5 && e.getY() < 5) {
-			currPullingState = PULLING_RIGHT_UP;
-			UI.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
-		} else if (e.getX() > UI.getWidth() - 5 && e.getY() > UI.getHeight() - 5) {
-			currPullingState = PULLING_RIGHT_DOWN;
-			UI.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
-		} else if (e.getX() > UI.getWidth() - 5 && e.getY() > 5 && e.getY() < UI.getHeight() - 5) {
-			currPullingState = PULLING_RIGHT;
-			UI.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
-		} else if (e.getX() > 5 && e.getX() < UI.getWidth() - 5 && e.getY() < 5) {
-			currPullingState = PULLING_UP;
-			UI.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
-		} else if (e.getX() > 5 && e.getX() < UI.getWidth() - 5 && e.getY() > UI.getHeight() - 5) {
-			currPullingState = PULLING_DOWN;
-			UI.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
+		if (canZoom) {
+			if (e.getX() < 5 && e.getY() < 5) {
+				currPullingState = PULLING_LEFT_UP;
+				UI.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
+			} else if (e.getX() < 5 && e.getY() > UI.getHeight() - 5) {
+				currPullingState = PULLING_LEFT_DOWN;
+				UI.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
+			} else if (e.getX() < 5 && e.getY() > 5 && e.getY() < UI.getHeight() - 5) {
+				currPullingState = PULLING_LEFT;
+				UI.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
+			} else if (e.getX() > UI.getWidth() - 5 && e.getY() < 5) {
+				currPullingState = PULLING_RIGHT_UP;
+				UI.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
+			} else if (e.getX() > UI.getWidth() - 5 && e.getY() > UI.getHeight() - 5) {
+				currPullingState = PULLING_RIGHT_DOWN;
+				UI.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
+			} else if (e.getX() > UI.getWidth() - 5 && e.getY() > 5 && e.getY() < UI.getHeight() - 5) {
+				currPullingState = PULLING_RIGHT;
+				UI.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
+			} else if (e.getX() > 5 && e.getX() < UI.getWidth() - 5 && e.getY() < 5) {
+				currPullingState = PULLING_UP;
+				UI.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
+			} else if (e.getX() > 5 && e.getX() < UI.getWidth() - 5 && e.getY() > UI.getHeight() - 5) {
+				currPullingState = PULLING_DOWN;
+				UI.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
+			}
 		}
+		super.mouseMoved(e);
 	}
 }

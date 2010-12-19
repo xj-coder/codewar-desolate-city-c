@@ -1,22 +1,27 @@
 package platform.task;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 public class TaskPool {
-	public ArrayList<Task> taskPool = new ArrayList<Task>();
+	public Vector<Task> taskPool = new Vector<Task>();
 
 	public synchronized void addTask(Task task) {
 		taskPool.add(task);
-		// TODO 【唤醒线程到任务池中取任务】
-
+		notify();
 	}
 
 	public synchronized boolean removeTask(Task task) {
-		for (Task t : taskPool) {
-			if (t == task) {
-				t.setEffective(false);
-				return true;
-			}
+		if (task != null) {
+			task.setEffective(false);
+		}
+		return false;
+	}
+
+	public synchronized boolean removeTask(int taskId) {
+		Task t = taskPool.get(taskId);
+		if (t != null) {
+			t.setEffective(false);
+			return true;
 		}
 		return false;
 	}
@@ -25,7 +30,6 @@ public class TaskPool {
 		if (taskPool.size() == 0) {
 			wait();
 		}
-
-		return taskPool.get(0);
+		return taskPool.remove(0);
 	}
 }

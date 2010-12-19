@@ -1,4 +1,4 @@
-package platform.ui.widget.model;
+package platform.ui.widget.ui;
 
 import java.util.ArrayList;
 
@@ -22,13 +22,26 @@ public class QTableTreeModel extends AbstractListModel {
 	}
 
 	public void addElement(QTableTreeItem item) {
-
 		int index = items.size();
-		items.add(item);
+
+		item.setLevel(1);
+
+		boolean added = false;
+		for (int i = 0; i < items.size(); i++) {
+			if (items.get(i).getOrder() > item.getOrder()) {
+				items.add(i, item);
+				added = true;
+				break;
+			}
+		}
+		if (!added) {
+			items.add(item);
+		}
 		fireIntervalAdded(this, index, index);
 	}
 
-	public void addElement(int index, QTableTreeItem item) {
+	protected void addElement(int index, QTableTreeItem item) {
+		// item.setLevel(1);
 		items.add(index, item);
 		fireIntervalAdded(this, index, index);
 	}

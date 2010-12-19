@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compilates>
+	<compilate>
+		<language>Java</language>
+		<show-name>Java</show-name>
+		<compilate-class>c.city.desolate.client.compilate.java.Java</compilate-class>
+		<compilate-path></compilate-path>
+	</compilate>
+	<compilate>
+		<language></language>
+		<show-name></show-name>
+		<compilate-class></compilate-class>
+		<compilate-path></compilate-path>
+	</compilate>
+</compilates>
