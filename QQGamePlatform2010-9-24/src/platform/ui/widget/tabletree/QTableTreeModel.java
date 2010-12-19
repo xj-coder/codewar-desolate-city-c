@@ -1,4 +1,4 @@
-package platform.ui.widget.ui;
+package platform.ui.widget.tabletree;
 
 import java.util.ArrayList;
 

@@ -25,9 +25,9 @@ import platform.ui.widget.ImageLabel;
 import platform.ui.widget.ImagePanelUI;
 import platform.ui.widget.IndexSearchResultBox;
 import platform.ui.widget.factory.WidgetFactory;
-import platform.ui.widget.ui.QTableTree;
-import platform.ui.widget.ui.QTableTreeItemUI;
-import platform.ui.widget.ui.QTableTreeModel;
+import platform.ui.widget.tabletree.QTableTree;
+import platform.ui.widget.tabletree.QTableTreeItemUI;
+import platform.ui.widget.tabletree.QTableTreeModel;
 
 @SuppressWarnings("serial")
 public class IndexDirTreeUI extends JPanel {
