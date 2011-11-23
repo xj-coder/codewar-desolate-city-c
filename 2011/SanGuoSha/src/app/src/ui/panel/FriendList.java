@@ -1,12 +1,12 @@
-package ui.panel;
+package ui.list;
 
 import javax.swing.JList;
 
 /**
  * 
- * @author JHS<BR>
- *         好友列表
+ * @author JHS
  * 
+ *         好友列表
  */
 
 public class FriendList extends JList {
