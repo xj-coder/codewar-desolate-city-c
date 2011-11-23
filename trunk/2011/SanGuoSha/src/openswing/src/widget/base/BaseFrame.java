@@ -4,8 +4,9 @@ import javax.swing.JFrame;
 
 /**
  * 
- * @author JHS 基础窗体
+ * @author JHS
  * 
+ *         基础窗体
  */
 public class BaseFrame extends JFrame {
 
