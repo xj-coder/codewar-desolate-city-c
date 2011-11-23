@@ -3,7 +3,8 @@ package bean;
 /**
  * 
  * @author JHS
- * 技能
+ * 
+ *         技能
  */
 public class Skill {
 

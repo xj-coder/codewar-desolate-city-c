@@ -2,9 +2,8 @@ package bean;
 
 /**
  * 
- * @author JHS
- * ”¢–€≈∆
+ * @author JHS ”¢–€≈∆
  */
-public class Hero {
+public class Hero extends Actor {
 
 }
