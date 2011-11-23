@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/support/src"/>
-	<classpathentry kind="src" path="src/app/src"/>
-	<classpathentry kind="src" path="src/res/src"/>
-	<classpathentry kind="src" path="src/openswing/src"/>
-	<classpathentry kind="src" path="src/cfgfiles/src"/>
+	<classpathentry kind="src" path="prj/res/src"/>
+	<classpathentry kind="src" path="prj/app/src"/>
+	<classpathentry kind="src" path="prj/openswing/src"/>
+	<classpathentry kind="src" path="prj/support/src"/>
+	<classpathentry kind="src" path="prj/cfgfiles/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
