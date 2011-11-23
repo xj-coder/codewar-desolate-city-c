@@ -1,12 +1,12 @@
-package ui.panel;
+package ui.list;
 
 import javax.swing.JList;
 
 /**
  * 
- * @author JHS<BR>
- *         玩家列表
+ * @author JHS
  * 
+ *         玩家列表
  */
 public class PlayerList extends JList {
 

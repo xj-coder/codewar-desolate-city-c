@@ -1,12 +1,12 @@
-package ui.panel;
+package ui.list;
 
 import javax.swing.JList;
 
 /**
  * 
- * @author JHS<BR>
- *         旁观者列表
+ * @author JHS
  * 
+ *         旁观者列表
  */
 public class LookerList extends JList {
 
