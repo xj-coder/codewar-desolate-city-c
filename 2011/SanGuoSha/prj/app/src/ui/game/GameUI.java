@@ -1,6 +1,6 @@
-package ui;
+package ui.game;
 
-import widget.base.BaseFrame;
+import widget.base.BaseUI;
 
 /**
  * 
@@ -8,7 +8,7 @@ import widget.base.BaseFrame;
  *         游戏主界面
  * 
  */
-public class GameUI extends BaseFrame {
+public class GameUI extends BaseUI {
 	private static final long serialVersionUID = 8018503849370404491L;
 
 	public GameUI() {

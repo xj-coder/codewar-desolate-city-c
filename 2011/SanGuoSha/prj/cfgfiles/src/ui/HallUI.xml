@@ -1,0 +1,8 @@
+<root class="ui.hall.HallUI" x="0" y="0" width="1024" height="680">
+	<node calss="ui.hall.HallUI.RoomListPanel"  x="0" y="0" width="1024" height="680"></node>
+	<node calss="ui.hall.HallUI.ChatPanel"  x="0" y="0" width="1024" height="680"></node>
+	<node calss="ui.hall.HallUI.UserInfoPanel"  x="0" y="0" width="1024" height="680"></node>
+	<node calss="ui.hall.HallUI.UserListPanel"  x="0" y="0" width="1024" height="680"></node>
+	<node calss="ui.hall.HallUI.MainButtonPanel"  x="0" y="0" width="1024" height="680"></node>
+	<node calss="ui.hall.HallUI.QuickButtonPanel"  x="0" y="0" width="1024" height="680"></node>
+</root>

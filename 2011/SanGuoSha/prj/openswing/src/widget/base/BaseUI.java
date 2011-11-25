@@ -8,7 +8,7 @@ import javax.swing.JPanel;
  * 
  *         »ù´¡Ãæ°å
  */
-public class BasePanel extends JPanel {
+public class BaseUI extends JPanel {
 
 	private static final long serialVersionUID = 7739369962892389005L;
 
