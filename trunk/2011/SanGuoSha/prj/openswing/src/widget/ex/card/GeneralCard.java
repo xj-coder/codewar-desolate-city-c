@@ -1,6 +1,6 @@
-package ui.panel;
+package widget.ex.card;
 
-import widget.base.BasePanel;
+import widget.base.BaseCard;
 
 /**
  * 
@@ -8,7 +8,7 @@ import widget.base.BasePanel;
  * 
  *         ∆’Õ®ø®≈∆√Ê∞Â
  */
-public class CardPanel extends BasePanel {
+public class GeneralCard extends BaseCard {
 
 	private static final long serialVersionUID = -8372796002168250683L;
 

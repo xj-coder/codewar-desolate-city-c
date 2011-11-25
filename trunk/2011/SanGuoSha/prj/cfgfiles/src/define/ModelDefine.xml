@@ -1,0 +1,9 @@
+<models>
+	<model name="GENERAL_MODEL" cname="普通" rule=""/>
+	<model name="RANDOM_MODEL" cname="随机" rule=""/>
+	<model name="V_1_1_MODEL" cname="1V1" rule=""/>
+	<model name="V_2_2_MODEL" cname="2V2" rule=""/>
+	<model name="V_3_3_MODEL" cname="3V3" rule=""/>
+	<model name="V_5_MODEL" cname="5人" rule=""/>
+	<model name="V_7_MODEL" cname="7人" rule=""/>
+</models>

@@ -1,4 +1,4 @@
-package ui.list;
+package widget.ex.list;
 
 import javax.swing.JList;
 
