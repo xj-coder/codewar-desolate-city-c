@@ -4,9 +4,9 @@ DCC.game.FiveChess=Ext.extend(Ext.app.GameModule,{
 	tbl:null,
 	rowCount:16,
 	colCount:16,
-	board:[],//0--->нчвс;1-->╟ввс;2-->╨звс
+	board:[],//0--->Ф≈═Е╜░;1-->Г≥╫Е╜░;2-->И╩▒Е╜░
 	
-	flag:0,//фФйЩн╙╟в╥╫бДвс,е╪йЩн╙╨з╥╫бДвс
+	flag:0,//О©╫О©╫О©╫О©╫н╙О©╫в╥О©╫О©╫О©╫О©╫О©╫,е╪О©╫О©╫н╙О©╫з╥О©╫О©╫О©╫О©╫О©╫
 	isRobot:false,
 
 	init:function(){
@@ -27,7 +27,7 @@ DCC.game.FiveChess=Ext.extend(Ext.app.GameModule,{
 	},//initUI end
 	initGame:function(){
 		this.flag = 0;
-		//ЁУй╪╩╞фЕел
+		//О©╫О©╫й╪О©╫О©╫О©╫О©╫О©╫О©╫
 		for(var row=0;row<this.rowCount;row++){
 			var tr=this.tbl.insertRow(-1);
 			tr.setAttribute('id','fiveChess_tr_'+row);
@@ -91,9 +91,9 @@ DCC.game.FiveChess=Ext.extend(Ext.app.GameModule,{
 		this.tbl = Ext.getDom('fivechess-win-table');
 		this.initGame();
 	},//createWindow end
-	setCellPanelInnerHTML : function(cell){    //н╙cellиХжц╠Ё╬╟
+	setCellPanelInnerHTML : function(cell){    //н╙cellО©╫О©╫О©╫ц╠О©╫О©╫О©╫
 		var temp=cell.getAttribute("id").replace(/[^\d]/g,'');
-		cell.innerHTML="<img src='images/fivechess/m.jpg'>";				//╢сфу╠И╣╫льйБ
+		cell.innerHTML="<img src='images/fivechess/m.jpg'>";				//О©╫О©╫О©╫у╠И╣╫О©╫О©╫О©╫О©╫
 		if(temp%100==0) cell.innerHTML="<img src='images/fivechess/l.jpg'>";
 		if(temp%100==(this.colCount-1)) cell.innerHTML="<img src='images/fivechess/r.jpg'>";
 		if(temp/100<1) cell.innerHTML="<img src='images/fivechess/t.jpg'>";
@@ -103,10 +103,10 @@ DCC.game.FiveChess=Ext.extend(Ext.app.GameModule,{
 		if(temp%100==0 && temp/100==(this.rowCount-1)) cell.innerHTML="<img src='images/fivechess/lb.jpg'>";
 		if(temp%100==(this.colCount-1) && temp/100>(this.rowCount-1)) cell.innerHTML="<img src='images/fivechess/rb.jpg'>";	
 	},
-	isAnyoneWin : function(cell,flag){  //еп╤ойДс╝╣д╥╫╥╗	
+	isAnyoneWin : function(cell,flag){  //О©╫п╤О©╫О©╫О©╫с╝О©╫д╥О©╫О©╫О©╫	
 		
 	},
-	//рт╢╚хК╣Цё╛╡Иурйг╥ЯспнЕвса╛пЬ
+	//О©╫т╢О©╫О©╫О©╫Цё╛О©╫О©╫О©╫О©╫О©╫г╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	checkChessMap : function(cell){
 		
 	},
