@@ -12,7 +12,7 @@ DCC.game.Mini=Ext.extend(Ext.app.GameModule,{
 		this.initGame();
     },
 	initGame : function(){
-		this.mm = new Array(this.widthArray[this.rank]*this.heightArray[this.rank]);//-1-->has mini;0~~other:提示
+		this.mm = new Array(this.widthArray[this.rank]*this.heightArray[this.rank]);//-1-->has mini;0~~other:锟斤拷示
 		this._mm = new Array(this.widthArray[this.rank]*this.heightArray[this.rank]);//0-->not click;1-->clicked;2-->flat
 		this._html = document.createElement('div');
 		var _div = document.createElement('div');
@@ -209,7 +209,7 @@ DCC.game.Mini=Ext.extend(Ext.app.GameModule,{
 	  *return -2--->not click
 	  *return -3--->has flat
 	  *return -1--->has mini
-	  *return 0 or other --->提示信息
+	  *return 0 or other --->锟斤拷示锟斤拷息
 	  *
 	**/
 	getMini:function(x){
@@ -317,10 +317,12 @@ DCC.game.Mini=Ext.extend(Ext.app.GameModule,{
 			}
 		}
 	},
-	getSize:function(){
+
+    getSize:function(){
 		return this._size;
 	},
-	registMethod : function(){
+
+    registMethod : function(){
 		return [
 			['clickMini','click'],
 			['getMini','get'],
