@@ -2,7 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="4ae2aa70-a73f-452e-9f13-3351f23a903d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/page/game/mini/descreption.html" afterPath="$PROJECT_DIR$/war/page/game/mini/descreption.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/data/main" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/data/robot_code/david" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/data/robot_code" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/model" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/code.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/data/main/launcher.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/data/main/model.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/war/data/robot_code/david/code.json" />
+      <change type="DELETED" beforePath="E:\code\my-source\web\CodeWarfareWEB\war\CJ_StarHtmlEditor.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\my-source\web\CodeWarfareWEB\war\修改CJ_StarHtmlEditor.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\my-source\web\CodeWarfareWEB\war\test.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/css/desktop.css" afterPath="$PROJECT_DIR$/war/css/desktop.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/data/code.js" afterPath="$PROJECT_DIR$/war/data/code.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/data/launcher.js" afterPath="$PROJECT_DIR$/war/data/launcher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/data/modules.js" afterPath="$PROJECT_DIR$/war/data/modules.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/editortest1.html" afterPath="$PROJECT_DIR$/war/editortest1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/index.html" afterPath="$PROJECT_DIR$/war/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/App.js" afterPath="$PROJECT_DIR$/war/js/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/Main.js" afterPath="$PROJECT_DIR$/war/js/Main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/Module.js" afterPath="$PROJECT_DIR$/war/js/Module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/RobotModule.js" afterPath="$PROJECT_DIR$/war/js/RobotModule.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/StartMenu.js" afterPath="$PROJECT_DIR$/war/js/StartMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/TaskBar.js" afterPath="$PROJECT_DIR$/war/js/TaskBar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/robot/david/robot_david.js" afterPath="$PROJECT_DIR$/war/js/robot/david/robot_david.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/sample.js" afterPath="$PROJECT_DIR$/war/js/sample.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/util/JSLoader.js" afterPath="$PROJECT_DIR$/war/js/util/JSLoader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/js/util/ModuleLoader.js" afterPath="$PROJECT_DIR$/war/js/util/ModuleLoader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/test.html" afterPath="$PROJECT_DIR$/war/test.html" />
     </list>
     <ignored path="CodeWarfareWEB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,34 +54,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Descreption.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/war/js/game/mini/Descreption.js">
+      <file leaf-file-name="ModuleLoader.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/war/js/util/ModuleLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="15" column="10" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mini.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/war/js/game/mini/Mini.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/war/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="53" selection-start="7165" selection-end="7165" vertical-scroll-proportion="0.8138848">
-              <folding>
-                <element signature="e#9477#10088#0" expanded="false" />
-                <element signature="e#10109#10226#0" expanded="false" />
-                <element signature="e#10247#10372#0" expanded="false" />
-                <element signature="e#10397#13085#0" expanded="false" />
-                <element signature="e#13122#13669#0" expanded="false" />
-              </folding>
+            <state line="27" column="23" selection-start="1021" selection-end="1021" vertical-scroll-proportion="-14.392858">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="descreption.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/war/page/game/mini/descreption.html">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/war/js/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="20" selection-start="256" selection-end="256" vertical-scroll-proportion="-7.464286">
+            <state line="8" column="4" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/war/js/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="268" column="48" selection-start="6983" selection-end="6983" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="code.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/war/data/code.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="13" selection-start="86" selection-end="95" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="robot_david.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/war/js/robot/david/robot_david.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="23" selection-start="950" selection-end="950" vertical-scroll-proportion="0.64454275">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="code.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/war/data/robot_code/david/code.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="473" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -65,24 +125,51 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
-    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
     <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/war/js/game/fivechess/fivechess.js" />
-        <option value="$PROJECT_DIR$/war/js/game/mini/Mini.js" />
-        <option value="$PROJECT_DIR$/war/page/game/mini/descreption.html" />
+        <option value="$PROJECT_DIR$/war/js/RobotModule.js" />
+        <option value="$PROJECT_DIR$/war/data/code.js" />
+        <option value="$PROJECT_DIR$/war/js/StartMenu.js" />
+        <option value="$PROJECT_DIR$/war/css/desktop.css" />
+        <option value="$PROJECT_DIR$/war/js/TaskBar.js" />
+        <option value="$PROJECT_DIR$/war/js/Main.js" />
+        <option value="$PROJECT_DIR$/war/js/App.js" />
+        <option value="$PROJECT_DIR$/war/data/app/launcher.json" />
+        <option value="$PROJECT_DIR$/war/data/app/game.json" />
+        <option value="$PROJECT_DIR$/war/data/app/model.json" />
+        <option value="$PROJECT_DIR$/war/data/main/model.json" />
+        <option value="$PROJECT_DIR$/war/js/util/JSLoader.js" />
+        <option value="$PROJECT_DIR$/war/js/util/ModuleLoader.js" />
+        <option value="$PROJECT_DIR$/war/code.json" />
+        <option value="$PROJECT_DIR$/war/data/robot_code/david/code.json" />
+        <option value="$PROJECT_DIR$/war/js/robot/david/robot_david.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CSS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -102,7 +189,7 @@
       <flattenPackages />
       <showMembers />
       <showModules />
-      <showLibraryContents ProjectPane="false" />
+      <showLibraryContents ProjectPane="true" />
       <hideEmptyPackages />
       <abbreviatePackageNames />
       <autoscrollToSource ProjectPane="true" />
@@ -110,6 +197,176 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="david" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fivechess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeWarfareWEB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robot_code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="david" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -124,29 +381,24 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CodeWarfareWEB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CodeWarfareWEB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="settings.xslt" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\my-source\web\CodeWarfareWEB\war\js\robot\david" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\my-source\web\CodeWarfareWEB\war" />
+      <recent name="E:\code\my-source\web\CodeWarfareWEB\war\lib\ext3.2" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
@@ -159,7 +411,7 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500">
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
     <option name="mySSHConnectionTimeout" value="30000" />
@@ -182,16 +434,24 @@
     <option name="myMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="I:\CodeWarfareWEB" />
-          <option name="myCopyRoot" value="I:\CodeWarfareWEB" />
+          <option name="myVcsRoot" value="E:\code\my-source\web\CodeWarfareWEB" />
+          <option name="myCopyRoot" value="E:\code\my-source\web\CodeWarfareWEB" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\code\my-source\web\CodeWarfareWEB" />
+          <option name="myCopyRoot" value="E:\code\my-source\web\CodeWarfareWEB\war\data\main" />
         </SvnCopyRootSimple>
       </list>
     </option>
     <option name="myMoreRealMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="I:\CodeWarfareWEB" />
-          <option name="myCopyRoot" value="I:\CodeWarfareWEB" />
+          <option name="myVcsRoot" value="E:\code\my-source\web\CodeWarfareWEB" />
+          <option name="myCopyRoot" value="E:\code\my-source\web\CodeWarfareWEB" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\code\my-source\web\CodeWarfareWEB" />
+          <option name="myCopyRoot" value="E:\code\my-source\web\CodeWarfareWEB\war\data\main" />
         </SvnCopyRootSimple>
       </list>
     </option>
@@ -225,13 +485,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20889203" sideWeight="0.3603352" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20889203" sideWeight="0.6298883" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21252796" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18344755" sideWeight="0.3736018" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18344755" sideWeight="0.787472" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20903955" sideWeight="0.33444816" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -241,11 +502,10 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -281,7 +541,10 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -299,99 +562,146 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="CodeWarfareWEB" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="CodeWarfareWEB" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/war/CJ_StarHtmlEditor.js">
+    <entry file="file://$PROJECT_DIR$/war/js/util/JSLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="416" column="34" selection-start="11000" selection-end="11000" vertical-scroll-proportion="0.47377622" />
+        <state line="15" column="6" selection-start="534" selection-end="534" vertical-scroll-proportion="0.08064516">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/war/css/desktop.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="231" selection-end="231" vertical-scroll-proportion="-1.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/Desktop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/editor/EditorModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/editor/DCJSEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/editor/RobotEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="7" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/game/fivechess/fivechess.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="4" selection-start="3401" selection-end="3401" vertical-scroll-proportion="1.0304115" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/page/game/chess/js/chess.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/robot_code/snakes/1_snakes_robot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/robot_code/mini/1_mini_robot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="8" selection-start="36" selection-end="36" vertical-scroll-proportion="0.09090909" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/game/mini/Descreption.js">
+    <entry file="file://$PROJECT_DIR$/war/js/util/CodeLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/war/page/game/mini/descreption.html">
+    <entry file="file://$PROJECT_DIR$/war/js/util/CSSLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="256" selection-end="256" vertical-scroll-proportion="-7.464286">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/war/js/game/mini/Mini.js">
+    <entry file="file://$PROJECT_DIR$/war/js/util/Ajax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="53" selection-start="7165" selection-end="7165" vertical-scroll-proportion="0.8138848">
-          <folding>
-            <element signature="e#9477#10088#0" expanded="false" />
-            <element signature="e#10109#10226#0" expanded="false" />
-            <element signature="e#10247#10372#0" expanded="false" />
-            <element signature="e#10397#13085#0" expanded="false" />
-            <element signature="e#13122#13669#0" expanded="false" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/war/data/main/launcher.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/data/main/model.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="48" selection-start="1436" selection-end="1436" vertical-scroll-proportion="1.0288018">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="23" selection-start="1021" selection-end="1021" vertical-scroll-proportion="-14.392858">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/js/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="4" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/js/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="268" column="48" selection-start="6983" selection-end="6983" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/data/code.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="86" selection-end="95" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/js/util/ModuleLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="10" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/lib/ext3.2/ext-all-debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38123" column="42" selection-start="1442812" selection-end="1442812" vertical-scroll-proportion="0.3037594">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/code.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="488" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/data/robot_code/david/code.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="473" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/js/game/fivechess/fivechess.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="244" selection-end="244" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/js/robot/david/robot_david.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="23" selection-start="950" selection-end="950" vertical-scroll-proportion="0.64454275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 

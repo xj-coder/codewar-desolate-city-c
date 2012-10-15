@@ -39,8 +39,6 @@ MyDesktop = new Ext.app.App({
     }
 });
 
-
-
 /*
  * Example windows
  */

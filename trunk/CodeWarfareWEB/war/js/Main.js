@@ -2,8 +2,6 @@
 /*!
  * Ext JS Library 3.2.0
  * Copyright(c)
- * DCC@gmail.com
- * license
  */
 
 //global variable
@@ -17,7 +15,7 @@ var MyDesktop = new Ext.app.App({
     getStartConfig : function(){
         return {
             title: 'Guest',
-            iconCls: 'user',
+            //iconCls: 'Guest',
             toolItems: [{
                 text:'Login',
                 iconCls:'logout',
