@@ -21,7 +21,7 @@ Ext.extend(Ext.app.App, Ext.util.Observable, {
     modules: new Array(),
 	quickStartButtons:[],
 	robotQuickStartButtons:[],
-	
+
     getStartConfig : Ext.emptyFn(),
 
     initApp : function(){
@@ -32,25 +32,26 @@ Ext.extend(Ext.app.App, Ext.util.Observable, {
 		this.launcher = this.desktop.taskbar.startMenu;
 
 		this.init();
-		
-		this.initQuickStartButton();
-		
-		this.initRobotQuickStartButton();
-		
-		this.initLaucher();
-		
+
+        this.initQuickStartButton();
+
+        this.initRobotQuickStartButton();
+
+        this.initLaucher();
+
         Ext.EventManager.on(window, 'beforeunload', this.onUnload, this);
 		this.fireEvent('ready', this);
         this.isReady = true;
     },
 
-    init : Ext.emptyFn,
-	//getStaticModules : Ext.emptyFn,
-	
+    init : Ext.emptyFn(),
+
+	getStaticModules : Ext.emptyFn,
+
 	initQuickStartButton : function(){
 		var showDesktop = this.desktop.taskbar.quickStartPanel.add({
 				handler:  function(){
-					this.desktop.getManager().each(function(win) { 
+					this.desktop.getManager().each(function(win) {
 						if(!win.minimized){
 							win.minimized = true;
 							win.hide();
@@ -112,7 +113,7 @@ Ext.extend(Ext.app.App, Ext.util.Observable, {
 				scope: this,
 				tooltip: 'David Robot',
 				tooltipType:'title'
-		});	
+		});
 		this.robotQuickStartButtons['david'] = david;
 	},
 
@@ -201,7 +202,7 @@ Ext.extend(Ext.app.App, Ext.util.Observable, {
 			iconCls:'icon-ux-start-game-item',
 			text:'Game',
 			handler:function (){
-				return false;	
+				return false;
 			},
 			menu:gameMenu
 		});
@@ -212,18 +213,19 @@ Ext.extend(Ext.app.App, Ext.util.Observable, {
     },//initLaucher end
 
 	getModules: function(){
-		return this.modules;	
+		return this.modules;
 	},
 	getModule: function(id,load){
 		for(var i=0;i<this.modules.length;i++){
 			if(this.modules[i]&&this.modules[i].id==id)return this.modules[i]
 		}
 		if(load)
-		return this.loadModule(id);
+		    return this.loadModule(id);
 	},
 	removeModule : function(module){
 		this.modules.remove(module);
 	},
+
     loadModule : function(id){
 		_module = this.modulesLoader.loadModule(id);
 		this.modules.push(_module)
@@ -260,7 +262,7 @@ Ext.extend(Ext.app.App, Ext.util.Observable, {
 					var editor = MyDesktop.getModule('js-win-editor',true);
 					if(editorWin){
 						if(!editor.getEditorTab(module.id))
-							editor.addEditorTab(module.id);	
+							editor.addEditorTab(module.id);
 					}else{
 						editor.createWindow();
 						editor.addEditorTab(module.id);

@@ -1,7 +1,7 @@
 // JavaScript Document
 DCC.data.Launcher=[
 	//[id,name,iconCls]
-	//['mini-win-game','js/game/mini/Mini.js','DCC.game.Mini()','css/game/mini/mini.css'],
+	//['mini-win-game','js/game/mini/mini.js','DCC.game.Mini()','css/game/mini/mini.css'],
 	[
 	 	[],
 		[
